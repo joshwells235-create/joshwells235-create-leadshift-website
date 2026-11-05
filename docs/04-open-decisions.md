@@ -47,7 +47,7 @@ When one closes, record the answer and date in `memory.md` and move it to the Cl
 | 2026-08-14 | Naming PI | Never on the site (see #6 for the certification page) |
 | 2026-11-02 | Problem order | Leadership bench, team performance, frontline managers; sales as one line |
 | 2026-11-05 | Who builds | Claude builds; Kailyn is not expected to code |
-| 2026-11-05 | #2 Preview stack and hosting | Astro, static output, plain CSS, vanilla JS. Vercel previews in the Leadshift team with Vercel Authentication and a shareable link; noindex. Ask before the first deploy |
+| 2026-11-05 | #2 Preview stack and hosting | Astro, static output, plain CSS, vanilla JS. Vercel previews in the Leadshift team; noindex. Ask before the first deploy. Access changed later the same day: no Vercel sign-in, the preview address is open |
 | 2026-11-05 | #8 Partner titles | Joe Cundall, Chief Executive Officer; Kailyn Graham, Chief Operating Officer; Josh Wells, President |
 | 2026-11-05 | #9 Label for the 1099 coaches and facilitators | Plain heading "Coaches and facilitators", no group name, listed separately from staff |
 | 2026-11-05 | #14 Naming the ALIGN team assessment | Name it: The Table Group's Five Dysfunctions of a Team assessment |

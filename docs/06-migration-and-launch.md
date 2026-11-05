@@ -33,6 +33,14 @@ Proposed new URLs from `docs/01-build-brief.md`. Every old URL gets a permanent 
 
 Before launch, check Google Search Console (if LeadShift has it) and HubSpot for any other URLs that get traffic or are used in emails, and add them to the map.
 
+## The preview (set up 2026-11-05)
+
+- **Vercel project:** `leadshift-website` in the Leadshift team. It builds from the `preview` branch of `joshwells235-create/joshwells235-create-leadshift-website`; every push to that branch updates the preview.
+- **No production builds:** the project's ignored-build-step command skips anything pushed to `main`. Remove it at launch, when `main` becomes the live branch.
+- **Access:** Vercel Authentication is on for all deployments, including the project's `.vercel.app` domain. People outside the Vercel team open it with a shareable link, which can be revoked or regenerated in the project's Deployment Protection settings.
+- **Build:** `npm run build`, so the rules check runs on every deploy and a failing check stops the deploy.
+- **Not indexed:** every preview page carries noindex and `robots.txt` disallows everything.
+
 ## The switch, by platform
 
 **Custom WordPress theme (current host).**

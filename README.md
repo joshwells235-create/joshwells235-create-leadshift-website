@@ -28,6 +28,20 @@ Everything from the design phase, packaged so Claude Code can pick up where the 
 | `reference/demo-canvas/` | The demo's 16 pages and 3 shared parts (structure and copy reference) |
 | `assets/` | Fonts, logos, sample report pages, the executive photo, 24 client logos |
 
+## Working on the site
+
+The preview is an Astro project at the root of this folder. It builds plain static HTML.
+
+| Command | What it does |
+|---|---|
+| `npm install` | Install the one dependency (Astro), once |
+| `npm run dev` | Local site with live reload at http://localhost:4321 |
+| `npm run build` | Build to `dist/`, then run `npm run check` |
+| `npm run check` | Fail on an em dash, "Predictive Index" or "PI", Hyannis, the brand magenta, "EQ-i", or a page without noindex. With `PUBLIC_PREVIEW=false` (the launch build) it also fails on any placeholder |
+| `npm run placeholders` | Write every open placeholder, page by page, to `docs/placeholders.md` |
+
+Where things live: `src/data/site.js` holds every fact the pages use (from `docs/03-facts.md`); `src/styles/concept.css` is the concept's CSS, copied verbatim; `src/styles/site.css` holds the additions; `src/components/` has one file per shared part; `src/pages/` has one file per page.
+
 ## Links (for you; Claude Code can't open these)
 
 - Website demo canvas: https://claude.ai/artifact/CXUMVN4ngTQswTxTcqXKgH

@@ -1,0 +1,56 @@
+---
+import '../styles/concept.css';
+import '../styles/site.css';
+import Sprite from '../components/Sprite.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { organization, faqPage, graph } from '../data/schema.js';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Nav key to mark as the current page. */
+  active?: string;
+  /** Start the header solid (pages whose first band is light). */
+  solidHeader?: boolean;
+  /** Questions and answers shown on the page, for FAQ structured data. */
+  faq?: { q: string; a: string }[];
+  /** Extra structured data nodes for this page. */
+  jsonld?: object[];
+}
+const { title, description, active, solidHeader = false, faq, jsonld = [] } = Astro.props;
+
+// Preview builds are never indexed. Set PUBLIC_PREVIEW=false only for the launch build.
+const PREVIEW = import.meta.env.PUBLIC_PREVIEW !== 'false';
+const ld = graph(organization(), faq && faq.length ? faqPage(faq) : null, ...jsonld);
+const ldJson = JSON.stringify(ld).replace(/</g, '\\u003c');
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {PREVIEW && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/raleway.woff2" as="font" type="font/woff2" crossorigin />
+  <script type="application/ld+json" set:html={ldJson} />
+  <script is:inline>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <Sprite />
+  <a class="skip" href="#main">Skip to content</a>
+  <SiteHeader active={active} solid={solidHeader} />
+  <main id="main">
+    <slot />
+  </main>
+  <SiteFooter />
+  <script>
+    import '../scripts/site.js';
+  </script>
+</body>
+</html>

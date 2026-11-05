@@ -81,6 +81,16 @@ The brand magenta (#EA0C67) from the LeadShift deck and proposal system is not u
 
 The concept's breakpoints: 1080px, 900px, 760px, 640px and 560px. At phone widths the 12-column grids collapse to one column, the report spread hides its outer pages, and the hero notes stack. Copy these media queries from the source.
 
+## Where the build departs from the concept
+
+Kept small and listed here so nothing drifts silently. Each is marked in `src/styles/site.css`.
+
+- **Header.** Carries the demo's eight links and two calls to action, so it switches to the menu at 1180px (the concept switches at 900px with five links). Header and menu buttons are 44px tall (concept: 40px) to meet the 44px touch-target rule.
+- **Buttons in the hero and closing band** are 52px tall, as this design system specifies.
+- **Problem numerals (01, 02, 03)** use #6B7391. The demo's #8A93AE falls under 4.5:1 contrast on white.
+- **Footer column titles** are `h2` styled exactly like the concept's footer `h4`, so screen readers get a correct heading order.
+- **Sections that exist only in the demo** (how it works, the client story card, the price list, fit lists, Learning Center rows, partner bios, video placeholder, footer signup) use the demo's inline values, including its 5:7 and 4:8 column splits.
+
 ## Things Josh has said no to
 
 - Gimmicky or blocky layouts (2026-10-19).

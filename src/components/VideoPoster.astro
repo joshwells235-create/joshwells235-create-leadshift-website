@@ -1,0 +1,27 @@
+---
+// Stand-in for each video until it is filmed (demo VideoPoster.dc.html).
+// The "To film" tag is a placeholder, so every unfilmed video shows up in the placeholder report.
+import Ph from './Ph.astro';
+interface Props {
+  heading: string;
+  kind?: string;
+  duration?: string;
+  note?: string;
+}
+const { heading, kind = 'Video', duration = '[Length]', note = '' } = Astro.props;
+---
+<div class="vp" role="img" aria-label={`Video placeholder: ${heading}`}>
+  <span class="vp-c tl" aria-hidden="true"></span><span class="vp-c tr" aria-hidden="true"></span>
+  <span class="vp-c bl" aria-hidden="true"></span><span class="vp-c br" aria-hidden="true"></span>
+  <div class="vp-top">
+    <span class="vp-kind"><i aria-hidden="true"></i>{kind} · {duration}</span>
+    <Ph tone="dark" size="sm" note={`Video to film: ${heading} (${kind}, ${duration})`}>To film</Ph>
+  </div>
+  <div class="vp-main">
+    <span class="vp-play" aria-hidden="true"><svg viewBox="0 0 20 22"><path d="M2 1.8v18.4c0 .8.9 1.3 1.6.9l15-9.2c.6-.4.6-1.3 0-1.7l-15-9.2C2.9.5 2 1 2 1.8z" fill="#101D51"></path></svg></span>
+    <div class="vp-text">
+      <p class="vp-h">{heading}</p>
+      {note && <p class="vp-note">{note}</p>}
+    </div>
+  </div>
+</div>

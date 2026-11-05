@@ -1,0 +1,193 @@
+/* Site additions to the concept (concept.css stays verbatim).
+   Values come from the demo canvas inline styles, which use the concept's tokens.
+   Two deliberate changes for accessibility are marked "a11y". */
+
+/* ---------- basics ---------- */
+.skip { position: absolute; left: 12px; top: -100px; z-index: 100; padding: 10px 16px; border-radius: var(--r-sm); background: #fff; color: var(--navy); font-family: var(--display); font-weight: 600; box-shadow: 0 8px 24px -8px rgba(10, 18, 56, 0.35); }
+.skip:focus { top: 12px; }
+.bg-mist { background: var(--mist); }
+.label + .h2 { margin-top: 14px; }
+.h2-sm { font-size: clamp(34px, 4.4vw, 52px); line-height: 1.06; }
+
+/* ---------- placeholders (the concept's .ph, plus its dark and small forms) ---------- */
+.ph-dark { background: rgba(255, 255, 255, 0.06); border-color: rgba(140, 194, 255, 0.5); color: var(--sky); }
+.ph-sm { padding: 2px 8px; font-size: 12px; }
+
+/* ---------- header: eight links and two calls to action (demo SiteHeader) ---------- */
+.top-logo { display: block; padding-block: 10px; }
+.top .btn { min-height: 44px; }                       /* a11y: concept 40px, raised to 44px targets */
+.menu-btn { min-height: 44px; }                       /* a11y */
+.nav a[aria-current="page"] { color: #fff; box-shadow: inset 0 -2px 0 var(--sky); }
+.top.solid .nav a[aria-current="page"] { color: var(--navy); box-shadow: inset 0 -2px 0 var(--blue-deep); }
+.top.solid .btn-ghost { color: var(--navy); border-color: var(--line-2); }
+@media (hover: hover) and (pointer: fine) { .top.solid .btn-ghost:hover { border-color: var(--navy); background: transparent; } }
+@media (max-width: 1320px) { .nav { gap: 22px; } }
+@media (max-width: 1180px) {
+  .nav, .top-cta .btn { display: none; }
+  .menu-btn { display: inline-flex; align-items: center; }
+  .sheet { display: block; position: fixed; z-index: 49; left: 0; right: 0; top: calc(68px + env(safe-area-inset-top, 0px));
+    padding: 8px max(var(--gx), env(safe-area-inset-right, 0px)) 24px max(var(--gx), env(safe-area-inset-left, 0px));
+    background: rgba(255, 255, 255, 0.97); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line);
+    max-height: calc(100dvh - 68px); overflow-y: auto; overscroll-behavior: contain;
+    opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 180ms ease, transform 220ms var(--ease), visibility 0s linear 220ms; }
+  .sheet.open { opacity: 1; visibility: visible; transform: none; transition: opacity 180ms ease, transform 220ms var(--ease), visibility 0s; }
+  .sheet a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 18px; font-weight: 500; color: var(--navy); }
+  .sheet a[aria-current="page"] { color: var(--blue-deep); }
+  .sheet a.btn { display: flex; margin-top: 18px; width: 100%; padding: 0 22px; border-bottom: 0; font-size: 16px; color: #fff; }
+  .sheet a.btn.btn-quiet { color: var(--navy); border: 1px solid var(--line-2); }
+  .sheet a.btn + a.btn { margin-top: 10px; }
+}
+
+/* ---------- hero and closing buttons: 52px, as the design system specifies for heroes ---------- */
+.hero-ctas .btn, .close-ctas .btn { min-height: 52px; }
+
+/* ---------- proof: link to reviews under the facts (demo) ---------- */
+.rv-link { flex-wrap: wrap; gap: 8px 10px; margin-top: -16px; font-size: 15px; }
+
+/* ---------- three problems: 01, 02, 03 (demo) ---------- */
+.prob .num { margin-right: 12px; color: #6B7391; font-variant-numeric: tabular-nums; } /* a11y: demo #8A93AE is under 4.5:1 */
+.also a { font-family: var(--display); font-weight: 600; color: var(--blue-deep); }
+
+/* ---------- section head: label and heading left, a link right (demo) ---------- */
+.shead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px; }
+.shead > div { flex: 1 1 520px; min-width: 0; }
+.shead > .textlink { font-size: 16px; }
+
+/* ---------- how it works: steps beside the landing video (demo) ---------- */
+.how .grid2 { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px 80px; align-items: center; } /* demo: flex 5 and 7, gap 56px 80px */
+
+/* ---------- video placeholder (demo VideoPoster) ---------- */
+.vp { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 260px; overflow: hidden; border-radius: var(--r-lg); padding: clamp(28px, 3.4vw, 40px);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+  background: radial-gradient(ellipse 75% 85% at 82% 0%, rgba(0, 126, 250, 0.34), rgba(0, 126, 250, 0.07) 55%, rgba(0, 126, 250, 0) 78%), var(--night);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 32px 64px -34px rgba(5, 10, 40, 0.6); color: var(--on-dark-2); }
+.vp-c { position: absolute; width: 18px; height: 18px; border: 0 solid rgba(255, 255, 255, 0.36); }
+.vp-c.tl { top: 14px; left: 14px; border-top-width: 1.5px; border-left-width: 1.5px; }
+.vp-c.tr { top: 14px; right: 14px; border-top-width: 1.5px; border-right-width: 1.5px; }
+.vp-c.bl { bottom: 14px; left: 14px; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.vp-c.br { bottom: 14px; right: 14px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+.vp-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.vp-kind { display: inline-flex; align-items: center; gap: 10px; padding: 6px 12px 6px 10px; border-radius: var(--r-sm); border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.05);
+  font-family: var(--display); font-size: 13px; font-weight: 500; line-height: 1.4; color: rgba(255, 255, 255, 0.82); }
+.vp-kind i { flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--sky); }
+.vp-main { display: flex; align-items: flex-end; gap: clamp(16px, 2vw, 24px); }
+.vp-play { flex: none; width: 60px; height: 60px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.07), 0 16px 36px -12px rgba(0, 0, 0, 0.55); }
+.vp-play svg { width: 20px; height: 22px; margin-left: 4px; }
+.vp-text { min-width: 0; }
+.vp-h { max-width: 32ch; font-family: var(--display); font-size: clamp(19px, 2vw, 27px); font-weight: 560; line-height: 1.16; letter-spacing: -0.02em; color: #fff; text-wrap: balance; }
+.vp-note { margin-top: 8px; max-width: 56ch; font-size: 15px; line-height: 1.5; color: rgba(255, 255, 255, 0.62); }
+
+/* ---------- client story card: measured start and finish (demo) ---------- */
+.case-card { margin-top: 48px; padding: clamp(28px, 4.4vw, 56px); border-radius: var(--r-xl);
+  background: radial-gradient(ellipse 60% 90% at 100% 0%, rgba(0, 126, 250, 0.26), rgba(0, 126, 250, 0.05) 55%, rgba(0, 126, 250, 0) 80%), var(--night);
+  color: var(--on-dark-2); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px 64px; }
+.case-main { display: flex; flex-direction: column; align-items: flex-start; }
+.case-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--display); font-size: 14px; font-weight: 560; color: var(--sky); }
+.case-kicker .sep { color: rgba(255, 255, 255, 0.3); }
+.case-card h3 { margin-top: 18px; font-size: clamp(26px, 3vw, 38px); line-height: 1.12; letter-spacing: -0.025em; color: #fff; }
+.case-card h3 .ph { padding: 0 10px; border-radius: 6px; font: inherit; }
+.case-main > p { margin-top: 18px; margin-bottom: 28px; max-width: 46ch; }
+.case-main .btn { margin-top: auto; min-height: 48px; padding: 0 20px; font-size: 15px; }
+.case-nums { display: flex; flex-direction: column; justify-content: flex-end; }
+.case-cap { font-family: var(--display); font-size: 13px; font-weight: 500; color: var(--on-dark-3); }
+.case-row { margin-top: 14px; display: flex; align-items: flex-end; gap: 20px; }
+.case-row > div { flex: 1 1 0; min-width: 0; }
+.case-big { font-family: var(--display); font-size: clamp(40px, 4.6vw, 64px); font-weight: 560; line-height: 1; letter-spacing: -0.04em; color: #fff; font-variant-numeric: tabular-nums; }
+.case-big.before { color: rgba(255, 255, 255, 0.4); }
+.case-row .sub { margin-top: 10px; font-size: 14px; }
+.case-row > svg { flex: none; width: 28px; height: 28px; margin-bottom: 38px; color: var(--sky); }
+.case-measure { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line-dark); }
+.case-measure p:first-child { font-size: 14px; color: var(--on-dark-3); }
+.case-measure p + p { margin-top: 6px; font-family: var(--display); font-size: 20px; font-weight: 560; letter-spacing: -0.01em; color: #fff; }
+.case-rows { margin-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+.case-rows a { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
+.case-rows .k { display: block; font-family: var(--display); font-size: 13px; font-weight: 560; color: var(--blue-deep); }
+.case-rows .t { display: block; margin-top: 4px; font-family: var(--display); font-size: 19px; font-weight: 560; letter-spacing: -0.01em; color: var(--navy); transition: color 160ms ease; }
+.case-rows svg { flex: none; width: 16px; height: 16px; color: var(--blue-deep); transition: transform 180ms var(--ease); }
+@media (hover: hover) and (pointer: fine) { .case-rows a:hover .t { color: var(--blue-deep); } .case-rows a:hover svg { transform: translateX(3px); } }
+
+/* ---------- price list (demo homepage) ---------- */
+.ptitle .lead { margin-top: 20px; max-width: 40ch; }
+.plist { margin-top: clamp(40px, 5vw, 64px); background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: 0 1px 2px rgba(10, 18, 56, 0.04), 0 24px 56px -40px rgba(10, 18, 56, 0.22); }
+.plist li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-bottom: 1px solid var(--line); }
+.plist li > div { flex: 1 1 280px; min-width: 0; }
+.plist h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.plist .sub { margin-top: 2px; font-size: 15px; color: var(--muted); }
+.plist .amt { font-family: var(--display); font-size: 20px; font-weight: 600; letter-spacing: -0.015em; color: var(--text); font-variant-numeric: tabular-nums; }
+.plist .amt span { font-family: var(--body); font-size: 15px; font-weight: 450; letter-spacing: 0; color: var(--muted); }
+.plist-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding: 22px clamp(20px, 2.4vw, 32px); background: #FBFCFE; }
+.plist-foot .btn { min-height: 48px; padding: 0 20px; font-size: 15px; }
+.plist-foot .textlink { font-size: 15px; }
+
+/* ---------- who we're for, and who we're not (demo) ---------- */
+.fitwho .grid2 { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 48px 96px; align-items: start; } /* demo: flex 4 and 8, gap 48px 96px */
+.fitwho .intro p { margin-top: 20px; max-width: 38ch; }
+.fitwho .intro .textlink { margin-top: 20px; font-size: 15px; }
+.fitwho .lists { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.fitwho h3 { padding-bottom: 14px; border-bottom: 2px solid var(--navy); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+.fitwho .not h3 { border-bottom-color: var(--line-2); }
+.fitwho li { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.fitwho li > svg { flex: none; width: 18px; height: 18px; margin-top: 4px; color: var(--blue-deep); }
+.fitwho .not li > svg { color: #8A93AE; }
+
+/* ---------- Learning Center rows (demo) ---------- */
+.lrows { margin-top: clamp(36px, 4vw, 56px); border-bottom: 1px solid var(--line-2); }
+.lrow { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 26px 0; border-top: 1px solid var(--line-2); color: var(--text-2); }
+.lrow .k { flex: 2 1 160px; font-family: var(--display); font-size: 14px; font-weight: 560; color: var(--blue-deep); }
+.lrow .t { flex: 5 1 340px; font-family: var(--display); font-size: clamp(20px, 1.9vw, 24px); font-weight: 560; line-height: 1.25; letter-spacing: -0.015em; color: var(--navy); transition: color 160ms ease; }
+.lrow .s { flex: 5 1 300px; font-size: 15px; line-height: 1.5; }
+@media (hover: hover) and (pointer: fine) { .lrow:hover .t { color: var(--blue-deep); } }
+
+/* ---------- partners: headings in place of the concept's <b>, same values ---------- */
+.shead + .pt-grid { margin-top: 40px; }
+.pt-grid h3 { margin-top: 18px; font-size: 20px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+.portrait .ph { display: inline-flex; align-items: center; gap: 6px; }
+.portrait .ph svg { width: 9px; height: 10px; }
+
+/* ---------- FAQ intro link (demo: "More in the Learning Center.") ---------- */
+.faq .intro .ask { margin-top: 18px; }
+
+/* ---------- footer: descriptor and Leadership Lens on top, link columns, legal (demo) ---------- */
+.foot-top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 40px; padding-bottom: 48px; border-bottom: 1px solid var(--line-dark); }
+.foot-top .brand { grid-column: 1 / 6; }
+.foot-logo { display: inline-block; }
+.foot-lens { grid-column: 8 / 13; }
+.foot-lens .t { font-family: var(--display); font-size: 17px; font-weight: 600; color: #fff; }
+.foot-lens .d { margin-top: 6px; font-size: 15px; color: var(--on-dark-2); }
+.foot-lens .field { margin-top: 16px; display: flex; gap: 8px; }
+.foot-lens input { flex: 1; min-width: 0; min-height: 48px; padding: 0 14px; border-radius: var(--r-sm); border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.06); color: #fff; font-family: var(--body); font-size: 16px; transition: border-color 160ms ease, background-color 160ms ease; }
+.foot-lens input::placeholder { color: rgba(214, 228, 255, 0.62); }
+.foot-lens input:focus { outline: none; border-color: var(--sky); background: rgba(255, 255, 255, 0.09); }
+.foot-lens .status { margin-top: 10px; min-height: 1.5em; font-size: 14px; color: var(--sky); }
+.foot-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 36px 24px; padding-block: 44px; }
+.foot-cols .fcol { grid-column: auto; }
+.fcol h2 { font-family: var(--display); font-size: 14px; font-weight: 600; color: #fff; } /* a11y: concept uses h4 here; h2 keeps heading order, same look */
+.foot .foot-cols + .legal { margin-top: 0; }
+.legal-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.legal a { color: var(--on-dark-2); }
+@media (hover: hover) and (pointer: fine) { .legal a:hover { color: #fff; } }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .how .grid2, .fitwho .grid2 { grid-template-columns: minmax(0, 1fr); }
+  .foot-top .brand, .foot-lens { grid-column: 1 / -1; }
+  .case-card { grid-template-columns: 1fr; }
+  .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .case-rows { grid-template-columns: 1fr; }
+  .case-rows a + a { border-top: 0; }
+}
+@media (max-width: 640px) {
+  .fitwho .lists { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pt-grid h3 { margin-top: 0; font-size: 18px; }
+  .case-big { font-size: 32px; }
+  .portrait .ph { display: none; } /* concept: the portrait chip hides at phone width */
+  .vp { aspect-ratio: auto; }
+  .foot-lens .field { flex-direction: column; }
+  .foot-lens .btn { width: 100%; }
+  .foot-cols { grid-template-columns: 1fr; }
+}

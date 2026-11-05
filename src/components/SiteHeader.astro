@@ -1,0 +1,32 @@
+---
+// Shared header: the concept's fixed header (transparent over a night hero, solid once
+// the page moves) carrying the demo's eight links and two calls to action.
+import { nav, cta } from '../data/site.js';
+interface Props {
+  active?: string;
+  /** Start solid, for pages whose first band is light. */
+  solid?: boolean;
+}
+const { active, solid = false } = Astro.props;
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+---
+<header class:list={['top', { solid }]} id="top" data-solid={solid ? 'always' : undefined}>
+  <div class="wrap row">
+    <a href="/" class="top-logo" aria-label="LeadShift home">
+      <svg class="logo" viewBox="0 0 374 64" role="img" aria-label="LeadShift"><use href="#logo-full" /></svg>
+    </a>
+    <nav class="nav" aria-label="Main">
+      {nav.map((i) => <a href={i.href} aria-current={i.key === active ? 'page' : undefined}>{i.label}</a>)}
+    </nav>
+    <div class="top-cta">
+      <a class="btn btn-ghost" href={cta.call.href}>{cta.call.label}</a>
+      <a class="btn btn-light" href={cta.gi.href}>{cta.gi.label}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button>
+    </div>
+  </div>
+</header>
+<div class="sheet" id="sheet">
+  {nav.map((i) => <a href={i.href} aria-current={i.key === active ? 'page' : undefined}>{i.label}</a>)}
+  <a class="btn btn-quiet" href={cta.call.href}>{cta.call.label}</a>
+  <a class="btn btn-primary" href={cta.gi.href}>{cta.gi.label}<Fragment set:html={arrow} /></a>
+</div>

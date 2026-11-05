@@ -1,0 +1,54 @@
+---
+// Shared footer: the demo's structure (descriptor, Leadership Lens signup, link columns,
+// headquarters, legal row) built with the concept's footer classes and values.
+import Ph from './Ph.astro';
+import { firm, footerCols, lens } from '../data/site.js';
+---
+<footer class="foot dark" id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="brand">
+        <a href="/" aria-label="LeadShift home" class="foot-logo">
+          <svg class="logo" viewBox="0 0 374 64" role="img" aria-label="LeadShift"><use href="#logo-full" /></svg>
+        </a>
+        <p>{firm.descriptor}</p>
+      </div>
+      <form class="foot-lens" id="lens-form" novalidate aria-labelledby="lens-title">
+        <p class="t" id="lens-title">{lens.name}</p>
+        <p class="d">{lens.blurb}</p>
+        <div class="field">
+          <label class="sr-only" for="lens-email">Work email</label>
+          <input id="lens-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Work email" required aria-describedby="lens-status" />
+          <button class="btn btn-light" type="submit">Subscribe</button>
+        </div>
+        <p class="status" id="lens-status" role="status"></p>
+      </form>
+    </div>
+
+    <div class="foot-cols">
+      {footerCols.map((col) => (
+        <nav class="fcol" aria-label={col.title}>
+          <h2>{col.title}</h2>
+          <ul>{col.links.map(([label, href]) => <li><a href={href}>{label}</a></li>)}</ul>
+        </nav>
+      ))}
+      <div class="fcol">
+        <h2>Headquarters</h2>
+        <ul>
+          <li>{firm.address.street}<br />{firm.address.city}, {firm.address.region} {firm.address.postal}</li>
+          <li><a class="phone" href={firm.phoneHref}>{firm.phone}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal">
+      <span>&copy; 2026 LeadShift. {firm.tagline}.</span>
+      <span class="legal-links">
+        <a href="/privacy-policy">Privacy policy</a>
+        <a href="/fulfillment-policy">Fulfillment policy</a>
+        <Ph tone="dark" size="sm" note="LinkedIn company page URL (live site lists linkedin.com/company/leadshiftgroup; confirm)">[LinkedIn]</Ph>
+        <Ph tone="dark" size="sm" note="YouTube channel URL">[YouTube]</Ph>
+      </span>
+    </div>
+  </div>
+</footer>

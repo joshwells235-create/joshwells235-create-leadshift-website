@@ -1,0 +1,19 @@
+{
+  "name": "leadshift-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check.mjs",
+    "preview": "astro preview",
+    "check": "node scripts/check.mjs",
+    "placeholders": "node scripts/placeholders.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.5"
+  }
+}

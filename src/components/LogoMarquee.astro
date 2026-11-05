@@ -1,0 +1,17 @@
+---
+// The concept's client strip: a slow 70s loop that pauses on hover and sits still
+// (wrapping onto rows) under reduced motion. The second track is a visual duplicate only.
+import { logos, clientNamesSentence } from '../data/site.js';
+---
+<div class="clients" data-reveal>
+  <p class="cl-label">Clients include</p>
+  <div class="marquee">
+    <ul class="mq-track">
+      {logos.map((l) => <li><img src={l.src} alt={l.name} width={l.w} height={l.h} loading="lazy" decoding="async" /></li>)}
+    </ul>
+    <ul class="mq-track" aria-hidden="true">
+      {logos.map((l) => <li><img src={l.src} alt="" width={l.w} height={l.h} loading="lazy" decoding="async" /></li>)}
+    </ul>
+  </div>
+  <p class="cl-names">{clientNamesSentence}</p>
+</div>

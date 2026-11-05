@@ -1,0 +1,342 @@
+---
+// Home. Endless Customers job (docs/01-build-brief.md): entry to all four pillars:
+// proof up front, the three problems, self-service tools (Growth Index, estimator, booking),
+// price ranges, who it's for and not for, Big 5 teasers, partner faces.
+// Section order and copy: reference/demo-canvas/Main.dc.html. Look and components: the concept.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { firm, cta, partners, programs, testimonials, facts, sampleReport, articles, storyTemplate } from '../data/site.js';
+
+const faq = [
+  {
+    q: 'Why does every decision still end up on my desk?',
+    a: "Usually because the people around you aren't set up to make it. Leaders without clear ownership send decisions up. A leadership team that avoids hard debate revisits decisions instead of standing behind them. Frontline managers who were never taught to manage pass problems up the line. Each has a different fix, and the Growth Index shows which one you have.",
+    link: ['Start the Growth Index', cta.gi.href],
+  },
+  {
+    q: 'Is the problem my leadership team, or the leaders on it?',
+    a: "Look at where things break. If capable leaders run their own areas well but the team struggles to debate, commit and hold each other accountable, the gap is the team, and ALIGN works on that. If the team works well together but some leaders aren't ready for what the business needs next, the gap is the leaders, and the Leadership Academy develops them in a cohort. Often it's both.",
+    link: ['How ALIGN works', '/teams'],
+  },
+  {
+    q: 'My best performer got promoted and is struggling as a manager. What now?',
+    a: "Being great at the work doesn't teach anyone to run a team. New managers need a simple system for one-on-ones, goals, accountability, recognition and hard conversations, and they need to understand how each person on their team is wired. ASCEND builds both.",
+  },
+  {
+    q: 'Should I develop the leaders I have or replace them?',
+    a: "Start by checking whether they've had a fair shot: clear expectations, the authority to act and real support. When the gap holds after those are in place, a different seat or a change can be the right call for the company and for the leader. The Growth Index puts your ratings beside each leader's match to the role, so the decision rests on more than instinct.",
+  },
+  {
+    q: "How do we know it's working?",
+    a: 'We measure where you start and where you finish. ALIGN gives the team the same team assessment at the beginning and the end, and sets performance measures with the team leader up front. ASCEND scores each manager on the management system before and after.',
+  },
+];
+
+const problems = [
+  {
+    num: '01', label: 'Leadership bench', h: 'You need a deeper bench of leaders.',
+    body: 'Leaders ready to step up when the company grows or someone leaves, and to grow into what the business needs next, with the right people in the right seats.',
+    progs: 'The Leadership Academy, executive coaching, hiring excellence',
+    link: ['How we build the bench', '/leaders'],
+  },
+  {
+    num: '02', label: 'Team performance', h: "Your leadership team isn't working as a team.",
+    body: "A team that trusts each other, argues about the right things, commits, holds each other to it, and puts the company's results ahead of their own departments.",
+    progs: 'ALIGN',
+    link: ['How ALIGN fixes it', '/teams'],
+  },
+  {
+    num: '03', label: 'Frontline managers', h: 'Your frontline managers were never taught to manage.',
+    body: 'Managers who run real one-on-ones, set clear goals, hold people accountable and handle the hard conversation themselves, so problems get solved where they start instead of climbing to you.',
+    progs: 'ASCEND',
+    link: ['How ASCEND works', '/managers'],
+  },
+];
+
+// The demo's sub-lines for the price list.
+const priceSubs = {
+  align: 'Your leadership team · six months',
+  academy: 'Leaders and high-potential managers · nine months',
+  ascend: 'Frontline managers · four months',
+  executive: 'One leader, the whole role · six months',
+  performance: 'One leader, one goal',
+  sales: 'Sales leaders and their teams',
+};
+
+// Report spread: the concept's order (cover in front, inside pages fanned behind).
+const spread = [
+  { src: sampleReport.pages[1], i: -2, a: 2, far: true },
+  { src: sampleReport.pages[0], i: -1, a: 1 },
+  { src: sampleReport.pages[3], i: 1, a: 1 },
+  { src: sampleReport.pages[2], i: 2, a: 2, far: true },
+];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+const check = '<svg aria-hidden="true"><use href="#check"/></svg>';
+---
+<Base
+  title="LeadShift | Business performance coaching, Worcester, Massachusetts"
+  description={firm.descriptor}
+  faq={faq}
+>
+  <!-- Hero -->
+  <section class="hero dark" id="hero" aria-labelledby="hero-title">
+    <div class="hero-light" aria-hidden="true"></div>
+    <div class="wrap hero-copy">
+      <p class="chip" style="--d:0"><i aria-hidden="true"></i>The Growth Index is complimentary for CEOs</p>
+      <h1 id="hero-title" style="--d:1">Will your team get you there?</h1>
+      <p class="lead" style="--d:2">{firm.heroLead}</p>
+      <div class="hero-ctas" style="--d:3">
+        <a class="btn btn-light" href={cta.gi.href}>{cta.gi.label}<Fragment set:html={arrow} /></a>
+        <a class="btn btn-ghost" href={cta.call.href}>{cta.call.label}</a>
+      </div>
+      <ul class="hero-notes" style="--d:4">
+        <li><Fragment set:html={check} />About twenty minutes for you</li>
+        <li><Fragment set:html={check} />Your ratings stay with you</li>
+        <li><Fragment set:html={check} />A partner reads it with you</li>
+      </ul>
+    </div>
+    <div class="wrap stage">
+      <figure class="report">
+        <div class="spread">
+          {spread.map((p) => (
+            <img class:list={['rp', { far: p.far }]} style={`--i:${p.i};--a:${p.a}`} src={p.src} alt="" width="816" height="1056" decoding="async" />
+          ))}
+          <img class="rp cover" style="--i:0;--a:0" src={sampleReport.cover} alt="Cover of a sample Growth Index report, prepared for a fictional company" width="816" height="1056" decoding="async" fetchpriority="high" />
+        </div>
+        <figcaption>{sampleReport.caption}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="proof wrap" aria-label="What clients say">
+    <div class="proof-grid">
+      <figure class="pq pq-main" data-reveal>
+        <blockquote><p>{testimonials.main.quote}</p></blockquote>
+        <figcaption><div><b>{testimonials.main.name}</b><span>{testimonials.main.role}</span></div></figcaption>
+      </figure>
+      <div class="proof-side" data-reveal style="--d:1">
+        <figure class="pq pq-small">
+          <blockquote><p>{testimonials.side.quote}</p></blockquote>
+          <figcaption><div><b>{testimonials.side.name}</b><span>{testimonials.side.role}</span></div></figcaption>
+        </figure>
+        <dl class="facts">
+          {facts.map(([dt, dd]) => <div><dt>{dt}</dt><dd>{dd}</dd></div>)}
+        </dl>
+        <a class="textlink rv-link" href="/results">Verified client reviews <Ph note="Review rating and count (open decision #17)">[Rating] from [N] reviews</Ph><Fragment set:html={arrow} /></a>
+      </div>
+    </div>
+    <LogoMarquee />
+  </section>
+
+  <!-- Thesis and the three problems -->
+  <section class="thesis section wrap" id="help" aria-labelledby="thesis-title">
+    <div class="th-grid">
+      <div class="th-copy">
+        <h2 class="h2" id="thesis-title" data-reveal>Build a business that performs without you carrying it.</h2>
+        <p class="lead" data-reveal style="--d:1">Every growing company eventually faces the same question: will the team that got you here get you there?</p>
+        <p data-reveal style="--d:2">Most of our work starts with one of three problems.</p>
+      </div>
+      <figure class="th-photo" data-reveal style="--d:1"><img src="/images/executive-at-desk.webp" alt="An executive at his desk, deep in thought" width="735" height="1102" loading="lazy" decoding="async" /></figure>
+    </div>
+    <ol class="problems" aria-label="Three problems we solve">
+      {problems.map((p) => (
+        <li class="prob" data-reveal>
+          <p class="label"><span class="num" aria-hidden="true">{p.num}</span>{p.label}</p>
+          <h3>{p.h}</h3>
+          <div class="prob-body">
+            <p>{p.body}</p>
+            <p class="prob-progs">{p.progs}</p>
+            <a class="textlink" href={p.link[1]}>{p.link[0]}<Fragment set:html={arrow} /></a>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p class="also" data-reveal>We also coach sales leaders and their teams. <a href="/coaching">See coaching</a></p>
+    <div class="stakes" data-reveal>
+      <blockquote>If nothing changes, every decision keeps routing back to you, and the business grows at the speed of your calendar.</blockquote>
+      <div class="act"><a class="btn btn-primary" href={cta.gi.href}>{cta.gi.label}<Fragment set:html={arrow} /></a></div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how section bg-mist" aria-labelledby="how-title">
+    <div class="wrap grid2">
+      <div class="copy">
+        <p class="label" data-reveal>How it works</p>
+        <h2 class="h2" id="how-title" data-reveal>Three steps from question to plan.</h2>
+        <ol class="steps3">
+          <li data-reveal style="--d:1"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.8" fill="currentColor"/></svg></span><div><h3>Take the Growth Index</h3><p>Name the five priorities your strategy depends on and rate each leader privately. About twenty minutes for you.</p></div></li>
+          <li data-reveal style="--d:2"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19c.6-3 2.8-5 5.5-5s4.9 2 5.5 5"/><circle cx="16.5" cy="9.5" r="2.6"/><path d="M15.6 14.2c2.5-.2 4.4 1.5 4.9 4.3"/></svg></span><div><h3>Read it with a partner</h3><p>A LeadShift partner walks you through the report, leader by leader, and names the gap: the team, the leaders, or both.</p></div></li>
+          <li data-reveal style="--d:3"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l4 4v13h-12z"/><path d="M14.5 3.5v4h4"/><path d="M9.5 12.5h6M9.5 16h4"/></svg></span><div><h3>Get a plan with a scope and a price</h3><p>You leave with a plan for the gap, a clear scope and a price, and the start and finish measures that show it worked.</p></div></li>
+        </ol>
+      </div>
+      <div class="visual" data-reveal style="--d:1">
+        <VideoPoster kind="Landing video" duration="2 min" heading="How LeadShift works, in two minutes" note="Partners on camera: who we help, what a first engagement looks like, what it costs." />
+      </div>
+    </div>
+  </section>
+
+  <!-- Client stories -->
+  <section class="section" aria-labelledby="stories-title">
+    <div class="wrap">
+      <div class="shead">
+        <div>
+          <p class="label" data-reveal>Client stories</p>
+          <h2 class="h2" id="stories-title" data-reveal style="max-width: 18ch">Measured at the start. Measured again at the end.</h2>
+        </div>
+        <a class="textlink" href="/results" data-reveal>All stories and reviews<Fragment set:html={arrow} /></a>
+      </div>
+      <article class="case-card" data-reveal>
+        <div class="case-main">
+          <p class="case-kicker">ALIGN <span class="sep" aria-hidden="true">/</span> <Ph tone="dark" size="sm" note="Industry of the first named ALIGN client (open decision #16)">[Industry]</Ph></p>
+          <h3><Ph tone="dark" note="First named ALIGN client (open decision #16)">[Client name]</Ph>'s leadership team, before and after ALIGN</h3>
+          <p><Ph tone="dark" note="Story summary from the client">[Two sentences: what was breaking, and what the CEO says is different now]</Ph></p>
+          <a class="btn btn-light" href={storyTemplate}>Read the story<Fragment set:html={arrow} /></a>
+        </div>
+        <div class="case-nums">
+          <p class="case-cap">Team assessment</p>
+          <div class="case-row">
+            <div><p class="case-big before"><Ph bare note="Baseline team assessment score">[Start]</Ph></p><p class="sub">Baseline</p></div>
+            <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><p class="case-big"><Ph bare note="Retest team assessment score (no retests yet)">[Retest]</Ph></p><p class="sub">Six months later</p></div>
+          </div>
+          <div class="case-measure">
+            <p>Business measure set with the CEO</p>
+            <p><Ph bare note="Business measure agreed with the CEO, start to finish">[Measure: start to finish]</Ph></p>
+          </div>
+        </div>
+      </article>
+      <div class="case-rows" data-reveal>
+        <a href="/results"><span><span class="k">Leadership Academy</span><span class="t"><Ph bare note="Leadership Academy client story (P2)">[Client story: a bench built from inside]</Ph></span></span><Fragment set:html={arrow} /></a>
+        <a href="/results"><span><span class="k">ASCEND</span><span class="t"><Ph bare note="ASCEND client story (P3)">[Client story: managers scored before and after]</Ph></span></span><Fragment set:html={arrow} /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing section bg-mist" id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <div class="head">
+        <div class="ptitle">
+          <p class="label" data-reveal>Pricing</p>
+          <h2 class="h2" id="pricing-title" data-reveal>What it costs.</h2>
+          <p class="lead" data-reveal style="--d:1">We publish ranges, so you know where you stand before the first call.</p>
+        </div>
+        <div class="drivers" data-reveal style="--d:1">
+          <p>Three things move a price inside its range:</p>
+          <ul>
+            <li><Fragment set:html={check} /><span>How many leaders take part</span></li>
+            <li><Fragment set:html={check} /><span>How much one-on-one coaching runs alongside the group work</span></li>
+            <li><Fragment set:html={check} /><span>How long the program runs</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="plist" data-reveal>
+        <ul aria-label="Program prices">
+          {programs.map((p) => (
+            <li>
+              <div><h3>{p.name}</h3><p class="sub">{priceSubs[p.key]}</p></div>
+              <p class="amt">{p.amount}{p.unit && <> <span>{p.unit}</span></>}</p>
+            </li>
+          ))}
+        </ul>
+        <div class="plist-foot">
+          <a class="btn btn-primary" href="/pricing">Find your likely starting point<Fragment set:html={arrow} /></a>
+          <a class="textlink" href={articles.cost}>Why leadership development costs what it does<Fragment set:html={arrow} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we're for -->
+  <section class="fitwho section" aria-labelledby="fit-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <p class="label" data-reveal>Fit</p>
+        <h2 class="h2 h2-sm" id="fit-title" data-reveal>Who we're for, and who we're not.</h2>
+        <p data-reveal style="--d:1">We would rather tell you we're the wrong fit than sell you a program that won't fix the problem.</p>
+        <a class="textlink" href="/fit" data-reveal style="--d:2">Is LeadShift right for you?<Fragment set:html={arrow} /></a>
+      </div>
+      <div class="lists">
+        <div data-reveal>
+          <h3>A good fit</h3>
+          <ul>
+            <li><Fragment set:html={check} />CEOs and leadership teams of growing companies</li>
+            <li><Fragment set:html={check} />Leaders willing to be measured at the start and the end</li>
+            <li><Fragment set:html={check} /><Ph note="Fit page (F8)">[Third fit marker]</Ph></li>
+          </ul>
+        </div>
+        <div class="not" data-reveal style="--d:1">
+          <h3>Probably not a fit</h3>
+          <ul>
+            <li><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 8h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><Ph note="Fit page (F8, open decision #13)">[A request we would point elsewhere]</Ph></li>
+            <li><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 8h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><Ph note="Fit page (F8, open decision #13)">[A situation where training won't fix it]</Ph></li>
+            <li><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 8h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><Ph note="Fit page (F8, open decision #13)">[A size or stage we don't serve well]</Ph></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions -->
+  <section class="faq section bg-mist" id="faq" aria-labelledby="faq-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2" id="faq-title" data-reveal>Questions CEOs ask us.</h2>
+        <p class="lead" data-reveal style="--d:1">Straight answers to what CEOs want to know before they call.</p>
+        <p class="ask" data-reveal style="--d:2">More in the <a href="/learn">Learning Center</a>.</p>
+      </div>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <!-- Learning Center -->
+  <section class="section" aria-labelledby="learn-title">
+    <div class="wrap">
+      <div class="shead">
+        <div>
+          <p class="label" data-reveal>Learning Center</p>
+          <h2 class="h2 h2-sm" id="learn-title" data-reveal>Answers before you ask.</h2>
+        </div>
+        <a class="textlink" href="/learn" data-reveal>Browse every answer<Fragment set:html={arrow} /></a>
+      </div>
+      <div class="lrows" data-reveal>
+        <a class="lrow" href={articles.cost}><span class="k">Cost and pricing</span><span class="t">How much does leadership development cost?</span><span class="s">What moves the price, the ranges we charge, and how to compare quotes.</span></a>
+        <a class="lrow" href="/learn"><span class="k">Problems</span><span class="t">Signs your leadership team isn't a team</span><span class="s"><Ph note="Article A7">[Article to write]</Ph></span></a>
+        <a class="lrow" href="/learn"><span class="k">Comparisons</span><span class="t">Executive coaching or performance coaching?</span><span class="s"><Ph note="Article A8">[Article to write]</Ph></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The partners -->
+  <section class="section bg-mist" aria-labelledby="partners-title">
+    <div class="wrap">
+      <div class="shead">
+        <div>
+          <p class="label" data-reveal>The partners</p>
+          <h2 class="h2 h2-sm" id="partners-title" data-reveal>Meet the people you'd work with.</h2>
+        </div>
+        <a class="textlink" href="/about" data-reveal>Meet the whole team<Fragment set:html={arrow} /></a>
+      </div>
+      <ul class="pt-grid">
+        {partners.map((p, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <div class="portrait" aria-hidden="true">
+              <span class="ini">{p.initials}</span>
+              <Ph tone="dark" size="sm" note={`Headshot and 90-second bio video: ${p.name} (H1, V10)`}><svg aria-hidden="true" viewBox="0 0 9 10"><path d="M1 1.2v7.6c0 .5.5.8.9.5l6.2-3.8c.4-.3.4-.8 0-1.1L1.9.7C1.5.4 1 .7 1 1.2z" fill="currentColor"/></svg>[Photo and 90-second bio video]</Ph>
+            </div>
+            <h3>{p.name}</h3>
+            <p class="role">{p.title}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <ClosingBand />
+</Base>

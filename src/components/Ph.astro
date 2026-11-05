@@ -1,0 +1,22 @@
+---
+// Every unfinished fact on the site goes through this component, so
+// `npm run placeholders` can list them and the launch check can refuse them.
+//
+//   <Ph>[Client name]</Ph>                     blue chip, styled like the concept's .ph
+//   <Ph tone="dark">[Industry]</Ph>             the same chip on a night band
+//   <Ph size="sm">[Photo]</Ph>                  the smaller chip used on portraits and tags
+//   <Ph bare>[Retest]</Ph>                      no chip: for big display numbers and titles
+//   <Ph note="Video to film: ...">To film</Ph>  `note` says what is missing, for the report
+interface Props {
+  tone?: 'light' | 'dark';
+  size?: 'sm';
+  bare?: boolean;
+  note?: string;
+  class?: string;
+}
+const { tone = 'light', size, bare = false, note = '', class: extra } = Astro.props;
+---
+<span
+  class:list={[bare ? 'ph-bare' : 'ph', { 'ph-dark': !bare && tone === 'dark', 'ph-sm': !bare && size === 'sm' }, extra]}
+  data-ph={note}
+><slot /></span>

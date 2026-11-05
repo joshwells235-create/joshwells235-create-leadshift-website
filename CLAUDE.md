@@ -63,4 +63,8 @@ You are helping Josh Wells, one of LeadShift's three partners, rebuild leadshift
 | `docs/06-migration-and-launch.md` | Current site, DNS facts, redirect map, cutover plan |
 | `docs/07-content-tracker.md` | Every article, video, story and fact still to produce |
 | `reference/` | Homepage concept HTML and the demo canvas files |
-| `assets/` | Fonts, logos, sample report pages, photo, 24 client logos |
+| `assets/` | Fonts, logos, sample report pages, photo, 24 client logos. Served as the site's public folder |
+| `src/data/site.js` | Every fact the pages, structured data and tools read. Add facts here, sourced from `docs/03-facts.md` |
+| `src/styles/concept.css` | The concept's CSS, verbatim. Don't edit; put additions in `src/styles/site.css` |
+| `src/components/Ph.astro` | The placeholder component every unfinished fact goes through |
+| `scripts/check.mjs`, `scripts/placeholders.mjs` | `npm run check` (rules) and `npm run placeholders` (writes `docs/placeholders.md`) |

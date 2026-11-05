@@ -58,3 +58,7 @@ Dated log of decisions and direction. Newest at the bottom. Add to it; don't rew
 - Programs: the kit (`docs/03-facts.md`) is right for the programs. The Notion Programs database is out of date and needs updating.
 - Claude's proposed preview defaults, not objected to: Home takes section order and copy from `Main.dc.html` with the concept's styling; booking keeps the demo's mock flow, clearly marked; the Leadership Lens form doesn't submit; Growth Index "Continue" opens the live app; privacy and fulfillment policies are copied word for word from the public live pages; the Private Equity page is left out of the preview.
 - Repository: Josh created `joshwells235-create/joshwells235-create-leadshift-website` on GitHub. It was public when created, so Claude committed locally and held every push until it is private.
+
+## 2026-11-05 (later: deploy)
+- Josh is fine with the GitHub repository staying public: "this is all meant to be public facing sooner than later." Claude pushed the `main` and `preview` branches.
+- Josh OK'd the first preview deploy. Vercel project `leadshift-website` in the Leadshift team builds only the `preview` branch (builds from `main` are skipped, so nothing is a production deployment). Vercel Authentication stays on; reviewers get a shareable link.

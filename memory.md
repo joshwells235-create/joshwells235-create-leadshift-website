@@ -62,3 +62,4 @@ Dated log of decisions and direction. Newest at the bottom. Add to it; don't rew
 ## 2026-11-05 (later: deploy)
 - Josh is fine with the GitHub repository staying public: "this is all meant to be public facing sooner than later." Claude pushed the `main` and `preview` branches.
 - Josh OK'd the first preview deploy. Vercel project `leadshift-website` in the Leadshift team builds only the `preview` branch (builds from `main` are skipped, so nothing is a production deployment). Vercel Authentication stays on; reviewers get a shareable link.
+- Deployed 2026-11-05. The first deploy, started by hand through Vercel's API, came out as a production deployment on `leadshift-website.vercel.app`; Claude raised protection to all deployments within about a minute, so it needs a login like everything else. Pushes to `preview` deploy as previews. Reviewer share link on the `preview` branch address expires 2027-02-03 (see `docs/06-migration-and-launch.md`).

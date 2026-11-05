@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LeadShift site header</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:'Instrument Sans';src:url(/_blob/aca59b927bec6d2365f36d9047a8ca34) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Raleway';src:url(/_blob/9a291c3f4c3e1914f777a6127710ab54) format('woff2');font-weight:100 900;font-display:swap}
+body{margin:0}
+</style>
+</helmet>
+<header style="background: #0A1238; border-bottom: 1px solid rgba(255, 255, 255, 0.12); font-family: 'Instrument Sans', 'Raleway', Arial, sans-serif; color: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 12px clamp(20px, 4vw, 40px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 28px">
+    <a href="Main.dc.html" aria-label="LeadShift home" style="display: block; padding: 10px 0; line-height: 0"><img src="/_blob/d254cbb9a09d768cb092b3da01c62b0f" alt="LeadShift" style="display: block; width: 136px; height: auto"></a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 22px">
+      <sc-for list="{{nav}}" as="item" hint-placeholder-count="8">
+        <sc-if value="{{item.on}}" hint-placeholder-val="{{false}}"><a href="{{item.href}}" aria-current="page" style="display: inline-block; padding: 12px 0 10px; font-size: 15px; font-weight: 600; color: #FFFFFF; text-decoration: none; border-bottom: 2px solid #8CC2FF">{{item.label}}</a></sc-if>
+        <sc-if value="{{item.off}}" hint-placeholder-val="{{true}}"><a href="{{item.href}}" style="display: inline-block; padding: 12px 0 10px; font-size: 15px; font-weight: 500; color: rgba(255, 255, 255, 0.8); text-decoration: none; border-bottom: 2px solid transparent">{{item.label}}</a></sc-if>
+      </sc-for>
+    </nav>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px">
+      <a href="BookCall.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.3); color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Talk to a partner</a>
+      <a href="GrowthIndex.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 6px; background: #FFFFFF; color: #101D51; font-size: 15px; font-weight: 600; text-decoration: none">Take the Growth Index</a>
+    </div>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["home","bench","team","managers","coaching","pricing","results","learn","about","none"],"default":"home"},"$preview":{"width":1440,"height":76}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var active = this.props.active ?? 'home';
+    var items = [
+      { key: 'bench', label: 'Leaders', href: 'LeadershipBench.dc.html' },
+      { key: 'team', label: 'Teams', href: 'TeamPerformance.dc.html' },
+      { key: 'managers', label: 'Managers', href: 'FrontlineManagers.dc.html' },
+      { key: 'coaching', label: 'Coaching', href: 'Coaching.dc.html' },
+      { key: 'pricing', label: 'Pricing', href: 'Pricing.dc.html' },
+      { key: 'results', label: 'Results', href: 'Results.dc.html' },
+      { key: 'learn', label: 'Learn', href: 'LearningCenter.dc.html' },
+      { key: 'about', label: 'About', href: 'About.dc.html' }
+    ];
+    return {
+      nav: items.map(function (i) {
+        return { label: i.label, href: i.href, on: i.key === active, off: i.key !== active };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

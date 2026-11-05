@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Results, client stories and reviews</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:'Instrument Sans';src:url(/_blob/aca59b927bec6d2365f36d9047a8ca34) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Raleway';src:url(/_blob/9a291c3f4c3e1914f777a6127710ab54) format('woff2');font-weight:100 900;font-display:swap}
+body{margin:0}
+h1,h2,h3,h4{font-family:'Instrument Sans','Raleway',Arial,sans-serif;color:#101D51;font-weight:560;text-wrap:balance}
+p,li{text-wrap:pretty}
+a{color:#0068CE}a:hover{color:#004E9C}
+</style>
+</helmet>
+<div style="font-family: 'Raleway', Arial, sans-serif; font-size: 17px; line-height: 1.62; color: #454E70; background: #FFFFFF">
+<dc-import name="SiteHeader" active="results" hint-size="100%,76px"></dc-import>
+
+<section style="background: radial-gradient(ellipse 55% 80% at 88% 0%, rgba(0, 126, 250, 0.34), rgba(0, 126, 250, 0.08) 55%, rgba(0, 126, 250, 0) 78%), #0A1238; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 40px)">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <p style="margin: 0 0 22px; display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.04); font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.78)"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #8CC2FF"></span>Results</p>
+    <h1 style="margin: 0; max-width: 860px; font-size: clamp(42px, 5.6vw, 74px); line-height: 1.02; letter-spacing: -0.035em; color: #FFFFFF">Results you can check.</h1>
+    <p style="margin: 24px 0 0; max-width: 640px; font-size: clamp(18px, 1.6vw, 21px); color: rgba(255, 255, 255, 0.78)">We measure where you start and where you finish. Here are the numbers, the client stories and the reviews.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 44px">
+      <div style="flex: 1 1 200px; padding: 22px; border-radius: 14px; background: rgba(255, 255, 255, 0.06)"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 38px; font-weight: 600; line-height: 1; color: #FFFFFF">200+</p><p style="margin: 8px 0 0; font-size: 15px">Organizations served since 1997</p></div>
+      <div style="flex: 1 1 200px; padding: 22px; border-radius: 14px; background: rgba(255, 255, 255, 0.06)"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 38px; font-weight: 600; line-height: 1; color: #FFFFFF">10+ yrs</p><p style="margin: 8px 0 0; font-size: 15px">How long many clients stay</p></div>
+      <div style="flex: 1 1 200px; padding: 22px; border-radius: 14px; background: rgba(255, 255, 255, 0.06)"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 38px; font-weight: 600; line-height: 1; color: #FFFFFF">[N]</p><p style="margin: 8px 0 0; font-size: 15px">Leadership teams retested after ALIGN</p></div>
+      <div style="flex: 1 1 200px; padding: 22px; border-radius: 14px; background: rgba(255, 255, 255, 0.06)"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 38px; font-weight: 600; line-height: 1; color: #FFFFFF">[+x]</p><p style="margin: 8px 0 0; font-size: 15px">Average change on the team assessment, start to retest</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px); background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <h2 style="margin: 0; font-size: clamp(32px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.03em">Client stories.</h2>
+    <div role="group" aria-label="Filter stories by program" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px">
+      <sc-for list="{{filters}}" as="f" hint-placeholder-count="5">
+        <sc-if value="{{f.on}}" hint-placeholder-val="{{false}}"><button type="button" aria-pressed="true" onClick="{{f.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #0068CE; background: #E8F1FF; color: #101D51; font-family: 'Instrument Sans', Arial, sans-serif; font-weight: 600; cursor: pointer">{{f.label}}</button></sc-if>
+        <sc-if value="{{f.off}}" hint-placeholder-val="{{true}}"><button type="button" aria-pressed="false" onClick="{{f.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #E3E7F0; background: #FFFFFF; color: #454E70; font-family: 'Instrument Sans', Arial, sans-serif; font-weight: 500; cursor: pointer">{{f.label}}</button></sc-if>
+      </sc-for>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 28px">
+      <sc-for list="{{stories}}" as="s" hint-placeholder-count="6">
+        <a href="CaseStory.dc.html" style="flex: 1 1 320px; display: flex; flex-direction: column; border-radius: 16px; border: 1px solid #E3E7F0; overflow: hidden; text-decoration: none; color: #454E70">
+          <div role="img" aria-label="Customer journey video placeholder" style="box-sizing: border-box; aspect-ratio: 16 / 9; padding: 18px; background: radial-gradient(ellipse 70% 80% at 85% 0%, rgba(0, 126, 250, 0.30), rgba(0, 126, 250, 0.05) 60%, rgba(0, 126, 250, 0) 80%), #0A1238; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px">
+            <span style="display: inline-block; padding: 2px 8px; border-radius: 5px; border: 1px dashed rgba(140, 194, 255, 0.5); background: rgba(255, 255, 255, 0.06); font-family: 'Instrument Sans', Arial, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.5; color: #8CC2FF">Customer journey video · to film</span>
+            <span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.07)"><svg width="14" height="16" viewBox="0 0 20 22" style="margin-left: 3px"><path d="M2 1.8v18.4c0 .8.9 1.3 1.6.9l15-9.2c.6-.4.6-1.3 0-1.7l-15-9.2C2.9.5 2 1 2 1.8z" fill="#101D51"></path></svg></span>
+          </div>
+          <div style="padding: 24px">
+            <p style="margin: 0; font-size: 14px; font-weight: 600; color: #0068CE">{{s.program}} · [Industry]</p>
+            <h3 style="margin: 8px 0 0; font-size: 21px">{{s.title}}</h3>
+            <p style="margin: 10px 0 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 600; color: #101D51">{{s.metric}}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px); background: #F5F7FB">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <h2 style="margin: 0; font-size: clamp(32px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.03em">What clients say.</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 36px">
+      <blockquote style="flex: 1 1 340px; margin: 0; padding: 28px; border-radius: 16px; background: #FFFFFF">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 19px; line-height: 1.45; color: #101D51">Our partnership with LeadShift has been instrumental in helping us to develop strong portfolio leadership. With stronger leadership we've lowered execution risks and driven higher returns.</p>
+        <p style="margin: 16px 0 0; font-size: 15px"><strong style="color: #101D51">David Dullum</strong>, President, Gladstone Investment Corporation</p>
+      </blockquote>
+      <blockquote style="flex: 1 1 340px; margin: 0; padding: 28px; border-radius: 16px; background: #FFFFFF">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 19px; line-height: 1.45; color: #101D51">LeadShift has been a great leadership development partner to Centreville Bank.</p>
+        <p style="margin: 16px 0 0; font-size: 15px"><strong style="color: #101D51">Hal Horvat</strong>, CEO, Centreville Bank</p>
+      </blockquote>
+      <blockquote style="flex: 1 1 340px; margin: 0; padding: 28px; border-radius: 16px; background: #FFFFFF">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 19px; line-height: 1.45; color: #5B6482">[Quote that names a specific change, ideally with a number]</p>
+        <p style="margin: 16px 0 0; font-size: 15px">[Name], [Title], [Company]</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section style="padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px); background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px">
+    <div style="flex: 1 1 340px; min-width: 0">
+      <p style="margin: 0 0 14px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; color: #0068CE">Reviews</p>
+      <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.06; letter-spacing: -0.03em">Verified reviews.</h2>
+      <p style="margin: 18px 0 0">Reviews come from <span style="display: inline-block; padding: 1px 9px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 0.88em; font-weight: 600; line-height: 1.5">[the verified review source]</span>, <span style="display: inline-block; padding: 1px 9px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 0.88em; font-weight: 600; line-height: 1.5">[when and how we ask for them]</span>.</p>
+      <p style="margin: 22px 0 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 44px; font-weight: 600; color: #101D51">[Rating]</p>
+      <p style="margin: 4px 0 0; font-size: 15px">From [N] reviews</p>
+    </div>
+    <div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+      <div style="padding: 22px; border-radius: 14px; border: 1px solid #E3E7F0"><p style="margin: 0; font-weight: 600; color: #101D51">[Rating] · [Program] · [Month, year]</p><p style="margin: 6px 0 0">[Review text]</p><p style="margin: 6px 0 0; font-size: 14px; color: #5B6482">[Reviewer role, company size or industry]</p></div>
+      <div style="padding: 22px; border-radius: 14px; border: 1px solid #E3E7F0"><p style="margin: 0; font-weight: 600; color: #101D51">[Rating] · [Program] · [Month, year]</p><p style="margin: 6px 0 0">[Review text]</p><p style="margin: 6px 0 0; font-size: 14px; color: #5B6482">[Reviewer role, company size or industry]</p></div>
+      <div style="padding: 22px; border-radius: 14px; border: 1px solid #E3E7F0"><p style="margin: 0; font-weight: 600; color: #101D51">[A critical review, and how we responded]</p><p style="margin: 6px 0 0">[Review text and our reply]</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px); background: #F5F7FB">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <p style="margin: 0 0 14px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; color: #0068CE">Claims we make</p>
+    <h2 style="margin: 0; font-size: clamp(32px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.03em">Every claim, with its proof.</h2>
+    <div style="margin-top: 36px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; padding: 24px; border-radius: 14px; background: #FFFFFF">
+        <p style="flex: 1 1 360px; margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; color: #101D51">We measure where you start and where you finish.</p>
+        <p style="flex: 1 1 320px; margin: 0"><span style="display: inline-block; padding: 1px 9px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 0.88em; font-weight: 600; line-height: 1.5">[Proof: a redacted baseline and retest report, or a two-minute video walking through one]</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; padding: 24px; border-radius: 14px; background: #FFFFFF">
+        <p style="flex: 1 1 360px; margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; color: #101D51">Many of our clients have stayed more than a decade.</p>
+        <p style="flex: 1 1 320px; margin: 0"><span style="display: inline-block; padding: 1px 9px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 0.88em; font-weight: 600; line-height: 1.5">[Proof: named long-term clients who agree to be listed, with years]</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; padding: 24px; border-radius: 14px; background: #FFFFFF">
+        <p style="flex: 1 1 360px; margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; color: #101D51">A partner reads every Growth Index with you.</p>
+        <p style="flex: 1 1 320px; margin: 0"><span style="display: inline-block; padding: 1px 9px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 0.88em; font-weight: 600; line-height: 1.5">[Proof: a recorded walkthrough of a sample report]</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px); background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(0, 126, 250, 0.36), rgba(0, 126, 250, 0.08) 55%, rgba(0, 126, 250, 0) 78%), #0A1238; text-align: center">
+  <div style="max-width: 760px; margin: 0 auto">
+    <h2 style="margin: 0; font-size: clamp(32px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.03em; color: #FFFFFF">Your own baseline starts here.</h2>
+    <p style="margin: 20px 0 0; font-size: clamp(18px, 1.5vw, 20px); color: rgba(255, 255, 255, 0.78)">The Growth Index is complimentary, and a partner walks you through it.</p>
+    <a href="GrowthIndex.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; margin-top: 28px; padding: 0 24px; border-radius: 6px; background: #FFFFFF; color: #101D51; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; text-decoration: none">Take the Growth Index</a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: 'all' };
+  }
+  renderVals() {
+    var self = this;
+    var f = this.state.filter;
+    var all = [
+      { program: 'ALIGN', key: 'align', title: '[Client name]: a leadership team before and after ALIGN', metric: '[Team assessment: x to y]' },
+      { program: 'ALIGN', key: 'align', title: '[Client name]: decisions that finally stuck', metric: '[Business measure: start to finish]' },
+      { program: 'Leadership Academy', key: 'academy', title: '[Client name]: the leaders who stepped up', metric: '[Promotions or roles filled from inside]' },
+      { program: 'ASCEND', key: 'ascend', title: '[Client name]: managers scored before and after', metric: '[Management system: x to y]' },
+      { program: 'Executive coaching', key: 'coaching', title: '[Client name]: one leader, six months', metric: '[360: start to finish]' },
+      { program: 'Leadership Academy', key: 'academy', title: '[Client name]: a bench built for growth', metric: '[Measure]' }
+    ];
+    var opts = [['all', 'All'], ['align', 'ALIGN'], ['academy', 'Leadership Academy'], ['ascend', 'ASCEND'], ['coaching', 'Coaching']];
+    return {
+      filters: opts.map(function (o) { return { label: o[1], on: o[0] === f, off: o[0] !== f, pick: function () { self.setState({ filter: o[0] }); } }; }),
+      stories: all.filter(function (s) { return f === 'all' || s.key === f; })
+    };
+  }
+}
+</script>
+</body>
+</html>

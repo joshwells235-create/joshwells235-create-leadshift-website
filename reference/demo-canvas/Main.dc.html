@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LeadShift home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:'Instrument Sans';src:url(/_blob/aca59b927bec6d2365f36d9047a8ca34) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Raleway';src:url(/_blob/9a291c3f4c3e1914f777a6127710ab54) format('woff2');font-weight:100 900;font-display:swap}
+body{margin:0;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Instrument Sans','Raleway',Arial,sans-serif;color:#101D51;font-weight:560;text-wrap:balance}
+p,li{text-wrap:pretty}
+a{color:#0068CE}a:hover{color:#004E9C}
+::selection{background:#007EFA;color:#FFFFFF}
+.ls-btn{transition:background-color 160ms ease,border-color 160ms ease}
+.ls-btn svg,.ls-link svg{transition:transform 180ms cubic-bezier(0.23,1,0.32,1)}
+.ls-btn:hover svg,.ls-link:hover svg{transform:translateX(3px)}
+.ls-light:hover{background:#E8F1FF !important}
+.ls-primary:hover{background:#005BB5 !important}
+.ls-ghost:hover{border-color:rgba(255,255,255,0.5) !important;background:rgba(255,255,255,0.06) !important}
+.ls-quiet:hover{border-color:#101D51 !important}
+.ls-row:hover .ls-row-t{color:#0068CE !important}
+@keyframes lsMarquee{to{transform:translateX(-100%)}}
+.ls-mq{animation:lsMarquee 70s linear infinite}
+.ls-marquee:hover .ls-mq{animation-play-state:paused}
+.ls-qa summary{list-style:none;cursor:pointer}
+.ls-qa summary::-webkit-details-marker{display:none}
+.ls-qa summary:hover h3{color:#0068CE !important}
+.ls-pm{transition:transform 240ms cubic-bezier(0.23,1,0.32,1),background-color 200ms ease,border-color 200ms ease}
+.ls-qa[open] .ls-pm{transform:rotate(45deg);background:#101D51 !important;border-color:#101D51 !important}
+.ls-qa[open] .ls-pm span{background:#FFFFFF !important}
+@media (prefers-reduced-motion: reduce){.ls-mq{animation:none}}
+</style>
+</helmet>
+<div style="font-family: 'Raleway', Arial, sans-serif; font-size: 17px; font-weight: 450; line-height: 1.62; color: #454E70; background: #FFFFFF">
+<dc-import active="home" name="SiteHeader" hint-size="100%,76px"></dc-import>
+
+<section aria-labelledby="hero-title" style="position: relative; overflow: hidden; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px) 0; background: radial-gradient(ellipse 52% 46% at 50% 0%, rgba(0, 126, 250, 0.42), rgba(0, 126, 250, 0.10) 55%, rgba(0, 126, 250, 0) 76%) 0 0 / 100% calc(100% - clamp(160px, 22vw, 260px)) no-repeat, linear-gradient(#0A1238, #0A1238) 0 0 / 100% calc(100% - clamp(160px, 22vw, 260px)) no-repeat, #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center">
+    <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.04); font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.74)"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #8CC2FF"></span>The Growth Index is complimentary for CEOs</p>
+    <h1 id="hero-title" style="margin: 28px 0 0; max-width: 15ch; font-size: clamp(46px, 7.6vw, 104px); font-weight: 560; line-height: 0.98; letter-spacing: -0.04em; color: #FFFFFF">Will your team get you there?</h1>
+    <p style="margin: 26px 0 0; max-width: 54ch; font-size: clamp(18px, 1.5vw, 20px); line-height: 1.6; color: rgba(255, 255, 255, 0.74); text-wrap: balance">LeadShift is a business performance coaching firm based in Worcester, Massachusetts. We help you build the managers, leaders and leadership teams a growing company needs, so the business performs without you carrying it.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px">
+      <a class="ls-btn ls-light" href="GrowthIndex.dc.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 6px; background: #FFFFFF; color: #101D51; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.005em; text-decoration: none">Take the Growth Index<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      <a class="ls-btn ls-ghost" href="BookCall.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.22); color: #FFFFFF; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.005em; text-decoration: none">Talk to a partner</a>
+    </div>
+    <ul style="margin: 26px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 26px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; color: rgba(255, 255, 255, 0.62)">
+      <li style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#8CC2FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>About twenty minutes for you</li>
+      <li style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#8CC2FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Your ratings stay with you</li>
+      <li style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#8CC2FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>A partner reads it with you</li>
+    </ul>
+  </div>
+
+  <figure style="max-width: 1200px; margin: clamp(56px, 7vw, 88px) auto 0">
+    <div style="position: relative; height: calc(clamp(240px, 25vw, 360px) * 1.5)">
+      <img src="/_blob/537ac79eef70c6d6fe4be708d4c5d2ef" alt="" style="position: absolute; left: 50%; top: 0; z-index: 8; width: clamp(240px, 25vw, 360px); height: auto; aspect-ratio: 816 / 1056; border-radius: 3px; background: #FFFFFF; transform-origin: 50% 100%; transform: translateX(calc(-50% - clamp(240px, 25vw, 360px) * 1.2)) translateY(calc(clamp(240px, 25vw, 360px) * 0.16)) rotate(-7deg) scale(0.86); box-shadow: 0 1px 2px rgba(5, 10, 40, 0.18), 0 18px 36px -14px rgba(5, 10, 40, 0.45), 0 40px 80px -30px rgba(5, 10, 40, 0.5)">
+      <img src="/_blob/b553501a054c8831be08442d4c403a1d" alt="An inside page from the sample report" style="position: absolute; left: 50%; top: 0; z-index: 9; width: clamp(240px, 25vw, 360px); height: auto; aspect-ratio: 816 / 1056; border-radius: 3px; background: #FFFFFF; transform-origin: 50% 100%; transform: translateX(calc(-50% - clamp(240px, 25vw, 360px) * 0.6)) translateY(calc(clamp(240px, 25vw, 360px) * 0.08)) rotate(-3.5deg) scale(0.93); box-shadow: 0 1px 2px rgba(5, 10, 40, 0.18), 0 18px 36px -14px rgba(5, 10, 40, 0.45), 0 40px 80px -30px rgba(5, 10, 40, 0.5)">
+      <img src="/_blob/ed384c6f89b552c6b9103f2f2184095b" alt="Another inside page from the sample report" style="position: absolute; left: 50%; top: 0; z-index: 9; width: clamp(240px, 25vw, 360px); height: auto; aspect-ratio: 816 / 1056; border-radius: 3px; background: #FFFFFF; transform-origin: 50% 100%; transform: translateX(calc(-50% + clamp(240px, 25vw, 360px) * 0.6)) translateY(calc(clamp(240px, 25vw, 360px) * 0.08)) rotate(3.5deg) scale(0.93); box-shadow: 0 1px 2px rgba(5, 10, 40, 0.18), 0 18px 36px -14px rgba(5, 10, 40, 0.45), 0 40px 80px -30px rgba(5, 10, 40, 0.5)">
+      <img src="/_blob/75d671547a2417765dabba739dcbcb4d" alt="" style="position: absolute; left: 50%; top: 0; z-index: 8; width: clamp(240px, 25vw, 360px); height: auto; aspect-ratio: 816 / 1056; border-radius: 3px; background: #FFFFFF; transform-origin: 50% 100%; transform: translateX(calc(-50% + clamp(240px, 25vw, 360px) * 1.2)) translateY(calc(clamp(240px, 25vw, 360px) * 0.16)) rotate(7deg) scale(0.86); box-shadow: 0 1px 2px rgba(5, 10, 40, 0.18), 0 18px 36px -14px rgba(5, 10, 40, 0.45), 0 40px 80px -30px rgba(5, 10, 40, 0.5)">
+      <img src="/_blob/fa2b840ae67a7075a2aa26cae6fa1815" alt="Cover of a sample Growth Index report, prepared for a fictional company" style="position: absolute; left: 50%; top: 0; z-index: 10; width: clamp(240px, 25vw, 360px); height: auto; aspect-ratio: 816 / 1056; border-radius: 3px; background: #FFFFFF; transform: translateX(-50%); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), 0 1px 2px rgba(5, 10, 40, 0.25), 0 24px 48px -16px rgba(5, 10, 40, 0.6), 0 56px 110px -36px rgba(5, 10, 40, 0.6)">
+    </div>
+    <figcaption style="max-width: 60ch; margin: clamp(28px, 3vw, 40px) auto 0; text-align: center; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #5B6482; text-wrap: balance">Pages from a sample report for a fictional company. Yours is built from your strategy, your ratings and your leaders' assessments.</figcaption>
+  </figure>
+</section>
+
+<section aria-label="What clients say" style="padding: clamp(80px, 9vw, 128px) clamp(20px, 4vw, 40px) clamp(72px, 8vw, 112px); background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 48px 96px">
+      <figure style="flex: 7 1 520px; min-width: 0; margin: 0">
+        <blockquote style="margin: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(26px, 3vw, 40px); font-weight: 500; line-height: 1.2; letter-spacing: -0.025em; color: #101D51"><span aria-hidden="true" style="margin-left: -0.42em; color: #007EFA">“</span>Our partnership with LeadShift has been instrumental in helping us to develop strong portfolio leadership. With stronger leadership we've lowered execution risks and driven higher returns.”</p></blockquote>
+        <figcaption style="margin-top: 26px; display: flex; align-items: center; gap: 14px; font-family: 'Instrument Sans', Arial, sans-serif"><span aria-hidden="true" style="flex: none; width: 28px; height: 2px; border-radius: 1px; background: #007EFA"></span><span><b style="display: block; font-size: 16px; font-weight: 600; color: #101D51">David Dullum</b><span style="display: block; font-size: 14px; color: #5B6482">President, Gladstone Investment Corporation</span></span></figcaption>
+      </figure>
+      <div style="flex: 4 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 40px">
+        <figure style="margin: 0">
+          <blockquote style="margin: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 500; line-height: 1.42; letter-spacing: -0.01em; color: #101D51">“LeadShift has been a great leadership development partner to Centreville Bank.”</p></blockquote>
+          <figcaption style="margin-top: 18px; display: flex; align-items: center; gap: 14px; font-family: 'Instrument Sans', Arial, sans-serif"><span aria-hidden="true" style="flex: none; width: 28px; height: 2px; border-radius: 1px; background: #007EFA"></span><span><b style="display: block; font-size: 16px; font-weight: 600; color: #101D51">Hal Horvat</b><span style="display: block; font-size: 14px; color: #5B6482">CEO, Centreville Bank</span></span></figcaption>
+        </figure>
+        <dl style="margin: 0; padding-top: 24px; border-top: 1px solid #D4DAE7; display: flex; flex-wrap: wrap; gap: 16px">
+          <div style="flex: 1 1 80px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px"><dt style="font-family: 'Instrument Sans', Arial, sans-serif; font-size: 13px; line-height: 1.35; color: #5B6482">Building leaders since</dt><dd style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(26px, 2.4vw, 34px); font-weight: 560; line-height: 1; letter-spacing: -0.03em; color: #101D51; font-variant-numeric: tabular-nums">1997</dd></div>
+          <div style="flex: 1 1 80px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px"><dt style="font-family: 'Instrument Sans', Arial, sans-serif; font-size: 13px; line-height: 1.35; color: #5B6482">Organizations served</dt><dd style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(26px, 2.4vw, 34px); font-weight: 560; line-height: 1; letter-spacing: -0.03em; color: #101D51; font-variant-numeric: tabular-nums">200+</dd></div>
+          <div style="flex: 1 1 80px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px"><dt style="font-family: 'Instrument Sans', Arial, sans-serif; font-size: 13px; line-height: 1.35; color: #5B6482">How long many clients stay</dt><dd style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(26px, 2.4vw, 34px); font-weight: 560; line-height: 1; letter-spacing: -0.03em; color: #101D51; font-variant-numeric: tabular-nums">10+ yrs</dd></div>
+        </dl>
+        <a class="ls-link" href="Results.dc.html" style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: -16px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #0068CE; text-decoration: none">Verified client reviews <span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-size: 14px; font-weight: 600; line-height: 1.5">[Rating] from [N] reviews</span><svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+    </div>
+
+    <div style="margin-top: clamp(48px, 5vw, 72px); padding-top: 28px; border-top: 1px solid #E3E7F0">
+      <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 500; color: #5B6482">Clients include</p>
+      <div class="ls-marquee" style="margin-top: 26px; display: flex; overflow: hidden; mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0), #000000 7%, #000000 93%, rgba(0, 0, 0, 0))">
+        <ul class="ls-mq" style="flex: none; margin: 0; padding: 0 64px 0 0; list-style: none; display: flex; align-items: center; gap: 64px">
+          <sc-for list="{{logos}}" as="logo" hint-placeholder-count="24">
+            <li style="flex: none; display: flex; align-items: center; height: 56px"><img src="{{logo.src}}" alt="{{logo.alt}}" style="display: block; width: auto; height: auto; max-width: 132px; max-height: 50px; opacity: 0.7"></li>
+          </sc-for>
+        </ul>
+        <ul class="ls-mq" aria-hidden="true" style="flex: none; margin: 0; padding: 0 64px 0 0; list-style: none; display: flex; align-items: center; gap: 64px">
+          <sc-for list="{{logos}}" as="logo" hint-placeholder-count="24">
+            <li style="flex: none; display: flex; align-items: center; height: 56px"><img src="{{logo.src}}" alt="" style="display: block; width: auto; height: auto; max-width: 132px; max-height: 50px; opacity: 0.7"></li>
+          </sc-for>
+        </ul>
+      </div>
+      <p style="margin: 22px 0 0; max-width: 110ch; font-size: 13px; line-height: 1.6; color: #5B6482">LeadShift clients include Arena Mail + Digital, Brunswick, Centreville Bank, Digital Fuel Capital, Driv-Lok, Edge Adhesives, Educators Resource, Elevation 3D, Frontier Packaging, The Hunley Group, Interstate Specialty Products, Lock N Lube, MSM, Nocturne Luxury Villas, Optima Overnight, Pioneer Square Brands, PORT, Specialized Fabrication Equipment Group, Stackry, Teamworks, Union Street Media, WCS Industries, Wellist and Worthen.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="thesis-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #FFFFFF; border-top: 1px solid #E3E7F0">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px 96px">
+      <div style="flex: 7 1 520px; min-width: 0">
+        <h2 id="thesis-title" style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em">Build a business that performs without you carrying it.</h2>
+        <p style="margin: 28px 0 0; max-width: 42ch; font-size: clamp(18px, 1.5vw, 20px); line-height: 1.6">Every growing company eventually faces the same question: will the team that got you here get you there?</p>
+        <p style="margin: 14px 0 0; max-width: 46ch">Most of our work starts with one of three problems.</p>
+      </div>
+      <figure style="flex: 4 1 300px; max-width: 440px; margin: 0; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: #F5F7FB"><img src="/_blob/87ef3827da9b866a7126d3d09dee2c6f" alt="An executive at his desk, deep in thought" style="display: block; width: 100%; height: 100%; object-fit: cover"></figure>
+    </div>
+
+    <ol aria-label="Three problems we solve" style="margin: clamp(56px, 7vw, 96px) 0 0; padding: 0; list-style: none; border-bottom: 1px solid #D4DAE7">
+      <li style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 24px; padding: clamp(28px, 3.4vw, 44px) 0; border-top: 1px solid #D4DAE7">
+        <p style="flex: 3 1 200px; margin: 0; padding-top: 8px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE"><span style="margin-right: 12px; color: #8A93AE; font-variant-numeric: tabular-nums">01</span>Leadership bench</p>
+        <h3 style="flex: 5 1 320px; margin: 0; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.14; letter-spacing: -0.022em">You need a deeper bench of leaders.</h3>
+        <div style="flex: 4 1 280px; min-width: 0">
+          <p style="margin: 0; font-size: 16px">Leaders ready to step up when the company grows or someone leaves, and to grow into what the business needs next, with the right people in the right seats.</p>
+          <p style="margin: 12px 0 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 500; color: #5B6482">The Leadership Academy, executive coaching, hiring excellence</p>
+          <a class="ls-link" href="LeadershipBench.dc.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #0068CE; text-decoration: none">How we build the bench<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+      </li>
+      <li style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 24px; padding: clamp(28px, 3.4vw, 44px) 0; border-top: 1px solid #D4DAE7">
+        <p style="flex: 3 1 200px; margin: 0; padding-top: 8px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE"><span style="margin-right: 12px; color: #8A93AE; font-variant-numeric: tabular-nums">02</span>Team performance</p>
+        <h3 style="flex: 5 1 320px; margin: 0; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.14; letter-spacing: -0.022em">Your leadership team isn't working as a team.</h3>
+        <div style="flex: 4 1 280px; min-width: 0">
+          <p style="margin: 0; font-size: 16px">A team that trusts each other, argues about the right things, commits, holds each other to it, and puts the company's results ahead of their own departments.</p>
+          <p style="margin: 12px 0 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 500; color: #5B6482">ALIGN</p>
+          <a class="ls-link" href="TeamPerformance.dc.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #0068CE; text-decoration: none">How ALIGN fixes it<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+      </li>
+      <li style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 24px; padding: clamp(28px, 3.4vw, 44px) 0; border-top: 1px solid #D4DAE7">
+        <p style="flex: 3 1 200px; margin: 0; padding-top: 8px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE"><span style="margin-right: 12px; color: #8A93AE; font-variant-numeric: tabular-nums">03</span>Frontline managers</p>
+        <h3 style="flex: 5 1 320px; margin: 0; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.14; letter-spacing: -0.022em">Your frontline managers were never taught to manage.</h3>
+        <div style="flex: 4 1 280px; min-width: 0">
+          <p style="margin: 0; font-size: 16px">Managers who run real one-on-ones, set clear goals, hold people accountable and handle the hard conversation themselves, so problems get solved where they start instead of climbing to you.</p>
+          <p style="margin: 12px 0 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 500; color: #5B6482">ASCEND</p>
+          <a class="ls-link" href="FrontlineManagers.dc.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #0068CE; text-decoration: none">How ASCEND works<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+      </li>
+    </ol>
+    <p style="margin: 22px 0 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; color: #5B6482">We also coach sales leaders and their teams. <a href="Coaching.dc.html" style="font-weight: 600; text-decoration: none">See coaching</a></p>
+
+    <div style="margin-top: clamp(56px, 7vw, 88px); padding: clamp(28px, 4vw, 48px); border-radius: 22px; background: #F5F7FB; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px 40px">
+      <blockquote style="flex: 1 1 520px; margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(22px, 2.4vw, 32px); font-weight: 500; line-height: 1.32; letter-spacing: -0.015em; color: #101D51">If nothing changes, every decision keeps routing back to you, and the business grows at the speed of your calendar.</blockquote>
+      <a class="ls-btn ls-primary" href="GrowthIndex.dc.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 6px; background: #0068CE; color: #FFFFFF; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.005em; text-decoration: none; white-space: nowrap">Take the Growth Index<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="how-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #F5F7FB">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 56px 80px">
+    <div style="flex: 5 1 380px; min-width: 0">
+      <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE">How it works</p>
+      <h2 id="how-title" style="margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em">Three steps from question to plan.</h2>
+      <ol style="margin: 36px 0 0; padding: 0; list-style: none; border-bottom: 1px solid #D4DAE7">
+        <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #D4DAE7"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #E3E7F0; color: #0068CE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="0.8" fill="currentColor"></circle></svg></span><div><h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em">Take the Growth Index</h3><p style="margin: 4px 0 0; font-size: 16px">Name the five priorities your strategy depends on and rate each leader privately. About twenty minutes for you.</p></div></li>
+        <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #D4DAE7"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #E3E7F0; color: #0068CE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"></circle><path d="M3.5 19c.6-3 2.8-5 5.5-5s4.9 2 5.5 5"></path><circle cx="16.5" cy="9.5" r="2.6"></circle><path d="M15.6 14.2c2.5-.2 4.4 1.5 4.9 4.3"></path></svg></span><div><h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em">Read it with a partner</h3><p style="margin: 4px 0 0; font-size: 16px">A LeadShift partner walks you through the report, leader by leader, and names the gap: the team, the leaders, or both.</p></div></li>
+        <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #D4DAE7"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #E3E7F0; color: #0068CE"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l4 4v13h-12z"></path><path d="M14.5 3.5v4h4"></path><path d="M9.5 12.5h6M9.5 16h4"></path></svg></span><div><h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em">Get a plan with a scope and a price</h3><p style="margin: 4px 0 0; font-size: 16px">You leave with a plan for the gap, a clear scope and a price, and the start and finish measures that show it worked.</p></div></li>
+      </ol>
+    </div>
+    <div style="flex: 7 1 520px; min-width: 0">
+      <dc-import name="VideoPoster" kind="Landing video" duration="2 min" heading="How LeadShift works, in two minutes" note="Partners on camera: who we help, what a first engagement looks like, what it costs." hint-size="100%,380px"></dc-import>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="stories-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px">
+      <div style="flex: 1 1 560px; min-width: 0">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE">Client stories</p>
+        <h2 id="stories-title" style="margin: 14px 0 0; max-width: 18ch; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em">Measured at the start. Measured again at the end.</h2>
+      </div>
+      <a class="ls-link" href="Results.dc.html" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; color: #0068CE; text-decoration: none">All stories and reviews<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+
+    <article style="margin-top: 48px; padding: clamp(28px, 4.4vw, 56px); border-radius: 22px; background: radial-gradient(ellipse 60% 90% at 100% 0%, rgba(0, 126, 250, 0.26), rgba(0, 126, 250, 0.05) 55%, rgba(0, 126, 250, 0) 80%), #0A1238; color: rgba(255, 255, 255, 0.74); display: flex; flex-wrap: wrap; align-items: stretch; gap: 40px 64px">
+      <div style="flex: 6 1 420px; min-width: 0; display: flex; flex-direction: column">
+        <p style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; color: #8CC2FF">ALIGN <span aria-hidden="true" style="color: rgba(255, 255, 255, 0.3)">/</span> <span style="display: inline-block; padding: 2px 8px; border-radius: 5px; border: 1px dashed rgba(140, 194, 255, 0.5); background: rgba(255, 255, 255, 0.06); font-size: 13px; font-weight: 600; color: #8CC2FF">[Industry]</span></p>
+        <h3 style="margin: 18px 0 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.12; letter-spacing: -0.025em; color: #FFFFFF"><span style="display: inline-block; padding: 0 10px; border-radius: 6px; border: 1px dashed rgba(140, 194, 255, 0.5); background: rgba(255, 255, 255, 0.06); color: #8CC2FF">[Client name]</span>'s leadership team, before and after ALIGN</h3>
+        <p style="margin: 18px 0 0; max-width: 46ch"><span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed rgba(140, 194, 255, 0.5); background: rgba(255, 255, 255, 0.06); font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.5; color: #8CC2FF">[Two sentences: what was breaking, and what the CEO says is different now]</span></p>
+        <a class="ls-btn ls-light" href="CaseStory.dc.html" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; margin-top: auto; padding: 0 20px; border-radius: 6px; background: #FFFFFF; color: #101D51; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Read the story<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+      <div style="flex: 5 1 340px; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255, 255, 255, 0.58)">Team assessment</p>
+        <div style="margin-top: 14px; display: flex; align-items: flex-end; gap: 20px">
+          <div style="flex: 1 1 0; min-width: 0">
+            <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(40px, 4.6vw, 64px); font-weight: 560; line-height: 1; letter-spacing: -0.04em; color: rgba(255, 255, 255, 0.4); font-variant-numeric: tabular-nums">[Start]</p>
+            <p style="margin: 10px 0 0; font-size: 14px">Baseline</p>
+          </div>
+          <svg aria-hidden="true" width="28" height="28" viewBox="0 0 16 16" style="flex: none; margin-bottom: 38px"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="#8CC2FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <div style="flex: 1 1 0; min-width: 0">
+            <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(40px, 4.6vw, 64px); font-weight: 560; line-height: 1; letter-spacing: -0.04em; color: #FFFFFF; font-variant-numeric: tabular-nums">[Retest]</p>
+            <p style="margin: 10px 0 0; font-size: 14px">Six months later</p>
+          </div>
+        </div>
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.12)">
+          <p style="margin: 0; font-size: 14px; color: rgba(255, 255, 255, 0.58)">Business measure set with the CEO</p>
+          <p style="margin: 6px 0 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 560; letter-spacing: -0.01em; color: #FFFFFF">[Measure: start to finish]</p>
+        </div>
+      </div>
+    </article>
+
+    <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 0 32px">
+      <a class="ls-row" href="Results.dc.html" style="flex: 1 1 340px; min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-top: 1px solid #D4DAE7; border-bottom: 1px solid #D4DAE7; text-decoration: none">
+        <span><span style="display: block; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 13px; font-weight: 560; color: #0068CE">Leadership Academy</span><span class="ls-row-t" style="display: block; margin-top: 4px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 19px; font-weight: 560; letter-spacing: -0.01em; color: #101D51">[Client story: a bench built from inside]</span></span>
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" style="flex: none"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+      <a class="ls-row" href="Results.dc.html" style="flex: 1 1 340px; min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-top: 1px solid #D4DAE7; border-bottom: 1px solid #D4DAE7; text-decoration: none">
+        <span><span style="display: block; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 13px; font-weight: 560; color: #0068CE">ASCEND</span><span class="ls-row-t" style="display: block; margin-top: 4px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 19px; font-weight: 560; letter-spacing: -0.01em; color: #101D51">[Client story: managers scored before and after]</span></span>
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" style="flex: none"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="price-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #F5F7FB">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 32px 96px">
+      <div style="flex: 5 1 380px; min-width: 0">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE">Pricing</p>
+        <h2 id="price-title" style="margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em">What it costs.</h2>
+        <p style="margin: 20px 0 0; max-width: 40ch; font-size: clamp(18px, 1.5vw, 20px); line-height: 1.6">We publish ranges, so you know where you stand before the first call.</p>
+      </div>
+      <div style="flex: 6 1 420px; min-width: 0">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-weight: 600; color: #101D51">Three things move a price inside its range:</p>
+        <ul style="margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+          <li style="display: flex; gap: 10px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>How many leaders take part</li>
+          <li style="display: flex; gap: 10px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>How much one-on-one coaching runs alongside the group work</li>
+          <li style="display: flex; gap: 10px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>How long the program runs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: clamp(40px, 5vw, 64px); background: #FFFFFF; border: 1px solid #E3E7F0; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(10, 18, 56, 0.04), 0 24px 56px -40px rgba(10, 18, 56, 0.22)">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-bottom: 1px solid #E3E7F0">
+        <div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: #101D51">ALIGN</p><p style="margin: 2px 0 0; font-size: 15px; color: #5B6482">Your leadership team · six months</p></div>
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; color: #101D51; font-variant-numeric: tabular-nums">$50,000 to $75,000</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-bottom: 1px solid #E3E7F0">
+        <div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: #101D51">The Leadership Academy</p><p style="margin: 2px 0 0; font-size: 15px; color: #5B6482">Leaders and high-potential managers · nine months</p></div>
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; color: #101D51; font-variant-numeric: tabular-nums">$15,000 to $18,000 <span style="font-family: 'Raleway', Arial, sans-serif; font-size: 15px; font-weight: 450; letter-spacing: 0; color: #5B6482">per seat</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-bottom: 1px solid #E3E7F0">
+        <div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: #101D51">ASCEND</p><p style="margin: 2px 0 0; font-size: 15px; color: #5B6482">Frontline managers · four months</p></div>
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; color: #101D51; font-variant-numeric: tabular-nums">$4,000 to $6,000 <span style="font-family: 'Raleway', Arial, sans-serif; font-size: 15px; font-weight: 450; letter-spacing: 0; color: #5B6482">per manager</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-bottom: 1px solid #E3E7F0">
+        <div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: #101D51">Executive coaching</p><p style="margin: 2px 0 0; font-size: 15px; color: #5B6482">One leader, the whole role · six months</p></div>
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; color: #101D51; font-variant-numeric: tabular-nums">$18,000</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-bottom: 1px solid #E3E7F0">
+        <div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: #101D51">Performance coaching</p><p style="margin: 2px 0 0; font-size: 15px; color: #5B6482">One leader, one goal</p></div>
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; color: #101D51; font-variant-numeric: tabular-nums">$5,000 <span style="font-family: 'Raleway', Arial, sans-serif; font-size: 15px; font-weight: 450; letter-spacing: 0; color: #5B6482">per sprint</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px clamp(20px, 2.4vw, 32px); border-bottom: 1px solid #E3E7F0">
+        <div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: #101D51">Sales coaching</p><p style="margin: 2px 0 0; font-size: 15px; color: #5B6482">Sales leaders and their teams</p></div>
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; color: #101D51; font-variant-numeric: tabular-nums">$5,000 <span style="font-family: 'Raleway', Arial, sans-serif; font-size: 15px; font-weight: 450; letter-spacing: 0; color: #5B6482">per sprint</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding: 22px clamp(20px, 2.4vw, 32px); background: #FBFCFE">
+        <a class="ls-btn ls-primary" href="Pricing.dc.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 6px; background: #0068CE; color: #FFFFFF; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none">Find your likely starting point<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a class="ls-link" href="Article.dc.html" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #0068CE; text-decoration: none">Why leadership development costs what it does<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="fit-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px 96px">
+    <div style="flex: 4 1 320px; min-width: 0">
+      <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE">Fit</p>
+      <h2 id="fit-title" style="margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.06; letter-spacing: -0.03em">Who we're for, and who we're not.</h2>
+      <p style="margin: 20px 0 0; max-width: 38ch">We would rather tell you we're the wrong fit than sell you a program that won't fix the problem.</p>
+      <a class="ls-link" href="Fit.dc.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #0068CE; text-decoration: none">Is LeadShift right for you?<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+    <div style="flex: 8 1 560px; min-width: 0; display: flex; flex-wrap: wrap; gap: 40px">
+      <div style="flex: 1 1 260px; min-width: 0">
+        <h3 style="margin: 0; padding-bottom: 14px; border-bottom: 2px solid #101D51; font-size: 19px; font-weight: 600; letter-spacing: -0.01em">A good fit</h3>
+        <ul style="margin: 0; padding: 0; list-style: none">
+          <li style="display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E7F0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>CEOs and leadership teams of growing companies</li>
+          <li style="display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E7F0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Leaders willing to be measured at the start and the end</li>
+          <li style="display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E7F0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="#0068CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.5">[Third fit marker]</span></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 260px; min-width: 0">
+        <h3 style="margin: 0; padding-bottom: 14px; border-bottom: 2px solid #D4DAE7; font-size: 19px; font-weight: 600; letter-spacing: -0.01em">Probably not a fit</h3>
+        <ul style="margin: 0; padding: 0; list-style: none">
+          <li style="display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E7F0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="M4 8h8" fill="none" stroke="#8A93AE" stroke-width="1.6" stroke-linecap="round"></path></svg><span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.5">[A request we would point elsewhere]</span></li>
+          <li style="display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E7F0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="M4 8h8" fill="none" stroke="#8A93AE" stroke-width="1.6" stroke-linecap="round"></path></svg><span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.5">[A situation where training won't fix it]</span></li>
+          <li style="display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E7F0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex: none; margin-top: 4px"><path d="M4 8h8" fill="none" stroke="#8A93AE" stroke-width="1.6" stroke-linecap="round"></path></svg><span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.5">[A size or stage we don't serve well]</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="faq-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #F5F7FB">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 96px">
+    <div style="flex: 4 1 300px; min-width: 0">
+      <h2 id="faq-title" style="margin: 0; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.06; letter-spacing: -0.03em">Questions CEOs ask us.</h2>
+      <p style="margin: 20px 0 0; max-width: 34ch; font-size: clamp(18px, 1.5vw, 20px); line-height: 1.6">Straight answers to what CEOs want to know before they call.</p>
+      <p style="margin: 18px 0 0; max-width: 34ch; font-size: 16px">More in the <a href="LearningCenter.dc.html" style="font-family: 'Instrument Sans', Arial, sans-serif; font-weight: 600; text-decoration: none; white-space: nowrap">Learning Center</a>.</p>
+    </div>
+    <div style="flex: 8 1 560px; min-width: 0; border-bottom: 1px solid #D4DAE7">
+      <details class="ls-qa" style="border-top: 1px solid #D4DAE7">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0"><h3 style="margin: 0; font-size: clamp(18px, 1.5vw, 20px); font-weight: 600; line-height: 1.35; letter-spacing: -0.01em">Why does every decision still end up on my desk?</h3><span class="ls-pm" aria-hidden="true" style="position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid #D4DAE7"><span style="position: absolute; left: 8.5px; top: 13.2px; width: 11px; height: 1.6px; border-radius: 1px; background: #101D51"></span><span style="position: absolute; left: 13.2px; top: 8.5px; width: 1.6px; height: 11px; border-radius: 1px; background: #101D51"></span></span></summary>
+        <p style="margin: 0; padding: 0 54px 26px 0; max-width: 62ch">Usually because the people around you aren't set up to make it. Leaders without clear ownership send decisions up. A leadership team that avoids hard debate revisits decisions instead of standing behind them. Frontline managers who were never taught to manage pass problems up the line. Each has a different fix, and the Growth Index shows which one you have.</p>
+      </details>
+      <details class="ls-qa" style="border-top: 1px solid #D4DAE7">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0"><h3 style="margin: 0; font-size: clamp(18px, 1.5vw, 20px); font-weight: 600; line-height: 1.35; letter-spacing: -0.01em">Is the problem my leadership team, or the leaders on it?</h3><span class="ls-pm" aria-hidden="true" style="position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid #D4DAE7"><span style="position: absolute; left: 8.5px; top: 13.2px; width: 11px; height: 1.6px; border-radius: 1px; background: #101D51"></span><span style="position: absolute; left: 13.2px; top: 8.5px; width: 1.6px; height: 11px; border-radius: 1px; background: #101D51"></span></span></summary>
+        <p style="margin: 0; padding: 0 54px 26px 0; max-width: 62ch">Look at where things break. If capable leaders run their own areas well but the team struggles to debate, commit and hold each other accountable, the gap is the team, and ALIGN works on that. If the team works well together but some leaders aren't ready for what the business needs next, the gap is the leaders, and the Leadership Academy develops them in a cohort. Often it's both.</p>
+      </details>
+      <details class="ls-qa" style="border-top: 1px solid #D4DAE7">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0"><h3 style="margin: 0; font-size: clamp(18px, 1.5vw, 20px); font-weight: 600; line-height: 1.35; letter-spacing: -0.01em">My best performer got promoted and is struggling as a manager. What now?</h3><span class="ls-pm" aria-hidden="true" style="position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid #D4DAE7"><span style="position: absolute; left: 8.5px; top: 13.2px; width: 11px; height: 1.6px; border-radius: 1px; background: #101D51"></span><span style="position: absolute; left: 13.2px; top: 8.5px; width: 1.6px; height: 11px; border-radius: 1px; background: #101D51"></span></span></summary>
+        <p style="margin: 0; padding: 0 54px 26px 0; max-width: 62ch">Being great at the work doesn't teach anyone to run a team. New managers need a simple system for one-on-ones, goals, accountability, recognition and hard conversations, and they need to understand how each person on their team is wired. ASCEND builds both.</p>
+      </details>
+      <details class="ls-qa" style="border-top: 1px solid #D4DAE7">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0"><h3 style="margin: 0; font-size: clamp(18px, 1.5vw, 20px); font-weight: 600; line-height: 1.35; letter-spacing: -0.01em">Should I develop the leaders I have or replace them?</h3><span class="ls-pm" aria-hidden="true" style="position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid #D4DAE7"><span style="position: absolute; left: 8.5px; top: 13.2px; width: 11px; height: 1.6px; border-radius: 1px; background: #101D51"></span><span style="position: absolute; left: 13.2px; top: 8.5px; width: 1.6px; height: 11px; border-radius: 1px; background: #101D51"></span></span></summary>
+        <p style="margin: 0; padding: 0 54px 26px 0; max-width: 62ch">Start by checking whether they've had a fair shot: clear expectations, the authority to act and real support. When the gap holds after those are in place, a different seat or a change can be the right call for the company and for the leader. The Growth Index puts your ratings beside each leader's match to the role, so the decision rests on more than instinct.</p>
+      </details>
+      <details class="ls-qa" style="border-top: 1px solid #D4DAE7">
+        <summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0"><h3 style="margin: 0; font-size: clamp(18px, 1.5vw, 20px); font-weight: 600; line-height: 1.35; letter-spacing: -0.01em">How do we know it's working?</h3><span class="ls-pm" aria-hidden="true" style="position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid #D4DAE7"><span style="position: absolute; left: 8.5px; top: 13.2px; width: 11px; height: 1.6px; border-radius: 1px; background: #101D51"></span><span style="position: absolute; left: 13.2px; top: 8.5px; width: 1.6px; height: 11px; border-radius: 1px; background: #101D51"></span></span></summary>
+        <p style="margin: 0; padding: 0 54px 26px 0; max-width: 62ch">We measure where you start and where you finish. ALIGN gives the team the same team assessment at the beginning and the end, and sets performance measures with the team leader up front. ASCEND scores each manager on the management system before and after.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="learn-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #FFFFFF">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE">Learning Center</p>
+        <h2 id="learn-title" style="margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.06; letter-spacing: -0.03em">Answers before you ask.</h2>
+      </div>
+      <a class="ls-link" href="LearningCenter.dc.html" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; color: #0068CE; text-decoration: none">Browse every answer<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+    <div style="margin-top: clamp(36px, 4vw, 56px); border-bottom: 1px solid #D4DAE7">
+      <a class="ls-row" href="Article.dc.html" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 26px 0; border-top: 1px solid #D4DAE7; text-decoration: none; color: #454E70">
+        <span style="flex: 2 1 160px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; color: #0068CE">Cost and pricing</span>
+        <span class="ls-row-t" style="flex: 5 1 340px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(20px, 1.9vw, 24px); font-weight: 560; line-height: 1.25; letter-spacing: -0.015em; color: #101D51">How much does leadership development cost?</span>
+        <span style="flex: 5 1 300px; font-size: 15px; line-height: 1.5">What moves the price, the ranges we charge, and how to compare quotes.</span>
+      </a>
+      <a class="ls-row" href="LearningCenter.dc.html" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 26px 0; border-top: 1px solid #D4DAE7; text-decoration: none; color: #454E70">
+        <span style="flex: 2 1 160px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; color: #0068CE">Problems</span>
+        <span class="ls-row-t" style="flex: 5 1 340px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(20px, 1.9vw, 24px); font-weight: 560; line-height: 1.25; letter-spacing: -0.015em; color: #101D51">Signs your leadership team isn't a team</span>
+        <span style="flex: 5 1 300px"><span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.5">[Article to write]</span></span>
+      </a>
+      <a class="ls-row" href="LearningCenter.dc.html" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 26px 0; border-top: 1px solid #D4DAE7; text-decoration: none; color: #454E70">
+        <span style="flex: 2 1 160px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; color: #0068CE">Comparisons</span>
+        <span class="ls-row-t" style="flex: 5 1 340px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(20px, 1.9vw, 24px); font-weight: 560; line-height: 1.25; letter-spacing: -0.015em; color: #101D51">Executive coaching or performance coaching?</span>
+        <span style="flex: 5 1 300px"><span style="display: inline-block; padding: 3px 10px; border-radius: 5px; border: 1px dashed #9DB8E0; background: #F3F8FF; color: #0068CE; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.5">[Article to write]</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="partners-title" style="padding: clamp(88px, 10vw, 140px) clamp(20px, 4vw, 40px); background: #F5F7FB">
+  <div style="max-width: 1200px; margin: 0 auto">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <p style="margin: 0; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 14px; font-weight: 560; letter-spacing: 0.01em; color: #0068CE">The partners</p>
+        <h2 id="partners-title" style="margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.06; letter-spacing: -0.03em">Meet the people you'd work with.</h2>
+      </div>
+      <a class="ls-link" href="About.dc.html" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; color: #0068CE; text-decoration: none">Meet the whole team<svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+    <ul style="margin: 40px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 32px 24px">
+      <li style="flex: 1 1 300px; min-width: 0">
+        <div role="img" aria-label="Photo and bio video placeholder for Joe Cundall" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; border-radius: 22px; background: radial-gradient(ellipse 70% 60% at 78% 12%, rgba(0, 126, 250, 0.26), rgba(0, 126, 250, 0) 72%), #0A1238; display: flex; align-items: center; justify-content: center">
+          <span style="font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(44px, 5vw, 72px); font-weight: 560; letter-spacing: -0.03em; color: rgba(255, 255, 255, 0.92)">JC</span>
+          <span style="position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 5px; border: 1px dashed rgba(140, 194, 255, 0.5); background: rgba(255, 255, 255, 0.06); font-family: 'Instrument Sans', Arial, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.5; color: #8CC2FF"><svg aria-hidden="true" width="9" height="10" viewBox="0 0 9 10"><path d="M1 1.2v7.6c0 .5.5.8.9.5l6.2-3.8c.4-.3.4-.8 0-1.1L1.9.7C1.5.4 1 .7 1 1.2z" fill="#8CC2FF"></path></svg>[Photo and 90-second bio video]</span>
+        </div>
+        <h3 style="margin: 18px 0 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Joe Cundall</h3>
+        <p style="margin: 2px 0 0; font-size: 15px">Chief Executive Officer</p>
+      </li>
+      <li style="flex: 1 1 300px; min-width: 0">
+        <div role="img" aria-label="Photo and bio video placeholder for Kailyn Graham" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; border-radius: 22px; background: radial-gradient(ellipse 70% 60% at 78% 12%, rgba(0, 126, 250, 0.26), rgba(0, 126, 250, 0) 72%), #0A1238; display: flex; align-items: center; justify-content: center">
+          <span style="font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(44px, 5vw, 72px); font-weight: 560; letter-spacing: -0.03em; color: rgba(255, 255, 255, 0.92)">KG</span>
+          <span style="position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 5px; border: 1px dashed rgba(140, 194, 255, 0.5); background: rgba(255, 255, 255, 0.06); font-family: 'Instrument Sans', Arial, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.5; color: #8CC2FF"><svg aria-hidden="true" width="9" height="10" viewBox="0 0 9 10"><path d="M1 1.2v7.6c0 .5.5.8.9.5l6.2-3.8c.4-.3.4-.8 0-1.1L1.9.7C1.5.4 1 .7 1 1.2z" fill="#8CC2FF"></path></svg>[Photo and 90-second bio video]</span>
+        </div>
+        <h3 style="margin: 18px 0 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Kailyn Graham</h3>
+        <p style="margin: 2px 0 0; font-size: 15px">Chief Operating Officer</p>
+      </li>
+      <li style="flex: 1 1 300px; min-width: 0">
+        <div role="img" aria-label="Photo and bio video placeholder for Josh Wells" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; border-radius: 22px; background: radial-gradient(ellipse 70% 60% at 78% 12%, rgba(0, 126, 250, 0.26), rgba(0, 126, 250, 0) 72%), #0A1238; display: flex; align-items: center; justify-content: center">
+          <span style="font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(44px, 5vw, 72px); font-weight: 560; letter-spacing: -0.03em; color: rgba(255, 255, 255, 0.92)">JW</span>
+          <span style="position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 5px; border: 1px dashed rgba(140, 194, 255, 0.5); background: rgba(255, 255, 255, 0.06); font-family: 'Instrument Sans', Arial, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.5; color: #8CC2FF"><svg aria-hidden="true" width="9" height="10" viewBox="0 0 9 10"><path d="M1 1.2v7.6c0 .5.5.8.9.5l6.2-3.8c.4-.3.4-.8 0-1.1L1.9.7C1.5.4 1 .7 1 1.2z" fill="#8CC2FF"></path></svg>[Photo and 90-second bio video]</span>
+        </div>
+        <h3 style="margin: 18px 0 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Josh Wells</h3>
+        <p style="margin: 2px 0 0; font-size: 15px">President</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section aria-labelledby="close-title" style="padding: clamp(96px, 11vw, 152px) clamp(20px, 4vw, 40px); background: radial-gradient(ellipse 60% 75% at 50% 0%, rgba(0, 126, 250, 0.38), rgba(0, 126, 250, 0.08) 55%, rgba(0, 126, 250, 0) 78%), #0A1238; text-align: center">
+  <div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center">
+    <h2 id="close-title" style="margin: 0; font-size: clamp(36px, 5vw, 66px); line-height: 1.02; letter-spacing: -0.035em; color: #FFFFFF">Start with the Growth Index.</h2>
+    <p style="margin: 22px 0 0; max-width: 44ch; font-size: clamp(18px, 1.5vw, 20px); line-height: 1.6; color: rgba(255, 255, 255, 0.74)">About twenty minutes for you, plus a short assessment for each of your leaders. Then a LeadShift partner walks you through what it shows. It is complimentary.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px">
+      <a class="ls-btn ls-light" href="GrowthIndex.dc.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 6px; background: #FFFFFF; color: #101D51; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.005em; text-decoration: none">Take the Growth Index<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      <a class="ls-btn ls-ghost" href="BookCall.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.22); color: #FFFFFF; font-family: 'Instrument Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.005em; text-decoration: none">Talk to a partner</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":11400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var logos = [
+      ['/_blob/4ab59104f48698d8b91dcf0d4e4119d6', 'Arena Mail + Digital'],
+      ['/_blob/92ee0ab5cc1b0cca741faad146c590ad', 'Centreville Bank'],
+      ['/_blob/429516b8c6c519d1c2cc5b39634d0df9', 'Brunswick'],
+      ['/_blob/41a474a4ad7cb51c7b0a595067785640', 'Digital Fuel Capital'],
+      ['/_blob/7490e997d8a3884bdb9f5f282c11d1dc', 'Optima Overnight'],
+      ['/_blob/9574979ef469ca0322da2ac4768824ee', 'Elevation 3D'],
+      ['/_blob/f9f8db51cc8e76419a78c38da6ad7b48', 'Frontier Packaging'],
+      ['/_blob/e9d62031d42c864b423684ed3308a935', 'Interstate Specialty Products'],
+      ['/_blob/882cae7ad455931b800e72f44dbef390', 'Nocturne Luxury Villas'],
+      ['/_blob/8e932154779e113d7131e0c9bf85f51f', 'Educators Resource'],
+      ['/_blob/84f17bb1b824b1946568a110938b0aea', 'PORT'],
+      ['/_blob/be3d66efb18999fccda364869f2c78c2', 'The Hunley Group'],
+      ['/_blob/b619403b2b8185c05ea017d385d8a026', 'Specialized Fabrication Equipment Group'],
+      ['/_blob/8bdcca88473f3ca511872b6994c956f9', 'Stackry'],
+      ['/_blob/704d2af811200bd0a4b76dbe804ae350', 'Wellist'],
+      ['/_blob/562f03a12883a24a5feec5aea3b58d81', 'Driv-Lok'],
+      ['/_blob/83d519b3b77c4c5d4561b0f56224a76c', 'Worthen'],
+      ['/_blob/c53192cb0d912da2049ff8ebb0eb3f24', 'Edge Adhesives'],
+      ['/_blob/a2781b8301719cc080026fc948b07b1f', 'Lock N Lube'],
+      ['/_blob/66c9100542fc2ff8232aa4360be031a5', 'MSM'],
+      ['/_blob/761b8ce4b567e304fae82612a41249ac', 'Teamworks'],
+      ['/_blob/c09d236d561d3e82d9f2fdb1dc67e9a0', 'Union Street Media'],
+      ['/_blob/ee0eb7421a57cda4470a6588984c352c', 'Pioneer Square Brands'],
+      ['/_blob/ffd3a0b1f5c78a5b4f4de28d54880189', 'WCS Industries']
+    ];
+    return {
+      logos: logos.map(function (l) { return { src: l[0], alt: l[1] }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

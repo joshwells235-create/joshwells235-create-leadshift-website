@@ -1,0 +1,76 @@
+---
+// Article template. Endless Customers job (docs/01-build-brief.md): Pillar 1, the Big 5 library;
+// each article stands on its own at a stable URL so it can be sent before a sales call.
+// Structure and copy: reference/demo-canvas/Article.dc.html. Articles live in src/content/learn/.
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Ph from '../../components/Ph.astro';
+import VideoPoster from '../../components/VideoPoster.astro';
+import { cta } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('learn');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const faq = d.shortAnswer ? [{ q: d.title, a: d.shortAnswer }] : [];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+---
+<Base title={`${d.title} | LeadShift`} description={d.description} active="learn" solidHeader faq={faq}>
+  <article>
+    <header class="section bg-mist page-top article-head" style="padding-bottom: 40px">
+      <div class="wrap">
+        <nav class="crumbs light" aria-label="Breadcrumb"><a href="/learn">Learning Center</a><span aria-hidden="true">/</span><span>{d.topic}</span></nav>
+        <h1 class="page-h1">{d.title}</h1>
+        <p class="byline">
+          By {d.author ? d.author : <Ph note="Article byline: partner name (F13)">[Partner name]</Ph>}
+          <span aria-hidden="true">·</span>
+          {d.date ? <time datetime={d.date}>{d.date}</time> : <Ph note="Article date (F13)">[Date]</Ph>}
+          <span aria-hidden="true">·</span>
+          {d.readMinutes ? `${d.readMinutes}-minute read` : <Ph note="Reading time, once the article is finished">[x]-minute read</Ph>}
+        </p>
+      </div>
+    </header>
+
+    <div class="section" style="padding-top: 48px">
+      <div class="wrap">
+        <div class="prose">
+          {d.shortAnswer && (
+            <aside class="short-answer" aria-label="The short answer">
+              <p class="label">The short answer</p>
+              <p>{d.shortAnswer}</p>
+            </aside>
+          )}
+          {d.video && <VideoPoster kind={d.video.kind} duration={d.video.duration} heading={d.video.heading} note={d.video.note ?? ''} />}
+          <Content />
+          <div class="article-cta">
+            <h2>Not sure which program you need?</h2>
+            <p>The Growth Index shows whether your gap is the team, the leaders, or both. It is complimentary.</p>
+            <div class="acts">
+              <a class="btn btn-primary" href={cta.gi.href}>{cta.gi.label}<Fragment set:html={arrow} /></a>
+              <a class="btn btn-quiet" href={cta.call.href}>{cta.call.label}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {d.related.length > 0 && (
+    <section class="section bg-mist" aria-labelledby="more-title" style="border-top: 1px solid var(--line)">
+      <div class="wrap">
+        <h2 class="h2 h2-sm" id="more-title">Keep reading</h2>
+        <div class="case-rows three">
+          {d.related.map((r) => (
+            <a href={r.href ?? '/learn'}>
+              <span><span class="k">{r.topic}</span><span class="t">{r.title}</span></span>
+              <Fragment set:html={arrow} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>

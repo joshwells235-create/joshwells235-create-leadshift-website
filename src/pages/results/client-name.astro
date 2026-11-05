@@ -1,0 +1,82 @@
+---
+// Client story template. Endless Customers job (docs/01-build-brief.md): Pillar 2 customer journey;
+// measured proof (baseline and retest). The URL becomes the client's name once a story is approved
+// (open decision #16). Structure and copy: reference/demo-canvas/CaseStory.dc.html.
+import Base from '../../layouts/Base.astro';
+import Ph from '../../components/Ph.astro';
+import VideoPoster from '../../components/VideoPoster.astro';
+
+const patterns = ['Trust', 'Conflict', 'Commitment', 'Accountability', 'Results'];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+---
+<Base
+  title="Client story template | LeadShift"
+  description="How a leadership team changed through ALIGN, measured at the start and again at the end."
+  active="results"
+>
+  <section class="lp-hero dark" aria-labelledby="story-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/results">Client stories</a><span aria-hidden="true">/</span><span><Ph bare note="Client name (open decision #16)">[Client name]</Ph></span></nav>
+      <p class="label">ALIGN · <Ph tone="dark" size="sm" note="Client industry">[Industry]</Ph> · <Ph tone="dark" size="sm" note="Client company size">[Company size]</Ph></p>
+      <h1 id="story-title" style="max-width: 920px"><Ph big tone="dark" note="Story headline in the client's words">[Headline: the change, in the client's own words]</Ph></h1>
+      <div class="vp-wrap">
+        <VideoPoster kind="Customer journey video" duration="7 to 10 min" heading="The CEO tells it" note="What was breaking, why they chose LeadShift, what the six months were like, where the team is now." />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-mist" style="padding-block: 48px" aria-label="The story in brief">
+    <dl class="wrap strip4">
+      <div><dt>The problem</dt><dd><Ph note="Client story summary">[One line]</Ph></dd></div>
+      <div><dt>The program</dt><dd>ALIGN, <Ph bare note="Number of leaders">[n]</Ph> leaders, <Ph bare note="Program length">[n]</Ph> months</dd></div>
+      <div><dt>Team assessment</dt><dd><Ph bare note="Baseline score">[Start]</Ph> to <Ph bare note="Retest score">[retest]</Ph></dd></div>
+      <div><dt>Business measure</dt><dd><Ph note="Measure set with the CEO">[Measure set with the CEO: start to finish]</Ph></dd></div>
+    </dl>
+  </section>
+
+  <article class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Before</h2>
+        <p><Ph note="Client story: before">[What the CEO saw: decisions routing back, the hallway debate, the department that wouldn't move]</Ph></p>
+        <p><Ph note="Client story: cost to the business">[What it was costing the business, in a number if the client will share one.]</Ph></p>
+
+        <h2>What the team worked on</h2>
+        <p><Ph note="Client story: the work">[Which of the six phases mattered most for this team, and one moment from the workshops the client remembers.]</Ph></p>
+        <blockquote>
+          <p><Ph note="Quote from a leader on the team">[A quote from a leader on the team, not only the CEO]</Ph></p>
+          <footer><Ph bare note="Quote attribution">[Name], [Title], [Company]</Ph></footer>
+        </blockquote>
+
+        <h2>The retest</h2>
+        <p>The team retook The Table Group's Five Dysfunctions of a Team assessment at the end and compared it with the baseline.</p>
+        <div class="table">
+          <table>
+            <thead><tr><th scope="col">Pattern</th><th scope="col">Baseline</th><th scope="col">Retest</th></tr></thead>
+            <tbody>
+              {patterns.map((p) => <tr><th scope="row">{p}</th><td><Ph bare note={`${p} baseline score`}>[Score]</Ph></td><td><Ph bare note={`${p} retest score`}>[Score]</Ph></td></tr>)}
+            </tbody>
+          </table>
+        </div>
+
+        <h2>After</h2>
+        <p><Ph note="Client story: after">[What is different on an ordinary Tuesday: the meeting, the decision that stuck, the issue that got solved without the CEO.]</Ph></p>
+        <p><Ph note="Client story: still working on">[What the team is still working on]</Ph></p>
+
+        <h2>What's next</h2>
+        <p><Ph note="Client story: what's next">[The next team, the next level, or an annual partnership, if any.]</Ph></p>
+      </div>
+    </div>
+  </article>
+
+  <section class="section bg-mist" aria-labelledby="more-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="more-title">More client stories</h2>
+      <div class="case-rows three">
+        <a href="/results"><span><span class="k">Leadership Academy</span><span class="t"><Ph bare note="Leadership Academy client story (P2)">[Client story]</Ph></span></span><Fragment set:html={arrow} /></a>
+        <a href="/results"><span><span class="k">ASCEND</span><span class="t"><Ph bare note="ASCEND client story (P3)">[Client story]</Ph></span></span><Fragment set:html={arrow} /></a>
+        <a href="/teams"><span><span class="k">The program</span><span class="t">How ALIGN works</span></span><Fragment set:html={arrow} /></a>
+      </div>
+    </div>
+  </section>
+</Base>

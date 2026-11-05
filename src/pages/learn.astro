@@ -1,0 +1,151 @@
+---
+// Learning Center. Endless Customers job (docs/01-build-brief.md): Pillar 1, the Big 5 library,
+// filterable by topic; also the assignment-selling library.
+// Section order and copy: reference/demo-canvas/LearningCenter.dc.html.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import { topics, topicName, questions } from '../data/learn.js';
+import { articles, lens } from '../data/site.js';
+
+const firstCall = [
+  ['[First-call question: how long before we see a difference?]', 'V13'],
+  ["[First-call question: how much of our leaders' time does it take?]", 'V13'],
+  ["[First-call question: what if one leader won't engage?]", 'V13'],
+  ['[The fourth question from sales calls]', 'V13'],
+];
+const editions = [
+  ['Raise the Bar, Keep the Room', 'Demanding higher performance without losing the people side of your culture.'],
+  ['The Invisible Silo', 'High performers who win in their own area while the team around them falls short.'],
+  ['Play Chess, Not Checkers', 'Every behavior makes sense to the person doing it.'],
+];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+const play = '<span class="play" aria-hidden="true"><svg viewBox="0 0 20 22"><path d="M2 1.8v18.4c0 .8.9 1.3 1.6.9l15-9.2c.6-.4.6-1.3 0-1.7l-15-9.2C2.9.5 2 1 2 1.8z" fill="#101D51"/></svg></span>';
+---
+<Base
+  title="Learning Center: the questions CEOs ask us, answered | LeadShift"
+  description="What leadership development costs, what is really going wrong, how the options compare, and what changed for the clients who went before you."
+  active="learn"
+>
+  <PageHero
+    chip="Learning Center"
+    title="The questions CEOs ask us, answered in the open."
+    lead="What things cost, what's really going wrong, how the options compare, and what changed for the clients who went before you."
+  >
+    <form slot="below" class="lc-search" role="search" id="lc-search" style="margin-top: 0">
+      <label class="sr-only" for="lc-q">Search the Learning Center</label>
+      <input id="lc-q" type="search" placeholder="Search: cost, ALIGN, new managers" autocomplete="off" />
+      <button class="btn btn-light" type="submit">Search</button>
+    </form>
+  </PageHero>
+
+  <!-- Start here -->
+  <section class="section" aria-label="Start here" style="padding-bottom: 0">
+    <div class="wrap">
+      <div class="feature" data-reveal>
+        <VideoPoster kind="Cost video" duration="6 to 8 min" heading="The cost answer, on camera" />
+        <div>
+          <p class="label">Start here · Cost and pricing</p>
+          <h2><a href={articles.cost}>How much does leadership development cost?</a></h2>
+          <p>What moves the price, the ranges we charge for every program, and how to compare quotes from different firms.</p>
+          <a class="textlink" href={articles.cost}>Read the article<Fragment set:html={arrow} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse by question -->
+  <section class="section" aria-labelledby="browse-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="browse-title" data-reveal>Browse by question.</h2>
+      <div class="filters" role="group" aria-label="Filter by topic" id="lc-filters">
+        {topics.map(([key, label], i) => <button type="button" data-filter={key} aria-pressed={i === 0 ? 'true' : 'false'}>{label}</button>)}
+      </div>
+      <div class="lrows" id="lc-list">
+        {questions.map((q) => {
+          const title = q.titlePh ? <Ph bare note={`Best-of or client story title (${q.todo})`}>{q.title}</Ph> : q.title;
+          const sum = q.sum
+            ? <>{q.sum}{!q.href && <Ph size="sm" note={`Article ${q.todo}`}>Article to write</Ph>}</>
+            : <Ph note={`Article ${q.todo}`}>[Article to write]</Ph>;
+          const inner = <><span class="k">{topicName[q.topic]}</span><span class="t">{title}</span><span class="s">{sum}</span></>;
+          return q.href
+            ? <a class="lrow" href={q.href} data-filter-item data-topic={q.topic} data-text={`${q.title} ${q.sum ?? ''}`.toLowerCase()}>{inner}</a>
+            : <div class="lrow todo" data-filter-item data-topic={q.topic} data-text={`${q.title} ${q.sum ?? ''}`.toLowerCase()}>{inner}</div>;
+        })}
+      </div>
+      <p class="lc-empty" id="lc-empty" hidden>No questions match that search yet. <a class="textlink" href="/book-a-call">Ask a partner<Fragment set:html={arrow} /></a></p>
+    </div>
+  </section>
+
+  <!-- Video library -->
+  <section class="section bg-mist" aria-labelledby="vids-title">
+    <div class="wrap">
+      <p class="label" data-reveal>Video library</p>
+      <h2 class="h2 h2-sm" id="vids-title" data-reveal>Short answers to first-call questions.</h2>
+      <ul class="vids">
+        {firstCall.map(([q, note], i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <div class="thumb" role="img" aria-label="Video placeholder"><Ph tone="dark" size="sm" note={`First-call video (${note})`}>To film</Ph><Fragment set:html={play} /></div>
+            <p><Ph bare note={`First-call question to list (${note})`}>{q}</Ph></p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- The Leadership Lens -->
+  <section class="section" aria-labelledby="lens-title-lc">
+    <div class="wrap duo">
+      <form class="lens-light" data-lens novalidate aria-labelledby="lens-title-lc">
+        <p class="label" data-reveal>{lens.name}</p>
+        <h2 class="h2 h2-sm" id="lens-title-lc" data-reveal>A letter every other week on leading a growing company.</h2>
+        <p class="lead" data-reveal style="--d:1; margin-top: 16px">Three observations, two coaching questions and one action.</p>
+        <div class="field">
+          <label class="sr-only" for="lc-email">Work email</label>
+          <input id="lc-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Work email" required />
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </div>
+        <p class="status" role="status"></p>
+      </form>
+      <ul class="editions" aria-label="Recent issues">
+        {editions.map(([h, p], i) => <li data-reveal style={`--d:${i}`}><h3>{h}</h3><p>{p}</p></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Topic filter and search work together: a question shows when it matches both.
+  const list = document.getElementById('lc-list');
+  const filters = document.getElementById('lc-filters');
+  const form = document.getElementById('lc-search') as HTMLFormElement | null;
+  const input = document.getElementById('lc-q') as HTMLInputElement | null;
+  const empty = document.getElementById('lc-empty');
+  if (list && filters && form && input && empty) {
+    let topic = 'all';
+    const apply = () => {
+      const q = input.value.trim().toLowerCase();
+      let shown = 0;
+      list.querySelectorAll<HTMLElement>('[data-filter-item]').forEach((it) => {
+        const ok = (topic === 'all' || it.dataset.topic === topic) && (!q || (it.dataset.text || '').includes(q));
+        it.hidden = !ok;
+        if (ok) shown++;
+      });
+      empty.hidden = shown > 0;
+    };
+    filters.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-filter]');
+      if (!b) return;
+      filters.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      topic = b.dataset.filter || 'all';
+      apply();
+    });
+    input.addEventListener('input', apply);
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      apply();
+      document.getElementById('browse-title')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+</script>

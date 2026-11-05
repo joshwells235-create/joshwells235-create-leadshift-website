@@ -41,4 +41,5 @@ const hasVisual = Astro.slots.has('visual');
     </div>
     {hasVisual && <div class="lp-visual"><slot name="visual" /></div>}
   </div>
+  {Astro.slots.has('below') && <div class="wrap lp-below"><slot name="below" /></div>}
 </section>

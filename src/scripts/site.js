@@ -56,15 +56,27 @@ if (!reduce && 'IntersectionObserver' in window) {
 }
 
 /* The Leadership Lens: no list behind it in the preview, so say so plainly (concept copy) */
-const form = document.getElementById('lens-form');
-if (form) {
+document.querySelectorAll('form[data-lens]').forEach((form) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const input = document.getElementById('lens-email');
-    const out = document.getElementById('lens-status');
+    const input = form.querySelector('input[type="email"]');
+    const out = form.querySelector('[role="status"]');
     const ok = input.value.trim() !== '' && input.checkValidity();
     input.setAttribute('aria-invalid', String(!ok));
     out.textContent = ok ? 'Subscriptions open when the new site launches.' : 'Enter a work email, like name@company.com.';
     if (!ok) input.focus();
   });
-}
+});
+
+/* simple filters: buttons with data-filter="key" show items whose data-topic matches */
+document.querySelectorAll('[data-filters]').forEach((group) => {
+  const scope = document.querySelector(group.dataset.filters);
+  if (!scope) return;
+  group.addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-filter]');
+    if (!b) return;
+    group.querySelectorAll('button[data-filter]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const key = b.dataset.filter;
+    scope.querySelectorAll('[data-filter-item]').forEach((it) => { it.hidden = !(key === 'all' || it.dataset.topic === key); });
+  });
+});

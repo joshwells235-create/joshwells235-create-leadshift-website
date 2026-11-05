@@ -1,0 +1,121 @@
+---
+// Results. Endless Customers job (docs/01-build-brief.md): Pillar 1 reviews, Pillar 2 customer journey
+// and claims-we-make videos. Story filter (hide it at launch until there are enough stories to filter).
+// Section order and copy: reference/demo-canvas/Results.dc.html. No named stories, reviews or retest
+// scores are on record yet, so those stay placeholders.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import PageHero from '../components/PageHero.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { testimonials, storyTemplate } from '../data/site.js';
+
+const filters = [['all', 'All'], ['align', 'ALIGN'], ['academy', 'Leadership Academy'], ['ascend', 'ASCEND'], ['coaching', 'Coaching']];
+const stories = [
+  { key: 'align', program: 'ALIGN', title: 'a leadership team before and after ALIGN', metric: '[Team assessment: x to y]' },
+  { key: 'align', program: 'ALIGN', title: 'decisions that finally stuck', metric: '[Business measure: start to finish]' },
+  { key: 'academy', program: 'Leadership Academy', title: 'the leaders who stepped up', metric: '[Promotions or roles filled from inside]' },
+  { key: 'ascend', program: 'ASCEND', title: 'managers scored before and after', metric: '[Management system: x to y]' },
+  { key: 'coaching', program: 'Executive coaching', title: 'one leader, six months', metric: '[360: start to finish]' },
+  { key: 'academy', program: 'Leadership Academy', title: 'a bench built for growth', metric: '[Measure]' },
+];
+const claims = [
+  ['We measure where you start and where you finish.', '[Proof: a redacted baseline and retest report, or a two-minute video walking through one]'],
+  ['Many of our clients have stayed more than a decade.', '[Proof: named long-term clients who agree to be listed, with years]'],
+  ['A partner reads every Growth Index with you.', '[Proof: a recorded walkthrough of a sample report]'],
+];
+const play = '<span class="play" aria-hidden="true"><svg viewBox="0 0 20 22"><path d="M2 1.8v18.4c0 .8.9 1.3 1.6.9l15-9.2c.6-.4.6-1.3 0-1.7l-15-9.2C2.9.5 2 1 2 1.8z" fill="#101D51"/></svg></span>';
+---
+<Base
+  title="Results: client stories, reviews and the proof behind our claims | LeadShift"
+  description="LeadShift measures where you start and where you finish. Client stories, reviews and the proof behind each claim."
+  active="results"
+>
+  <PageHero
+    chip="Results"
+    title="Results you can check."
+    lead="We measure where you start and where you finish. Here are the numbers, the client stories and the reviews."
+  >
+    <dl slot="below" class="hero-stats">
+      <div><dt>Organizations served since 1997</dt><dd>200+</dd></div>
+      <div><dt>How long many clients stay</dt><dd>10+ yrs</dd></div>
+      <div><dt>Leadership teams retested after ALIGN</dt><dd><Ph bare note="Number of ALIGN teams retested (P1)">[N]</Ph></dd></div>
+      <div><dt>Average change on the team assessment, start to retest</dt><dd><Ph bare note="Average ALIGN retest change (P1)">[+x]</Ph></dd></div>
+    </dl>
+  </PageHero>
+
+  <!-- Client stories -->
+  <section class="section" aria-labelledby="stories-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="stories-title" data-reveal>Client stories.</h2>
+      <div class="filters" role="group" aria-label="Filter stories by program" data-filters="#story-list">
+        {filters.map(([key, label], i) => <button type="button" data-filter={key} aria-pressed={i === 0 ? 'true' : 'false'}>{label}</button>)}
+      </div>
+      <ul class="stories" id="story-list">
+        {stories.map((s) => (
+          <li data-filter-item data-topic={s.key}>
+            <a href={storyTemplate}>
+              <div class="thumb" role="img" aria-label="Customer journey video placeholder"><Ph tone="dark" size="sm" note={`Customer journey video (V12): ${s.program}`}>Customer journey video · to film</Ph><Fragment set:html={play} /></div>
+              <p class="k">{s.program} · <Ph size="sm" note={`${s.program} client story: industry`}>[Industry]</Ph></p>
+              <h3><Ph bare note={`${s.program} client story: client name`}>[Client name]</Ph>: {s.title}</h3>
+              <p class="metric"><Ph bare note={`${s.program} client story: result`}>{s.metric}</Ph></p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- What clients say -->
+  <section class="section bg-mist" aria-labelledby="say-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="say-title" data-reveal>What clients say.</h2>
+      <div class="quotes3">
+        {[testimonials.main, testimonials.side].map((t, i) => (
+          <figure class="pq pq-small" data-reveal style={`--d:${i}`}>
+            <blockquote><p>{t.quote}</p></blockquote>
+            <figcaption><div><b>{t.name}</b><span>{t.role}</span></div></figcaption>
+          </figure>
+        ))}
+        <figure class="pq pq-small" data-reveal style="--d:2">
+          <blockquote><p class="ph-quote"><Ph note="Testimonial that names a specific change (P4, P5)">[Quote that names a specific change, ideally with a number]</Ph></p></blockquote>
+          <figcaption><div><b><Ph bare note="Testimonial attribution">[Name]</Ph></b><span><Ph bare note="Testimonial attribution">[Title], [Company]</Ph></span></div></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section" aria-labelledby="reviews-title">
+    <div class="wrap duo">
+      <div>
+        <p class="label" data-reveal>Reviews</p>
+        <h2 class="h2 h2-sm" id="reviews-title" data-reveal>Verified reviews.</h2>
+        <p class="lead" data-reveal style="--d:1">Reviews come from <Ph note="Review source (open decision #17)">[the verified review source]</Ph>, <Ph note="How and when LeadShift asks for reviews (P4)">[when and how we ask for them]</Ph>.</p>
+        <p class="rating" data-reveal><Ph bare note="Average review rating (P5)">[Rating]</Ph></p>
+        <p data-reveal>From <Ph bare note="Number of reviews (P5)">[N]</Ph> reviews</p>
+      </div>
+      <ul class="reviews">
+        <li data-reveal><p><Ph bare note="Review (P5)">[Rating] · [Program] · [Month, year]</Ph></p><p><Ph note="Review (P5)">[Review text]</Ph></p><p class="who"><Ph bare note="Review (P5)">[Reviewer role, company size or industry]</Ph></p></li>
+        <li data-reveal><p><Ph bare note="Review (P5)">[Rating] · [Program] · [Month, year]</Ph></p><p><Ph note="Review (P5)">[Review text]</Ph></p><p class="who"><Ph bare note="Review (P5)">[Reviewer role, company size or industry]</Ph></p></li>
+        <li data-reveal><p><Ph bare note="A critical review and the reply (P5)">[A critical review, and how we responded]</Ph></p><p><Ph note="A critical review and the reply (P5)">[Review text and our reply]</Ph></p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Claims we make -->
+  <section class="section bg-mist" aria-labelledby="claims-title">
+    <div class="wrap">
+      <p class="label" data-reveal>Claims we make</p>
+      <h2 class="h2 h2-sm" id="claims-title" data-reveal>Every claim, with its proof.</h2>
+      <ul class="claims">
+        {claims.map(([claim, proof]) => <li data-reveal><p>{claim}</p><p><Ph note="Proof for a claim (P6, V14)">{proof}</Ph></p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <ClosingBand
+    heading="Your own baseline starts here."
+    lead="The Growth Index is complimentary, and a partner walks you through it."
+    showCall={false}
+  />
+</Base>

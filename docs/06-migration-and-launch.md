@@ -40,6 +40,7 @@ Before launch, check Google Search Console (if LeadShift has it) and HubSpot for
 - **Access:** Vercel Authentication is on for all deployments, including the project's `.vercel.app` domain. People outside the Vercel team open it with a shareable link, which can be revoked or regenerated in the project's Deployment Protection settings.
 - **Build:** `npm run build`, so the rules check runs on every deploy and a failing check stops the deploy.
 - **Not indexed:** every preview page carries noindex and `robots.txt` disallows everything.
+- **Deploy only by pushing to `preview`.** The very first deploy was started by hand through Vercel's API, and Vercel made it a production deployment on `leadshift-website.vercel.app` even though it came from the `preview` branch. Protection was raised to all deployments a minute later, so that address needs a login too. Git pushes to `preview` create normal preview deployments.
 
 ## The switch, by platform
 

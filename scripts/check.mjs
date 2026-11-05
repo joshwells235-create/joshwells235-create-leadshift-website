@@ -22,7 +22,7 @@ function walk(dir) {
 }
 
 const RULES = [
-  { name: 'em dash', re: /—|&mdash;|&#8212;|&#x2014;/gi, in: ['.html', '.js', '.css', '.txt', '.xml', '.json'] },
+  { name: 'em dash', re: /\u2014|&mdash;|&#8212;|&#x2014;/gi, in: ['.html', '.js', '.css', '.txt', '.xml', '.json'] },
   { name: '"Predictive Index"', re: /predictive\s+index/gi, in: ['.html', '.js', '.txt', '.xml', '.json'] },
   { name: '"PI" as a word', re: /\bPI\b/g, in: ['.html', '.txt', '.xml'] },
   { name: 'Hyannis (old office)', re: /hyannis/gi, in: ['.html', '.js', '.txt', '.xml', '.json'] },

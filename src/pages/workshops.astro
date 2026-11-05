@@ -1,0 +1,130 @@
+---
+// Workshops. Endless Customers job (docs/01-build-brief.md): open registration for Elite5,
+// the hiring certification and the open Academy cohort.
+// Section order and copy: reference/demo-canvas/Workshops.dc.html. The certification's name
+// and the payment method are open decisions (#6, #7); registration does not submit in the preview.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import { bookHref } from '../data/site.js';
+
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+---
+<Base
+  title="Open workshops: Elite5, hiring certification and the open Leadership Academy | LeadShift"
+  description="Open workshops and cohorts run on set dates with leaders from other companies. Register online; no proposal needed."
+>
+  <PageHero
+    chip="Open workshops"
+    title="Send one person, or a few, to a public session."
+    lead="Open workshops and cohorts run on set dates with leaders from other companies. Register online; no proposal needed."
+  />
+
+  <!-- Sessions -->
+  <section class="section" aria-label="Open sessions">
+    <div class="wrap">
+      <ul class="sessions">
+        <li data-reveal>
+          <div class="info">
+            <p class="label">Workshop</p>
+            <h2>Elite5 Open Workshop</h2>
+            <p><Ph note="F7">[What Elite5 teaches and who should attend, in two sentences]</Ph></p>
+            <dl class="meta">
+              <div><dt>Dates</dt><dd><Ph note="F7">[Dates]</Ph></dd></div>
+              <div><dt>Where</dt><dd><Ph note="F7">[Location or virtual]</Ph></dd></div>
+              <div><dt>Led by</dt><dd><Ph note="F7">[Facilitator]</Ph></dd></div>
+            </dl>
+          </div>
+          <div class="buy">
+            <p class="amt"><Ph note="Elite5 price (F7)">[Price per person]</Ph></p>
+            <p><Ph note="F7">[Seats left]</Ph></p>
+            <a class="btn btn-primary" href="#register">Register</a>
+          </div>
+        </li>
+        <li data-reveal>
+          <div class="info">
+            <p class="label">Certification</p>
+            <h2><Ph big note="Certification name (open decision #6)">[Hiring certification workshop name]</Ph></h2>
+            <p>For the people who hire at your company: learn to define what good looks like for a job, assess candidates against it, and hold to that standard. <Ph note="F7">[What attendees are certified to do]</Ph></p>
+            <dl class="meta">
+              <div><dt>Dates</dt><dd><Ph note="F7">[Dates]</Ph></dd></div>
+              <div><dt>Where</dt><dd><Ph note="F7">[Location or virtual]</Ph></dd></div>
+              <div><dt>Led by</dt><dd><Ph note="F7">[Facilitator]</Ph></dd></div>
+            </dl>
+          </div>
+          <div class="buy">
+            <p class="amt"><Ph note="Certification price (F7)">[Price structure]</Ph></p>
+            <p><Ph note="F7">[Group rate, if any]</Ph></p>
+            <a class="btn btn-primary" href="#register">Register</a>
+          </div>
+        </li>
+        <li data-reveal>
+          <div class="info">
+            <p class="label">Cohort</p>
+            <h2>Open Leadership Academy</h2>
+            <p>Nine months that take leaders from leading themselves, to leading others, to leading the organization, with a capstone at the end, alongside leaders from other companies.</p>
+            <dl class="meta">
+              <div><dt>Starts</dt><dd><Ph note="F7">[Date]</Ph></dd></div>
+              <div><dt>Format</dt><dd><Ph note="F7">[In person, virtual or hybrid]</Ph></dd></div>
+            </dl>
+            <a class="textlink" href="/leaders#academy">How the Academy works<Fragment set:html={arrow} /></a>
+          </div>
+          <div class="buy">
+            <p class="amt">$15,000 to $18,000 per seat</p>
+            <p><Ph note="F7">[Seats left]</Ph></p>
+            <a class="btn btn-primary" href={bookHref('bench')}>Reserve a seat</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Register -->
+  <section class="section bg-mist" id="register" aria-labelledby="register-title">
+    <div class="wrap book-grid">
+      <div class="book-copy">
+        <h2 class="h2 h2-sm" id="register-title" style="margin-top: 0">Register.</h2>
+        <VideoPoster kind="Landing video" duration="45 sec" heading="What happens after you register" note="Confirmation, pre-work, invoices, and who to call with questions." />
+      </div>
+      <form class="book-card reg-card" id="reg-form" novalidate aria-labelledby="register-title">
+        <div class="fld"><label for="wk-session">Session</label>
+          <select id="wk-session" name="session" required>
+            <option value="elite5">Elite5 Open Workshop</option>
+            <option value="certification">Hiring certification workshop</option>
+          </select>
+        </div>
+        <div class="fld"><label for="wk-name">Attendee name</label><input id="wk-name" name="name" autocomplete="name" required /></div>
+        <div class="fld"><label for="wk-email">Work email</label><input id="wk-email" name="email" type="email" autocomplete="email" inputmode="email" required /></div>
+        <div class="fld"><label for="wk-co">Company</label><input id="wk-co" name="company" autocomplete="organization" required /></div>
+        <p class="bk-note"><Ph note="Registration and payment (open decision #7)">[Payment: card at checkout or invoice]</Ph></p>
+        <button class="btn btn-primary" type="submit">Register</button>
+        <p class="status" id="reg-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Registration is a stand-in in the preview: check the fields, then say plainly that nothing was sent.
+  const form = document.getElementById('reg-form') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const out = document.getElementById('reg-status')!;
+      let bad: HTMLInputElement | null = null;
+      ['wk-name', 'wk-email', 'wk-co'].forEach((id) => {
+        const el = document.getElementById(id) as HTMLInputElement;
+        const ok = el.value.trim() !== '' && el.checkValidity();
+        el.setAttribute('aria-invalid', String(!ok));
+        if (!ok && !bad) bad = el;
+      });
+      if (bad) {
+        out.textContent = (bad as HTMLInputElement).id === 'wk-email' && (bad as HTMLInputElement).value.trim() ? 'Enter a work email, like name@company.com.' : 'Please fill in every field.';
+        (bad as HTMLInputElement).focus();
+        return;
+      }
+      out.textContent = 'Registration opens when the new site launches.';
+    });
+  }
+</script>

@@ -7,11 +7,13 @@ interface Props {
   label?: string;
   lead?: string;
   notes?: string[];
+  /** One quiet line under the buttons, such as length and price. */
+  meta?: string;
   crumbs?: [string, string][];
   split?: boolean;
   id?: string;
 }
-const { title, chip, label, lead, notes, crumbs, split = false, id = 'page-title' } = Astro.props;
+const { title, chip, label, lead, notes, meta, crumbs, split = false, id = 'page-title' } = Astro.props;
 const hasCtas = Astro.slots.has('ctas');
 const hasVisual = Astro.slots.has('visual');
 ---
@@ -30,6 +32,7 @@ const hasVisual = Astro.slots.has('visual');
       <h1 id={id}>{title}</h1>
       {lead && <p class="lead">{lead}</p>}
       {hasCtas && <div class="hero-ctas"><slot name="ctas" /></div>}
+      {meta && <p class="hero-meta">{meta}</p>}
       {notes && (
         <ul class="hero-notes">
           {notes.map((n) => <li><svg aria-hidden="true"><use href="#check" /></svg>{n}</li>)}

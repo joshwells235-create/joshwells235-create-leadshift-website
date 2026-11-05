@@ -1,0 +1,23 @@
+---
+// A client story teaser on a night card (demo program pages). Everything in it stays a
+// placeholder until a named client agrees to the story (open decision #16).
+import Ph from './Ph.astro';
+import { storyTemplate } from '../data/site.js';
+interface Props {
+  stats?: [string, string, string][]; // [label, placeholder, note]
+  href?: string;
+  class?: string;
+}
+const { stats = [], href = storyTemplate, class: extra } = Astro.props;
+---
+<article class:list={['mini-case', extra]} data-reveal>
+  <p class="label">Client story</p>
+  <h3><slot name="title" /></h3>
+  <p><slot name="body" /></p>
+  {stats.length > 0 && (
+    <dl class="stats">
+      {stats.map(([label, text, note]) => <div><dt>{label}</dt><dd><Ph bare note={note}>{text}</Ph></dd></div>)}
+    </dl>
+  )}
+  <a class="textlink" href={href}>Read the story<svg aria-hidden="true"><use href="#arrow" /></svg></a>
+</article>

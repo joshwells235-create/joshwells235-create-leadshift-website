@@ -272,3 +272,6 @@ export const articles = {
 };
 // Client story template (the slug becomes the client's name once a story is approved).
 export const storyTemplate = '/results/client-name';
+
+// Link to the booking page with the topic already chosen (book-a-call reads ?topic=).
+export const bookHref = (topic) => '/book-a-call?topic=' + encodeURIComponent(topic);

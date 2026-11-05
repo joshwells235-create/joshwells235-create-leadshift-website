@@ -1,0 +1,157 @@
+---
+// Teams (ALIGN). Endless Customers job (docs/01-build-brief.md): the team performance problem.
+// Five patterns, six phases, measured start and finish. Fit video.
+// Section order and copy: reference/demo-canvas/TeamPerformance.dc.html. Components: the
+// concept's program-page patterns (before and after rows, phases, included, price).
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import MiniCase from '../components/MiniCase.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { cta, firm, bookHref } from '../data/site.js';
+
+const patterns = [
+  ['Trust', "People keep their guard up and don't admit mistakes or ask each other for help.", 'Leaders admit mistakes, ask each other for help, and give each other the benefit of the doubt.'],
+  ['Conflict', 'Meetings stay polite, and the real debate happens in the hallway afterward.', 'The hard debate happens in the room, and decisions get better for it.'],
+  ['Commitment', 'Decisions get made, then quietly revisited or ignored.', 'Decisions stick, even for the people who argued the other side.'],
+  ['Accountability', "Leaders won't call each other on missed commitments, so it lands on you.", 'Peers hold each other to their commitments, so you are not the only one raising the bar.'],
+  ['Results', "Each leader protects their own department ahead of the company's goals.", "The team judges itself on the company's results first."],
+];
+const phases = [
+  ['Gather team data', "Each leader takes a behavioral assessment, and the team takes The Table Group's Five Dysfunctions of a Team assessment as its baseline."],
+  ['Create team awareness', 'A workshop on how each leader is wired, what each needs, and how the team works together under pressure, along with a debrief of the team assessment.'],
+  ['Build trust and manage conflict', 'Workshops on trust, the foundation for everything else, and on healthy conflict: debating ideas openly so decisions get better.'],
+  ['Gain commitment, create accountability', 'Workshops on committing to clear decisions and on holding each other to them, so you are not the only one raising the bar.'],
+  ['Drive team results', "A workshop on putting the team's shared results ahead of individual and department goals."],
+  ['Reassess and measure growth', 'The team retakes the team assessment, and we compare it with the baseline and the performance measures set at the start.'],
+];
+const included = [
+  ['Team assessment', 'A baseline at the start and a retest at the end, so you can see what changed.'],
+  ['Goal alignment', 'A 90-minute strategy session with the team leader to agree on what the team has to deliver.'],
+  ['Team workshops', 'Working sessions on trust, conflict, commitment, accountability and results.'],
+  ['Leadership coaching', 'One-on-one coaching for the team leader between workshops.'],
+  ['Commit to action', 'Sessions end with commitments: the action, the owner and the date.'],
+  ['Measuring growth', 'Performance measures set with the team leader, checkpoints, and pulse checks and debriefs along the way.'],
+];
+const faq = [
+  { q: 'What is ALIGN?', a: "ALIGN is LeadShift's program for leadership teams. Over six phases, the team works on trust, healthy conflict, commitment, accountability and results, with coaching for the team leader along the way and a reassessment at the end." },
+  { q: 'Who is ALIGN for?', a: 'A CEO or team leader and the leaders who report to them, working on how they operate as one team.' },
+  { q: 'Who is ALIGN not for?', ph: '[The team situations where ALIGN is the wrong tool, said plainly]', phNote: 'F5, open decision #13' },
+  { q: 'Which assessments does ALIGN use?', a: "Each leader takes a behavioral assessment, and the team takes The Table Group's Five Dysfunctions of a Team assessment at the start and again at the end." },
+  { q: 'What happens between workshops?', a: 'The team leader gets one-on-one coaching, the team works on the commitments it made, and we check progress through pulse checks and debriefs.' },
+  { q: 'How do we know it worked?', a: 'The team retakes the team assessment at the end and compares it with the baseline, alongside the performance measures you set with us at the start.' },
+  { q: 'ALIGN or an off-site retreat?', ph: '[Comparison answer: what a single off-site does well, and what six months adds]', phNote: 'F5, article A9' },
+];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+---
+<Base
+  title="ALIGN: when your leadership team isn't working as a team | LeadShift"
+  description="ALIGN is LeadShift's six-month program for leadership teams: trust, healthy conflict, commitment, accountability and results, with a team assessment at the start and the end. $50,000 to $75,000."
+  active="teams"
+  faq={faq}
+>
+  <PageHero
+    split
+    chip="Team performance · ALIGN"
+    title="When your leadership team isn't working as a team."
+    lead="ALIGN is LeadShift's program for leadership teams. It builds the trust, healthy conflict, commitment, accountability and focus on results a team needs to carry the strategy, so decisions stop routing back to you."
+    meta="Six months · $50,000 to $75,000 · a team assessment at the start and the end"
+  >
+    <Fragment slot="ctas">
+      <a class="btn btn-light" href={bookHref('team')}>Talk to a partner about ALIGN<Fragment set:html={arrow} /></a>
+      <a class="btn btn-ghost" href={cta.gi.href}>Start with the Growth Index</a>
+    </Fragment>
+    <VideoPoster slot="visual" kind="Fit video" duration="2 to 3 min" heading="Who ALIGN is for, and who it isn't" note="Josh on camera: the five patterns, what six months looks like, what it costs." />
+  </PageHero>
+
+  <!-- What changes -->
+  <section class="section" aria-labelledby="changes-title">
+    <div class="wrap">
+      <div class="lp-head">
+        <div>
+          <p class="label" data-reveal>What changes</p>
+          <h2 class="h2 h2-sm" id="changes-title" data-reveal>Decisions stop routing back to you.</h2>
+        </div>
+        <p class="lead" data-reveal style="--d:1">ALIGN works on five patterns. Here is what each looks like from your seat today, and what changes as the team works through them.</p>
+      </div>
+      <div class="ba">
+        <p class="ba-head" aria-hidden="true"><span>Today</span><span>As the team works through ALIGN</span></p>
+        <ul>
+          {patterns.map(([label, today, after]) => (
+            <li class="ba-row" data-reveal>
+              <p class="label">{label}</p>
+              <p class="ba-today"><span class="sr-only">Today: </span>{today}</p>
+              <svg class="ba-arrow" aria-hidden="true" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="ba-after" data-label="As the team works through ALIGN"><span class="sr-only">As the team works through ALIGN: </span>{after}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How ALIGN works -->
+  <section class="section lp-mist" aria-labelledby="phases-title">
+    <div class="wrap">
+      <div class="lp-head">
+        <div>
+          <p class="label" data-reveal>How ALIGN works</p>
+          <h2 class="h2 h2-sm" id="phases-title" data-reveal>Six phases, from baseline to proof.</h2>
+        </div>
+        <p class="lead" data-reveal style="--d:1">Each workshop phase pairs the session with coaching for the team leader, actions the team commits to, and work to build the habits into how the team runs. Program length: six months.</p>
+      </div>
+      <ol class="phases">
+        {phases.map(([h, p]) => <li data-reveal><h3>{h}</h3><p>{p}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="section" aria-labelledby="incl-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="incl-title" data-reveal>What's included.</h2>
+      <p class="lead" style="margin-top: 14px" data-reveal>Six parts, built around your team and your strategy.</p>
+      <ul class="incl">
+        {included.map(([h, p], i) => <li data-reveal style={`--d:${i % 3}`}><h3>{h}</h3><p>{p}</p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Price and proof -->
+  <section class="section lp-mist" aria-labelledby="price-title">
+    <div class="wrap lp-price">
+      <div data-reveal>
+        <p class="label">Pricing</p>
+        <h2 id="price-title">What ALIGN costs.</h2>
+        <p class="lp-amt">$50,000 to $75,000</p>
+        <p>Two things move the price inside the range: how long the program runs, since most teams take six months, and how much one-on-one coaching runs alongside the workshops.</p>
+        <div class="acts">
+          <a class="btn btn-primary" href={bookHref('team')}>Talk to a partner about ALIGN<Fragment set:html={arrow} /></a>
+          <a class="btn btn-quiet" href="/pricing#estimate">Find your likely starting point</a>
+        </div>
+      </div>
+      <MiniCase stats={[['Trust, start to retest', '[x to y]', 'ALIGN client story scores (P1)'], ['Results, start to retest', '[x to y]', 'ALIGN client story scores (P1)']]}>
+        <Fragment slot="title">What changed for a leadership team that went through ALIGN.</Fragment>
+        <Ph slot="body" tone="dark" note="First named ALIGN client story (P1, open decision #16)">[A named client: the baseline, what the team worked on, and the retest]</Ph>
+      </MiniCase>
+    </div>
+  </section>
+
+  <!-- Questions -->
+  <section class="faq section" aria-labelledby="faq-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2 h2-sm" id="faq-title" data-reveal>Questions about ALIGN.</h2>
+        <p class="ask" data-reveal style="--d:1">Something else? <a href={cta.call.href}>Book a time with a partner</a> or call <a href={firm.phoneHref}>{firm.phone}</a>.</p>
+      </div>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <ClosingBand
+    heading="Not sure the team is the gap?"
+    lead="The Growth Index shows whether your gap is how the team works together, how your leaders are growing, or both. About twenty minutes for you, and it is complimentary."
+  />
+</Base>

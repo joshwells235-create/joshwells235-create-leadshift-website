@@ -1,7 +1,7 @@
 ---
 // The concept's closing band: night, glow from the top centre, centred heading, lead, two buttons.
 import { cta } from '../data/site.js';
-interface Props { heading?: string; lead?: string; id?: string; ctaLabel?: string; ctaHref?: string; showCall?: boolean }
+interface Props { heading?: string; lead?: string | false; id?: string; ctaLabel?: string; ctaHref?: string; showCall?: boolean; secondLabel?: string; secondHref?: string }
 const {
   heading = 'Start with the Growth Index.',
   lead = 'About twenty minutes for you, plus a short assessment for each of your leaders. Then a LeadShift partner walks you through what it shows. It is complimentary.',
@@ -9,15 +9,17 @@ const {
   ctaLabel = cta.gi.label,
   ctaHref = cta.gi.href,
   showCall = true,
+  secondLabel = cta.call.label,
+  secondHref = cta.call.href,
 } = Astro.props;
 ---
 <section class="close section dark" aria-labelledby={id}>
   <div class="wrap copy">
     <h2 class="h2" id={id} data-reveal>{heading}</h2>
-    <p class="lead" data-reveal style="--d:1">{lead}</p>
+    {lead && <p class="lead" data-reveal style="--d:1">{lead}</p>}
     <div class="close-ctas" data-reveal style="--d:2">
       <a class="btn btn-light" href={ctaHref}>{ctaLabel}<svg aria-hidden="true"><use href="#arrow" /></svg></a>
-      {showCall && <a class="btn btn-ghost" href={cta.call.href}>{cta.call.label}</a>}
+      {showCall && <a class="btn btn-ghost" href={secondHref}>{secondLabel}</a>}
     </div>
   </div>
 </section>

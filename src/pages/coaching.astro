@@ -1,0 +1,133 @@
+---
+// Coaching. Endless Customers job (docs/01-build-brief.md): Pillar 1 comparison, executive vs
+// performance coaching. Sales coaching as one line of the offer.
+// Section order and copy: reference/demo-canvas/Coaching.dc.html. Components: the concept's
+// ruled options, price table and portraits.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import PageHero from '../components/PageHero.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { coaches, bookHref } from '../data/site.js';
+
+const faq = [
+  { q: 'What does executive coaching cost?', a: '$18,000 for six months: a 360, a debrief and twelve sessions. Performance coaching and sales coaching are $5,000 per sprint.' },
+  { q: 'Who sees what the leader shares?', ph: '[Confidentiality: what the sponsor hears, and what stays between coach and leader]', phNote: 'F4' },
+  { q: 'Is coaching part of ALIGN?', a: 'Yes. ALIGN includes one-on-one coaching for the team leader between workshops.', link: ['How ALIGN works', '/teams'] },
+  { q: 'How do we know coaching worked?', ph: '[The start and finish measure for coaching]', phNote: 'F4' },
+];
+// The demo shows the two executive leadership coaches on this page.
+const execCoaches = coaches.filter((c) => c.title === 'Executive Leadership Coach');
+const play = '<svg aria-hidden="true" viewBox="0 0 9 10"><path d="M1 1.2v7.6c0 .5.5.8.9.5l6.2-3.8c.4-.3.4-.8 0-1.1L1.9.7C1.5.4 1 .7 1 1.2z" fill="currentColor"/></svg>';
+---
+<Base
+  title="Coaching: executive, performance and sales coaching | LeadShift"
+  description="Executive coaching for the whole role ($18,000, six months), performance coaching for one clear goal and sales coaching ($5,000 per sprint), each priced in the open."
+  active="coaching"
+  faq={faq}
+>
+  <PageHero
+    chip="Coaching"
+    title="Coaching for one leader, one goal, or one sales team."
+    lead="Three kinds of coaching, each priced in the open. Pick by what the leader needs: the whole role, one clear goal, or a sales team that performs."
+  />
+
+  <!-- Three kinds -->
+  <section class="section" aria-label="Three kinds of coaching">
+    <div class="wrap">
+      <ul class="ways" style="margin-top: 0">
+        <li class="first" data-reveal>
+          <p class="label">The whole role</p>
+          <h2>Executive coaching</h2>
+          <p>Holistic coaching for one leader, across the whole role. It starts with a 360 and a debrief, then twelve sessions over six months.</p>
+          <p class="amt">$18,000</p>
+          <p class="meta">Six months · 360 · debrief · twelve sessions</p>
+        </li>
+        <li data-reveal style="--d:1">
+          <p class="label">One clear goal</p>
+          <h2>Performance coaching</h2>
+          <p>For a leader who has a goal but needs help reaching it. Each sprint focuses on one objective.</p>
+          <p class="amt">$5,000 per sprint</p>
+          <p class="meta"><Ph note="F4, open decision #12">[Sprint length and sessions]</Ph></p>
+        </li>
+        <li data-reveal style="--d:2">
+          <p class="label">Sales leaders and teams</p>
+          <h2>Sales coaching</h2>
+          <p>Coaching for sales leaders and their teams. <Ph note="Sales sprint content from Joe (F4, open decision #11)">[What a sprint covers, from Joe]</Ph></p>
+          <p class="amt">$5,000 per sprint</p>
+          <p class="meta"><Ph note="F4, open decision #11">[Sprint length and sessions]</Ph></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section lp-mist" aria-labelledby="compare-title">
+    <div class="wrap">
+      <p class="label" data-reveal>Comparison</p>
+      <h2 class="h2 h2-sm" id="compare-title" data-reveal>Executive coaching or performance coaching?</h2>
+      <div class="ptable ctable" data-reveal>
+        <table>
+          <caption class="sr-only">Executive coaching compared with performance coaching</caption>
+          <thead>
+            <tr><td></td><th scope="col"><b>Executive coaching</b></th><th scope="col"><b>Performance coaching</b></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Best when</th><td data-label="Executive coaching">The leader needs to grow across the whole role</td><td data-label="Performance coaching">The leader has one clear goal and needs help reaching it</td></tr>
+            <tr><th scope="row">Starts with</th><td data-label="Executive coaching">A 360 and a debrief</td><td data-label="Performance coaching"><Ph note="F4">[How a sprint starts]</Ph></td></tr>
+            <tr><th scope="row">Length</th><td data-label="Executive coaching">Six months, twelve sessions</td><td data-label="Performance coaching"><Ph note="F4, open decision #12">[Sprint length]</Ph></td></tr>
+            <tr><th scope="row">Price</th><td class="amt" data-label="Executive coaching">$18,000</td><td class="amt" data-label="Performance coaching">$5,000 per sprint</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- The coaches -->
+  <section class="section" aria-labelledby="coaches-title">
+    <div class="wrap">
+      <p class="label" data-reveal>The coaches</p>
+      <h2 class="h2 h2-sm" id="coaches-title" data-reveal>Meet who you'd work with.</h2>
+      <ul class="pt-grid" style="margin-top: 40px">
+        {execCoaches.map((c, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <div class="portrait wide" aria-hidden="true">
+              <span class="ini">{c.initials}</span>
+              <Ph tone="dark" size="sm" note={`Headshot and 90-second bio video: ${c.name} (H1, V11)`}><Fragment set:html={play} />[Photo and 90-second bio video]</Ph>
+            </div>
+            <h3>{c.name}</h3>
+            <p class="role">{c.title}</p>
+            <span class="bio"><Ph note={`Coach bio: ${c.name} (H3)`}>[Two lines: who she coaches best and why]</Ph></span>
+          </li>
+        ))}
+        <li data-reveal style="--d:2">
+          <div class="portrait wide" aria-hidden="true">
+            <svg class="ico-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c.8-3.8 3.8-6.2 7.5-6.2s6.7 2.4 7.5 6.2"/></svg>
+            <Ph tone="dark" size="sm" note="Sales coach headshot and bio video (H1, V11)"><Fragment set:html={play} />[Photo and 90-second bio video]</Ph>
+          </div>
+          <h3><Ph bare note="Sales coach name (H8)">[Sales coach]</Ph></h3>
+          <p class="role"><Ph bare note="Sales coach title (H8)">[Title]</Ph></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Questions -->
+  <section class="faq section bg-mist" aria-labelledby="faq-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2 h2-sm" id="faq-title" data-reveal>Questions about coaching.</h2>
+      </div>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <ClosingBand
+    heading="Find the right coach for the leader."
+    lead={false}
+    ctaLabel="Talk to a partner about coaching"
+    ctaHref={bookHref('bench')}
+    secondLabel="See every price"
+    secondHref="/pricing"
+  />
+</Base>

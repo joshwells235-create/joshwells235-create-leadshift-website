@@ -55,6 +55,8 @@ for (const file of files) {
     if (!PREVIEW) {
       const n = (text.match(/\bdata-ph=/g) || []).length;
       if (n) errors.push(`${rel}: ${n} placeholder(s) on a launch build. Fill them or cut the section.`);
+      const visible = text.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
+      for (const m of visible.matchAll(/\[[A-Z][^\]]{1,120}\]/g)) errors.push(`${rel}: bracketed text on a launch build: ${m[0]}`);
     }
   }
 }

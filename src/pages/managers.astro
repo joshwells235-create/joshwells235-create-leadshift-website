@@ -1,0 +1,135 @@
+---
+// Managers (ASCEND). Endless Customers job (docs/01-build-brief.md): the frontline manager problem. Fit video.
+// Section order and copy: reference/demo-canvas/FrontlineManagers.dc.html. Components: the
+// concept's signs, phases and price patterns.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { cta, bookHref, storyTemplate } from '../data/site.js';
+
+const habits = ['One-on-ones', 'Goals', 'Accountability', 'Recognition', 'Hard conversations'];
+const faq = [
+  { q: 'Who is ASCEND for?', a: 'Frontline managers, especially people promoted for doing the work well who now have to lead the people doing it.' },
+  { q: 'How many managers can take part?', ph: '[Smallest and largest group, and how we split a large one]', phNote: 'F2' },
+  { q: 'Is it in person or virtual?', a: 'Both. ASCEND is hybrid, with in-person and virtual sessions.', ph: '[Which parts are which]', phNote: 'F2' },
+  { q: 'What do their own leaders do?', ph: '[The sponsor and senior leader role during the four months]', phNote: 'F2' },
+];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+const check = '<svg aria-hidden="true"><use href="#check"/></svg>';
+---
+<Base
+  title="ASCEND: frontline managers who were never taught to manage | LeadShift"
+  description="ASCEND gives frontline managers a simple system for one-on-ones, goals, accountability, recognition and hard conversations. Four months, hybrid, $4,000 to $6,000 per manager."
+  active="managers"
+  faq={faq}
+>
+  <PageHero
+    split
+    chip="Frontline managers · ASCEND"
+    title="Your frontline managers were never taught to manage."
+    lead="ASCEND gives them a simple system for one-on-ones, goals, accountability, recognition and hard conversations, so problems get solved where they start instead of climbing to you."
+    meta="Four months · hybrid, in person and virtual · $4,000 to $6,000 per manager"
+  >
+    <Fragment slot="ctas">
+      <a class="btn btn-light" href={bookHref('frontline')}>Talk to a partner about ASCEND<Fragment set:html={arrow} /></a>
+      <a class="btn btn-ghost" href="/pricing#estimate">Estimate the cost</a>
+    </Fragment>
+    <VideoPoster slot="visual" kind="Fit video" duration="2 to 3 min" heading="Who ASCEND is for, and who it isn't" note="A facilitator on camera, plus a manager who went through it." />
+  </PageHero>
+
+  <!-- The promotion problem -->
+  <section class="section" aria-labelledby="promo-title">
+    <div class="wrap duo mid">
+      <div>
+        <h2 class="h2 h2-sm" id="promo-title" data-reveal>Your best performer got promoted. Now what?</h2>
+        <p class="lead" data-reveal style="--d:1">Being great at the work doesn't teach anyone to run a team. New managers need a simple system for one-on-ones, goals, accountability, recognition and hard conversations, and they need to understand how each person on their team is wired.</p>
+        <p data-reveal style="--d:2; margin-top: 14px">Without it, problems climb the ladder until they land on you.</p>
+      </div>
+      <figure class="th-photo" data-reveal style="--d:1; max-width: 440px"><img src="/images/executive-at-desk.webp" alt="An executive at his desk, deep in thought" width="735" height="1102" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <!-- The management system -->
+  <section class="section lp-mist" aria-labelledby="habits-title">
+    <div class="wrap">
+      <p class="label" data-reveal>The management system</p>
+      <h2 class="h2 h2-sm" id="habits-title" data-reveal>Five habits every manager runs.</h2>
+      <ul class="signs">
+        {habits.map((h) => <li data-reveal><p class="label">{h}</p><p><Ph note={`ASCEND: what good looks like for ${h.toLowerCase()} (F1)`}>[What good looks like]</Ph></p></li>)}
+      </ul>
+      <p class="signs-close" data-reveal>ASCEND scores each manager on the management system before and after.</p>
+    </div>
+  </section>
+
+  <!-- How ASCEND works -->
+  <section class="section" aria-labelledby="how-title">
+    <div class="wrap">
+      <p class="label" data-reveal>How ASCEND works</p>
+      <h2 class="h2 h2-sm" id="how-title" data-reveal>Four months, three workshops, coaching along the way.</h2>
+      <ol class="phases">
+        <li data-reveal><h3>Self-Aware Leader</h3><p>How each manager is wired, and how that shows up in the way they lead. <Ph note="F2">[Format and length]</Ph></p></li>
+        <li data-reveal><h3>People-Smart Leader</h3><p>How each person on their team is wired, and how to manage each one. <Ph note="F2">[Format and length]</Ph></p></li>
+        <li data-reveal><h3>Elite5</h3><p><Ph note="F2">[What Elite5 teaches, in one sentence, plus format and length]</Ph></p></li>
+      </ol>
+      <div class="lp-price" style="margin-top: clamp(48px, 6vw, 72px)">
+        <div data-reveal>
+          <h3>What it costs</h3>
+          <p class="lp-amt">$4,000 to $6,000 per manager</p>
+          <p>Where you land depends on how many coaching hours each manager gets.</p>
+          <div class="acts"><a class="textlink" href="/pricing#estimate">Estimate the cost for your managers<Fragment set:html={arrow} /></a></div>
+        </div>
+        <div class="drivers" data-reveal style="--d:1">
+          <p>What's included</p>
+          <ul>
+            <li><Fragment set:html={check} /><span>Behavioral and emotional intelligence assessments for each manager</span></li>
+            <li><Fragment set:html={check} /><span>Behavioral assessments for the people on their teams</span></li>
+            <li><Fragment set:html={check} /><span>Coaching along the way</span></li>
+            <li><Fragment set:html={check} /><span>A before and after score on the management system</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client story -->
+  <section class="section dark" aria-labelledby="story-title">
+    <div class="wrap duo mid">
+      <div>
+        <p class="label" data-reveal>Client story</p>
+        <h2 class="h2 h2-sm" id="story-title" data-reveal><Ph big tone="dark" note="ASCEND client story (P3)">[Client name]</Ph>: managers scored before and after ASCEND</h2>
+        <p class="lead" data-reveal style="--d:1"><Ph tone="dark" note="ASCEND client story (P3)">[What the managers were struggling with, what changed, and what their own leaders noticed]</Ph></p>
+        <div class="hero-ctas" style="justify-content: flex-start; margin-top: 28px; --d:2" data-reveal><a class="btn btn-light" href={storyTemplate}>Read the story<Fragment set:html={arrow} /></a></div>
+      </div>
+      <div class="case-nums" data-reveal style="--d:1">
+        <p class="case-cap">Management system</p>
+        <div class="case-row">
+          <div><p class="case-big before"><Ph bare note="ASCEND score before (P3)">[Score]</Ph></p><p class="sub">Before</p></div>
+          <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><p class="case-big"><Ph bare note="ASCEND score after (P3)">[Score]</Ph></p><p class="sub">After</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions -->
+  <section class="faq section" aria-labelledby="faq-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2 h2-sm" id="faq-title" data-reveal>Questions about ASCEND.</h2>
+      </div>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <ClosingBand
+    heading="Give your managers a system."
+    lead={false}
+    ctaLabel="Talk to a partner about ASCEND"
+    ctaHref={bookHref('frontline')}
+    secondLabel={cta.gi.label}
+    secondHref={cta.gi.href}
+  />
+</Base>

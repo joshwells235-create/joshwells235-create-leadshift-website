@@ -1,0 +1,165 @@
+---
+// Leaders. Endless Customers job (docs/01-build-brief.md): the leadership bench problem.
+// Leadership Academy, executive coaching, hiring excellence. Fit video.
+// Section order and copy: reference/demo-canvas/LeadershipBench.dc.html. Components: the
+// concept's signs, phases, included and price patterns, and its pull quote.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import MiniCase from '../components/MiniCase.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { cta, testimonials, bookHref } from '../data/site.js';
+
+const faq = [
+  { q: 'Who is the Leadership Academy for?', a: 'Leaders and high-potential managers who need to grow into what the business needs next, and the people you expect to step up when the company grows or someone leaves.' },
+  { q: 'Open or private cohort?', a: 'In an open cohort, your leaders learn alongside leaders from other companies. A private cohort is built for your company alone.', ph: '[When we recommend each]', phNote: 'F3' },
+  { q: 'Which assessments does it use?', a: 'A behavioral assessment, an emotional intelligence assessment and a 360 for each leader.' },
+  { q: 'Can we add Academy seats to ALIGN?', a: 'Yes. For one leadership team with both gaps, that usually means ALIGN plus seats in an open Leadership Academy cohort.' },
+  { q: 'How do we know it worked?', ph: '[The start and finish measure for the Academy]', phNote: 'F3' },
+];
+const parts = [
+  ['Leading yourself', '[What leaders work on, and for how long]'],
+  ['Leading others', '[What leaders work on, and for how long]'],
+  ['Leading the organization', '[What leaders work on, and for how long]'],
+  ['Capstone', '[What each leader presents, and to whom]'],
+];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+const check = '<svg aria-hidden="true"><use href="#check"/></svg>';
+---
+<Base
+  title="Leadership bench: the Leadership Academy, executive coaching and hiring | LeadShift"
+  description="Build leaders ready to step up when the company grows or someone leaves. The Leadership Academy ($15,000 to $18,000 per seat, nine months), executive coaching ($18,000) and hiring excellence."
+  active="leaders"
+  faq={faq}
+>
+  <PageHero
+    split
+    chip="Leadership bench"
+    title="You need a deeper bench of leaders."
+    lead="Leaders ready to step up when the company grows or someone leaves, and to grow into what the business needs next, with the right people in the right seats."
+  >
+    <Fragment slot="ctas">
+      <a class="btn btn-light" href={bookHref('bench')}>Talk to a partner about the Academy<Fragment set:html={arrow} /></a>
+      <a class="btn btn-ghost" href={cta.gi.href}>Not sure? Take the Growth Index</a>
+    </Fragment>
+    <VideoPoster slot="visual" kind="Fit video" duration="2 to 3 min" heading="Who the Leadership Academy is for, and who it isn't" note="Practice lead on camera, plus a graduate or sponsor." />
+  </PageHero>
+
+  <!-- Signs -->
+  <section class="section" aria-labelledby="signs-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="signs-title" data-reveal style="max-width: 760px">Signs the bench is the gap.</h2>
+      <ul class="signs">
+        <li data-reveal><p class="label"><span class="num">01</span></p><p>Nobody is ready to step up when the company grows or someone leaves.</p></li>
+        <li data-reveal><p class="label"><span class="num">02</span></p><p>Leaders who ran their own area well aren't ready for what the business needs next.</p></li>
+        <li data-reveal><p class="label"><span class="num">03</span></p><p><Ph note="F3">[A third sign CEOs describe in their own words]</Ph></p></li>
+      </ul>
+      <p class="signs-close" data-reveal>If capable leaders run their own areas well but the team struggles to debate, commit and hold each other accountable, the gap is the team. <a href="/teams">That's ALIGN.</a></p>
+    </div>
+  </section>
+
+  <!-- Three ways in -->
+  <section class="section lp-mist" aria-labelledby="ways-title">
+    <div class="wrap">
+      <p class="label" data-reveal>How we build the bench</p>
+      <h2 class="h2 h2-sm" id="ways-title" data-reveal>Three ways in.</h2>
+      <ul class="ways">
+        <li class="first" data-reveal>
+          <p class="label">For a group of leaders</p>
+          <h3>The Leadership Academy</h3>
+          <p>A cohort program that takes leaders from leading themselves, to leading others, to leading the organization, with a capstone at the end.</p>
+          <p class="meta">Nine months · open or private cohort · $15,000 to $18,000 per seat</p>
+          <a class="textlink" href="#academy">How the Academy works<Fragment set:html={arrow} /></a>
+        </li>
+        <li data-reveal style="--d:1">
+          <p class="label">For one leader</p>
+          <h3>Executive coaching</h3>
+          <p>Six months of intensive coaching for one leader, across the whole role: a 360, a debrief and twelve sessions.</p>
+          <p class="meta">Six months · $18,000</p>
+          <a class="textlink" href="/coaching">How coaching works<Fragment set:html={arrow} /></a>
+        </li>
+        <li data-reveal style="--d:2">
+          <p class="label">For the seats you hire into</p>
+          <h3>Hiring excellence</h3>
+          <p>Know what good looks like for the job before you hire, and hold to that standard so the right people land in the right seats.</p>
+          <p class="meta"><Ph note="Hiring excellence offer (open decision #6)">[Format, length and price]</Ph></p>
+          <a class="textlink" href="/workshops">See the hiring certification workshop<Fragment set:html={arrow} /></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- The Leadership Academy -->
+  <section class="section" id="academy" aria-labelledby="academy-title">
+    <div class="wrap">
+      <p class="label" data-reveal>The Leadership Academy</p>
+      <h2 class="h2 h2-sm" id="academy-title" data-reveal style="max-width: 820px">Nine months, from leading yourself to leading the organization.</h2>
+      <ol class="phases">
+        {parts.map(([h, ph]) => <li data-reveal><h3>{h}</h3><p><Ph note="Academy structure (F3)">{ph}</Ph></p></li>)}
+      </ol>
+      <ul class="incl two">
+        <li data-reveal>
+          <h3>Open cohort</h3>
+          <p>Your leaders learn alongside leaders from other companies.</p>
+          <p class="meta">Next cohort starts <Ph note="Open Academy cohort date (F3)">[Date]</Ph> · <Ph note="Open Academy seats left (F3)">[Seats left]</Ph></p>
+        </li>
+        <li data-reveal style="--d:1">
+          <h3>Private cohort</h3>
+          <p>A cohort built for your company alone.</p>
+          <p class="meta"><Ph note="F3, open decision #12">[Minimum group size and private cohort pricing]</Ph></p>
+        </li>
+      </ul>
+      <div class="lp-price" style="margin-top: clamp(48px, 6vw, 72px)">
+        <div data-reveal>
+          <h3>What it costs</h3>
+          <p class="lp-amt">$15,000 to $18,000 per seat</p>
+          <p><Ph note="F3, open decision #12">[What moves a seat inside the range]</Ph></p>
+          <div class="acts"><a class="textlink" href="/pricing#estimate">Estimate the cost for your leaders<Fragment set:html={arrow} /></a></div>
+        </div>
+        <div class="drivers" data-reveal style="--d:1">
+          <p>What's included</p>
+          <ul>
+            <li><Fragment set:html={check} /><span>Behavioral and emotional intelligence assessments</span></li>
+            <li><Fragment set:html={check} /><span>A 360 for each leader</span></li>
+            <li><Fragment set:html={check} /><span>Cohort sessions across nine months, ending in a capstone</span></li>
+            <li><Fragment set:html={check} /><span><Ph note="F3">[Coaching between sessions: how much]</Ph></span></li>
+            <li><Fragment set:html={check} /><span><Ph note="F3">[Online learning platform]</Ph></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="section lp-mist" aria-label="What clients say">
+    <div class="wrap proof-grid">
+      <figure class="pq pq-main" data-reveal>
+        <blockquote><p>{testimonials.main.quote}</p></blockquote>
+        <figcaption><div><b>{testimonials.main.name}</b><span>{testimonials.main.role}</span></div></figcaption>
+      </figure>
+      <div class="proof-side">
+        <MiniCase>
+          <Fragment slot="title"><Ph big tone="dark" note="Leadership Academy client story (P2)">[Client name]</Ph>: the leaders who stepped up after the Academy</Fragment>
+          <Ph slot="body" tone="dark" note="Leadership Academy client story (P2)">[Who was promoted, who took on more, and what the CEO says changed]</Ph>
+        </MiniCase>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions -->
+  <section class="faq section" aria-labelledby="faq-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2 h2-sm" id="faq-title" data-reveal>Questions about the Academy.</h2>
+      </div>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <ClosingBand
+    heading="Is it the bench, the team, or both?"
+    lead="The Growth Index shows which gap you have. About twenty minutes for you, and it is complimentary."
+  />
+</Base>

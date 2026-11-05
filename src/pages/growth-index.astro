@@ -1,0 +1,129 @@
+---
+// Growth Index. Endless Customers job (docs/01-build-brief.md): Pillar 3, self-assessment.
+// The CEO picks 5 of 12 priorities, then continues into the app.
+// Section order and copy: reference/demo-canvas/GrowthIndex.dc.html. Components: the concept's
+// Growth Index section (steps, report leaf, picker, findings, FAQ).
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import { priorities, giApp, sampleReport, cta } from '../data/site.js';
+
+const faq = [
+  { q: 'How long does the Growth Index take?', a: 'About twenty minutes for you, plus a short assessment for each of your leaders.' },
+  { q: 'Will my leaders see my ratings?', a: 'No. Your ratings stay with you, and your leaders never see them.' },
+  {
+    q: 'What do I get from the Growth Index, and when?',
+    a: 'Once your leaders finish their short assessments, a LeadShift partner walks you through your report, leader by leader. Then you get a plan for the gap: team gap, leader gap, or both, with a clear scope and a price.',
+  },
+  { q: 'Why is it complimentary?', ph: '[Straight answer: why we give it away and what we hope happens next]', phNote: 'F10' },
+  {
+    q: 'What do profile fit and seat fit measure?',
+    a: 'Profile fit compares how each leader naturally works with the leadership your five priorities call for. Seat fit compares it with what their current role needs. Both describe fit, not ability or potential, and a partner reads them alongside your own ratings.',
+  },
+];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+---
+<Base
+  title="The Growth Index | LeadShift"
+  description="A complimentary assessment for CEOs. Choose the five of twelve leadership priorities your strategy depends on, rate each leader privately, and see whether your gap is how the team works together, how your leaders are growing, or both."
+  faq={faq}
+>
+  <PageHero
+    split
+    chip="The Growth Index · complimentary for CEOs"
+    title="See your team clearly."
+    lead="The Growth Index shows whether your gap is how the team works together, how your leaders are growing, or both."
+    notes={['About twenty minutes for you', 'Your ratings stay with you', 'A partner reads it with you']}
+  >
+    <Fragment slot="ctas">
+      <a class="btn btn-light" href="#start">Start here<Fragment set:html={arrow} /></a>
+      <a class="btn btn-ghost" href={cta.call.href}>Ask a partner first</a>
+    </Fragment>
+    <VideoPoster slot="visual" kind="Landing video" duration="60 sec" heading="What happens after you start" note="A partner explains the twenty minutes, who sees your ratings, and what the walkthrough covers." />
+  </PageHero>
+
+  <!-- How it works -->
+  <section class="section" aria-labelledby="how-title">
+    <div class="wrap duo">
+      <div>
+        <p class="label" data-reveal>How it works</p>
+        <h2 class="h2" id="how-title" data-reveal>Three steps, one conversation.</h2>
+      </div>
+      <ol class="steps3">
+        <li data-reveal style="--d:1"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.8" fill="currentColor"/></svg></span><div><h3>Name what your strategy depends on</h3><p>Choose the five of twelve leadership priorities that matter most to your plan.</p></div></li>
+        <li data-reveal style="--d:2"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg></span><div><h3>Rate each leader, privately</h3><p>About twenty minutes for you, plus a short assessment for each of your leaders. Your ratings stay with you, and your leaders never see them.</p></div></li>
+        <li data-reveal style="--d:3"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19c.6-3 2.8-5 5.5-5s4.9 2 5.5 5"/><circle cx="16.5" cy="9.5" r="2.6"/><path d="M15.5 14.2c2.3.2 4.1 2 4.6 4.8"/></svg></span><div><h3>Get your report from a partner</h3><p>A LeadShift partner walks you through the results, leader by leader, and what to do about the gap.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- What the report shows, then start here -->
+  <section class="gi section" aria-labelledby="report-title">
+    <div class="wrap duo mid">
+      <figure class="leaf" data-reveal>
+        <img src={sampleReport.leaderPage} alt="A leader page from a sample Growth Index report, for a fictional executive" width="1102" height="1426" loading="lazy" decoding="async" />
+        <figcaption>{sampleReport.caption}</figcaption>
+      </figure>
+      <div>
+        <p class="label" data-reveal>What the report shows</p>
+        <h2 class="h2 h2-sm" id="report-title" data-reveal>Your ratings beside each leader's fit.</h2>
+        <p class="lead" data-reveal style="--d:1">A leader page from the same sample report: her behavioral pattern, how closely she matches her seat and the leadership profile your strategy calls for, and your ratings on the five priorities you chose.</p>
+        <dl class="defs" data-reveal style="--d:2">
+          <div><dt>Profile fit</dt><dd>How each leader naturally works, compared with the leadership your five priorities call for.</dd></div>
+          <div><dt>Seat fit</dt><dd>How each leader naturally works, compared with what their current role needs.</dd></div>
+          <div><dt>Your ratings</dt><dd>Both fits describe fit, not ability or potential, and a partner reads them alongside your own ratings.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="gi-start flush" id="start" data-reveal>
+        <div class="gs-head">
+          <p class="label">Start here. It's complimentary.</p>
+          <h2 id="gs-title">Which five does your strategy depend on?</h2>
+          <p>Pick the five most critical for your team to execute your strategy. You will rank them and rate your leaders in the next step.</p>
+        </div>
+        <div class="gs-act">
+          <p class="gs-count" id="gs-count" aria-live="polite">0 of 5 chosen</p>
+          <a class="btn btn-primary is-off" id="gs-go" href={giApp} target="_blank" rel="noopener" aria-disabled="true">Continue to the Growth Index<Fragment set:html={arrow} /></a>
+          <button class="gs-clear" type="button" id="gs-clear" hidden>Start over</button>
+        </div>
+        <ul class="gs-grid" aria-labelledby="gs-title">
+          {priorities.map((p) => (
+            <li><button type="button" class="pri" aria-pressed="false" data-key={p.key}><span class="rk" aria-hidden="true"></span><b>{p.title}</b><span class="pd">{p.desc}</span></button></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- What CEOs are telling us -->
+  <section class="section dark" aria-labelledby="findings-title">
+    <div class="wrap">
+      <p class="label" data-reveal>What CEOs are telling us</p>
+      <h2 class="h2 h2-sm" id="findings-title" data-reveal>From <Ph big tone="dark" note="Number of completed Growth Indexes (P7)">[N]</Ph> completed Growth Indexes.</h2>
+      <dl class="stats3" data-reveal style="--d:1">
+        <div><dt>Average confidence in their own leadership team</dt><dd><Ph tone="dark" note="Growth Index findings (P7, needs data)">[x out of 10]</Ph></dd></div>
+        <div><dt>Priorities rated 8 or above, on average</dt><dd><Ph tone="dark" note="Growth Index findings (P7, needs data)">[x of 5]</Ph></dd></div>
+        <div><dt>The priority CEOs choose most</dt><dd><Ph tone="dark" note="Growth Index findings (P7, needs data)">[Priority]</Ph></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Questions -->
+  <section class="faq section" aria-labelledby="faq-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2 h2-sm" id="faq-title" data-reveal>Questions about the Growth Index.</h2>
+        <p class="lead" data-reveal style="--d:1">Time, privacy and what you get.</p>
+      </div>
+      <Faq items={faq} />
+    </div>
+  </section>
+</Base>
+
+<script>
+  import '../scripts/gi-picker.js';
+</script>

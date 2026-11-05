@@ -1,7 +1,9 @@
 ---
+import Ph from './Ph.astro';
 // The concept's FAQ rows: <details> with the plus-in-circle that turns into a filled navy cross.
-// Pass the same items to the layout's `faq` prop so the structured data matches what's shown.
-interface Item { q: string; a: string; link?: [string, string] }
+// Pass the same items to the layout's `faq` prop so the structured data matches what's shown;
+// the layout leaves out any item whose answer still has a placeholder (`ph`).
+interface Item { q: string; a?: string; ph?: string; phNote?: string; link?: [string, string] }
 interface Props { items: Item[]; openFirst?: boolean; heading?: 'h3' | 'h4' }
 const { items, openFirst = true, heading = 'h3' } = Astro.props;
 const H = heading;
@@ -11,7 +13,7 @@ const H = heading;
     <details open={openFirst && i === 0}>
       <summary><H>{it.q}</H><i class="pm" aria-hidden="true"></i></summary>
       <div class="a">
-        <p>{it.a}</p>
+        <p>{it.a}{it.a && it.ph && ' '}{it.ph && <Ph note={it.phNote ?? ''}>{it.ph}</Ph>}</p>
         {it.link && <a class="textlink" href={it.link[1]}>{it.link[0]}<svg aria-hidden="true"><use href="#arrow" /></svg></a>}
       </div>
     </details>

@@ -7,16 +7,18 @@
 //   <Ph size="sm">[Photo]</Ph>                  the smaller chip used on portraits and tags
 //   <Ph bare>[Retest]</Ph>                      no chip: for big display numbers and titles
 //   <Ph note="Video to film: ...">To film</Ph>  `note` says what is missing, for the report
+//   <Ph big tone="dark">[N]</Ph>               a chip that takes the size of the heading around it
 interface Props {
   tone?: 'light' | 'dark';
   size?: 'sm';
   bare?: boolean;
+  big?: boolean;
   note?: string;
   class?: string;
 }
-const { tone = 'light', size, bare = false, note = '', class: extra } = Astro.props;
+const { tone = 'light', size, bare = false, big = false, note = '', class: extra } = Astro.props;
 ---
 <span
-  class:list={[bare ? 'ph-bare' : 'ph', { 'ph-dark': !bare && tone === 'dark', 'ph-sm': !bare && size === 'sm' }, extra]}
+  class:list={[bare ? 'ph-bare' : 'ph', { 'ph-dark': !bare && tone === 'dark', 'ph-sm': !bare && size === 'sm', 'ph-big': !bare && big }, extra]}
   data-ph={note}
 ><slot /></span>

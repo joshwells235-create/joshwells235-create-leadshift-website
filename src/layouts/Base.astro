@@ -14,7 +14,7 @@ interface Props {
   /** Start the header solid (pages whose first band is light). */
   solidHeader?: boolean;
   /** Questions and answers shown on the page, for FAQ structured data. */
-  faq?: { q: string; a: string }[];
+  faq?: { q: string; a?: string; ph?: string }[];
   /** Extra structured data nodes for this page. */
   jsonld?: object[];
 }
@@ -22,7 +22,8 @@ const { title, description, active, solidHeader = false, faq, jsonld = [] } = As
 
 // Preview builds are never indexed. Set PUBLIC_PREVIEW=false only for the launch build.
 const PREVIEW = import.meta.env.PUBLIC_PREVIEW !== 'false';
-const ld = graph(organization(), faq && faq.length ? faqPage(faq) : null, ...jsonld);
+const answered = (faq || []).filter((q) => q.a && !q.ph);
+const ld = graph(organization(), answered.length ? faqPage(answered) : null, ...jsonld);
 const ldJson = JSON.stringify(ld).replace(/</g, '\\u003c');
 // With file-style output the path is /index.html or /leaders.html; canonical URLs drop both.
 const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/(^|\/)index$/, '/') || '/';

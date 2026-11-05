@@ -1,0 +1,41 @@
+---
+// Inner-page hero: the concept's program-page hero (.lp-hero: night band, soft glow,
+// copy on a 12-column grid). With `split`, a visual (video or photo) sits beside the copy.
+interface Props {
+  title: string;
+  chip?: string;
+  label?: string;
+  lead?: string;
+  notes?: string[];
+  crumbs?: [string, string][];
+  split?: boolean;
+  id?: string;
+}
+const { title, chip, label, lead, notes, crumbs, split = false, id = 'page-title' } = Astro.props;
+const hasCtas = Astro.slots.has('ctas');
+const hasVisual = Astro.slots.has('visual');
+---
+<section class="lp-hero dark" aria-labelledby={id}>
+  <div class:list={['wrap lp-grid', { split }]}>
+    <div class="lp-copy">
+      {crumbs && (
+        <nav class="crumbs" aria-label="Breadcrumb">
+          {crumbs.map(([t, href], i) => (
+            <>{i > 0 && <span aria-hidden="true">/</span>}{href ? <a href={href}>{t}</a> : <span aria-current="page">{t}</span>}</>
+          ))}
+        </nav>
+      )}
+      {chip && <p class="chip"><i aria-hidden="true"></i>{chip}</p>}
+      {label && <p class="label">{label}</p>}
+      <h1 id={id}>{title}</h1>
+      {lead && <p class="lead">{lead}</p>}
+      {hasCtas && <div class="hero-ctas"><slot name="ctas" /></div>}
+      {notes && (
+        <ul class="hero-notes">
+          {notes.map((n) => <li><svg aria-hidden="true"><use href="#check" /></svg>{n}</li>)}
+        </ul>
+      )}
+    </div>
+    {hasVisual && <div class="lp-visual"><slot name="visual" /></div>}
+  </div>
+</section>

@@ -1,0 +1,201 @@
+---
+// Pricing. Endless Customers job (docs/01-build-brief.md): Pillar 1 (cost), Pillar 2 (cost video),
+// Pillar 3 (self-pricing and self-configuration via the estimator).
+// Section order and copy: reference/demo-canvas/Pricing.dc.html. Components: the concept's
+// estimator (.fit), price tables (.ptable, .pcards on phones) and FAQ rows.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { options } from '../data/estimator.js';
+import { articles } from '../data/site.js';
+
+const quotes = [
+  { q: 'Why a lower quote can cost more', ph: '[What a one-day workshop leaves out compared with a measured program]', phNote: 'Pricing (F6) and cost article (A1)' },
+  { q: 'When a bigger firm makes sense', ph: '[Say plainly when another provider is the better buy]', phNote: 'Pricing (F6)' },
+  { q: 'Can we start smaller?', a: 'Yes. The Growth Index is complimentary, and coaching sprints start at $5,000.', ph: '[Any other smaller first step]', phNote: 'Pricing (F6)' },
+  { q: 'Can we pay monthly?', ph: '[Monthly billing terms, once the partners settle them]', phNote: 'Pricing (F6, open decision #12)' },
+];
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+const check = '<svg aria-hidden="true"><use href="#check"/></svg>';
+const dash = '<svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 8h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+---
+<Base
+  title="Pricing | LeadShift"
+  description="Published price ranges for every LeadShift program, what moves a price inside its range, and a quick estimate of your likely starting point."
+  active="pricing"
+  faq={quotes}
+>
+  <PageHero
+    split
+    chip="Pricing"
+    title="What it costs, in the open."
+    lead="We publish ranges for every program. Pricing will never be fully standardized, and it shouldn't be, so here is what moves a price inside its range and why."
+  >
+    <a slot="ctas" class="btn btn-light" href="#estimate">Find your likely starting point<Fragment set:html={arrow} /></a>
+    <VideoPoster slot="visual" kind="Cost video" duration="6 to 8 min" heading="What moves the price of leadership development" note="What raises and lowers cost across the industry, why providers differ, and where LeadShift fits." />
+  </PageHero>
+
+  <!-- What moves the price -->
+  <section class="section" aria-labelledby="drivers-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="drivers-title" data-reveal>Three things move a price inside its range.</h2>
+      <ul class="incl">
+        <li data-reveal><h3>How many leaders take part</h3><p>Seats and managers are priced per person, so a cohort of twelve costs more than a cohort of six.</p></li>
+        <li data-reveal style="--d:1"><h3>How much one-on-one coaching runs alongside</h3><p>Group work sets the common language. Coaching hours are where each leader applies it to their own work.</p></li>
+        <li data-reveal style="--d:2"><h3>How long the program runs</h3><p>Most teams take six months for ALIGN. A longer program means more sessions and more follow-through.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Estimate -->
+  <section class="section bg-mist" id="estimate" aria-labelledby="estimate-title">
+    <div class="wrap">
+      <p class="label" data-reveal>Estimate</p>
+      <h2 class="h2 h2-sm" id="estimate-title" data-reveal>Find your likely starting point.</h2>
+      <p class="lead" style="margin-top: 14px" data-reveal>A few questions. No email needed.</p>
+
+      <div class="fit" data-reveal>
+        <form class="fit-q" id="fit-form" aria-labelledby="estimate-title">
+          <fieldset class="fq">
+            <legend>Who needs to grow?</legend>
+            <div class="opts">
+              {options.map(([value, label], i) => (
+                <label class="opt"><input type="radio" name="who" value={value} checked={i === 0} /><span>{label}</span></label>
+              ))}
+            </div>
+          </fieldset>
+          <fieldset class="fq" data-q="n" hidden>
+            <legend id="fit-n-label">How many leaders?</legend>
+            <div class="range-row">
+              <input type="range" id="fit-n" name="n" min="1" max="30" value="6" aria-labelledby="fit-n-label" />
+              <output id="fit-n-out" for="fit-n">6</output>
+            </div>
+          </fieldset>
+          <fieldset class="fq" data-q="cohort" hidden>
+            <legend>Open or private cohort?</legend>
+            <div class="seg">
+              <label><input type="radio" name="cohort" value="open" checked /><span>Open cohort</span></label>
+              <label><input type="radio" name="cohort" value="private" /><span>Private cohort</span></label>
+            </div>
+          </fieldset>
+        </form>
+        <div class="fit-r dark" aria-live="polite">
+          <p class="label">Your likely starting point</p>
+          <div class="fit-sw" id="fit-sw">
+            <h3 id="fit-name">ALIGN</h3>
+            <p id="fit-desc">For your leadership team, working as a team.</p>
+          </div>
+          <ul class="fit-inc" id="fit-inc"></ul>
+          <div class="fit-range" id="fit-range">
+            <div class="fr-row"><p class="fr-l" id="fit-price-l">Range</p><span class="fr-amt" id="fit-ph">$50,000 to $75,000</span></div>
+            <div class="fr-row" id="fit-total-row" hidden><p class="fr-l" id="fit-total-l">Total</p><span class="fr-amt" id="fit-total"></span></div>
+            <p class="fit-note" id="fit-note" hidden></p>
+          </div>
+          <div class="fit-cta" id="fit-cta"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Every program's range -->
+  <section class="section ranges" aria-labelledby="ranges-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="ranges-title" data-reveal>Every program's range.</h2>
+      <div class="ptable" data-reveal>
+        <table>
+          <caption class="sr-only">Program ranges and what each includes</caption>
+          <colgroup><col class="c0" /><col /><col /><col /></colgroup>
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col"><b><a href="/teams">ALIGN</a></b><span>Your leadership team</span></th>
+              <th scope="col"><b><a href="/leaders">The Leadership Academy</a></b><span>Leaders and high-potential managers</span></th>
+              <th scope="col"><b><a href="/managers">ASCEND</a></b><span>Frontline managers</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Range</th><td class="amt">$50,000 to $75,000</td><td class="amt">$15,000 to $18,000 per seat</td><td class="amt">$4,000 to $6,000 per manager</td></tr>
+            <tr><th scope="row">Length</th><td>Six months</td><td>Nine months</td><td>Four months</td></tr>
+            <tr><th scope="row">Format</th><td>Team workshops plus coaching for the leader</td><td>An open or private cohort</td><td>Hybrid: Self-Aware Leader, People-Smart Leader and Elite5</td></tr>
+            <tr><th scope="row">Assessments</th><td>Behavioral, plus a team assessment at the start and the end</td><td>Behavioral, emotional intelligence and a 360</td><td>Behavioral and emotional intelligence</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ptable" data-reveal>
+        <table>
+          <caption class="sr-only">Coaching prices</caption>
+          <colgroup><col class="c0" /><col /><col /><col /></colgroup>
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col"><b><a href="/coaching">Executive coaching</a></b><span>One leader, across the whole role</span></th>
+              <th scope="col"><b><a href="/coaching">Performance coaching</a></b><span>One leader, one clear goal</span></th>
+              <th scope="col"><b><a href="/coaching">Sales coaching</a></b><span>Sales leaders and their teams</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Price</th><td class="amt">$18,000</td><td class="amt">$5,000 per sprint</td><td class="amt">$5,000 per sprint</td></tr>
+            <tr><th scope="row">Length</th><td>Six months: a 360, a debrief and twelve sessions</td><td><Ph note="Performance coaching sprint length (F4, open decision #12)">[Sprint length]</Ph></td><td><Ph note="Sales coaching sprint length (F4, open decision #11)">[Sprint length]</Ph></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pcards">
+        <article class="pcard"><h3><a href="/teams">ALIGN</a></h3><p class="amt">$50,000 to $75,000</p><dl><div><dt>For</dt><dd>Your leadership team</dd></div><div><dt>Length</dt><dd>Six months</dd></div><div><dt>Format</dt><dd>Team workshops plus coaching for the leader</dd></div><div><dt>Assessments</dt><dd>Behavioral, plus a team assessment at the start and the end</dd></div></dl></article>
+        <article class="pcard"><h3><a href="/leaders">The Leadership Academy</a></h3><p class="amt">$15,000 to $18,000 per seat</p><dl><div><dt>For</dt><dd>Leaders and high-potential managers</dd></div><div><dt>Length</dt><dd>Nine months</dd></div><div><dt>Format</dt><dd>An open or private cohort</dd></div><div><dt>Assessments</dt><dd>Behavioral, emotional intelligence and a 360</dd></div></dl></article>
+        <article class="pcard"><h3><a href="/managers">ASCEND</a></h3><p class="amt">$4,000 to $6,000 per manager</p><dl><div><dt>For</dt><dd>Frontline managers</dd></div><div><dt>Length</dt><dd>Four months</dd></div><div><dt>Format</dt><dd>Hybrid: Self-Aware Leader, People-Smart Leader and Elite5</dd></div><div><dt>Assessments</dt><dd>Behavioral and emotional intelligence</dd></div></dl></article>
+        <article class="pcard"><h3><a href="/coaching">Executive coaching</a></h3><p class="amt">$18,000</p><dl><div><dt>For</dt><dd>One leader, across the whole role</dd></div><div><dt>Length</dt><dd>Six months: a 360, a debrief and twelve sessions</dd></div></dl></article>
+        <article class="pcard"><h3><a href="/coaching">Performance coaching</a></h3><p class="amt">$5,000 per sprint</p><dl><div><dt>For</dt><dd>A leader with one clear goal who needs help reaching it</dd></div><div><dt>Length</dt><dd><Ph note="Performance coaching sprint length (F4, open decision #12)">[Sprint length]</Ph></dd></div></dl></article>
+        <article class="pcard"><h3><a href="/coaching">Sales coaching</a></h3><p class="amt">$5,000 per sprint</p><dl><div><dt>For</dt><dd>Sales leaders and their teams</dd></div><div><dt>Length</dt><dd><Ph note="Sales coaching sprint length (F4, open decision #11)">[Sprint length]</Ph></dd></div></dl></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- In the price, billed separately -->
+  <section class="section bg-mist" aria-label="What's in the price and what's billed separately">
+    <div class="wrap rl2">
+      <div class="rl" data-reveal>
+        <h2>What's in the price</h2>
+        <ul>
+          <li><Fragment set:html={check} />The assessments each program lists</li>
+          <li><Fragment set:html={check} />Workshops, coaching and the start and end measures</li>
+          <li><Fragment set:html={check} /><Ph note="Pricing (F6)">[Materials and workbooks: included or not]</Ph></li>
+          <li><Fragment set:html={check} /><Ph note="Pricing (F6)">[Sponsor check-ins and the closing review]</Ph></li>
+        </ul>
+      </div>
+      <div class="rl muted" data-reveal style="--d:1">
+        <h2>What's billed separately</h2>
+        <ul>
+          <li><Fragment set:html={dash} /><Ph note="Pricing (F6, open decision #12)">[Travel for on-site sessions: how it's handled]</Ph></li>
+          <li><Fragment set:html={dash} /><Ph note="Pricing (F6, open decision #12)">[Venue and catering for off-site sessions]</Ph></li>
+          <li><Fragment set:html={dash} /><Ph note="Pricing (F6, open decision #12)">[Payment schedule: when and how we invoice]</Ph></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparing quotes -->
+  <section class="faq section" aria-labelledby="quotes-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2 h2-sm" id="quotes-title" data-reveal>Comparing quotes.</h2>
+        <p class="lead" data-reveal style="--d:1">The honest version of why one firm's number differs from another's.</p>
+        <a class="textlink" href={articles.cost} data-reveal style="--d:2; margin-top: 18px">Read the full guide to cost<Fragment set:html={arrow} /></a>
+      </div>
+      <Faq items={quotes} />
+    </div>
+  </section>
+
+  <ClosingBand
+    heading="Not sure which program fits?"
+    lead="The Growth Index shows whether your gap is the team, the leaders, or both. Then you get a plan with a clear scope and a price."
+    ctaLabel="Start with the Growth Index"
+    showCall={false}
+  />
+</Base>
+
+<script>
+  import '../scripts/estimator.js';
+</script>

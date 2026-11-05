@@ -45,6 +45,9 @@ for (const file of files) {
       errors.push(`${rel}: ${rule.name}: ...${ctx}...`);
     }
   }
+  if (ext === '.js' && !PREVIEW) {
+    for (const m of text.matchAll(/["'`](\[[A-Z][^\]"'`]{2,100}\])["'`]/g)) errors.push(`${rel}: placeholder inside a tool on a launch build: ${m[1]}`);
+  }
   if (ext === '.html') {
     if (PREVIEW && !/<meta name="robots" content="noindex, nofollow">/.test(text)) {
       errors.push(`${rel}: preview page is missing <meta name="robots" content="noindex, nofollow">`);

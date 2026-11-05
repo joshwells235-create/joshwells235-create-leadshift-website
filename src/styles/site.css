@@ -191,3 +191,93 @@
   .foot-lens .btn { width: 100%; }
   .foot-cols { grid-template-columns: 1fr; }
 }
+
+/* =====================================================================
+   Inner pages. Built on the concept's program-page CSS (.lp-hero, .signs,
+   .ba, .phases, .incl, .lp-price, .story) plus the patterns below.
+   ===================================================================== */
+
+/* ---------- page hero (PageHero.astro) ---------- */
+.lp-grid.split .lp-copy { grid-column: 1 / 7; }
+.lp-visual { grid-column: 9 / 13; }
+.lp-grid.split .lp-visual { grid-column: 7 / 13; }
+.lp-hero .chip + h1 { margin-top: 22px; }
+.lp-hero .crumbs + .chip, .lp-hero .crumbs + .label { margin-top: 28px; }
+.lp-hero .hero-notes { justify-content: flex-start; }
+.lp-hero .hero-ctas .btn { min-height: 52px; }
+
+/* ---------- light page top (no night hero), header starts solid ---------- */
+.page-top { padding-top: calc(68px + env(safe-area-inset-top, 0px) + clamp(48px, 7vw, 96px)); }
+.page-h1 { margin-top: 14px; font-size: clamp(40px, 5vw, 64px); line-height: 1.02; letter-spacing: -0.035em; }
+
+/* ---------- placeholder inside a large heading ---------- */
+.ph-big { padding: 0 10px; border-radius: 6px; font: inherit; }
+
+/* ---------- two-part section: heading left, content right ---------- */
+.duo { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 40px; align-items: start; }
+.duo > :first-child { grid-column: 1 / 6; }
+.duo > :last-child { grid-column: 7 / 13; }
+.duo.mid { align-items: center; }
+.duo .lead { margin-top: 20px; }
+
+/* ---------- ruled definition list (profile fit, seat fit...) ---------- */
+.defs { margin-top: 28px; border-bottom: 1px solid var(--line-2); }
+.defs > div { padding: 16px 0; border-top: 1px solid var(--line-2); }
+.defs dt { font-family: var(--display); font-weight: 600; color: var(--text); }
+.defs dd { margin-top: 4px; font-size: 16px; color: var(--text-2); }
+
+/* ---------- three stats on a night band (Growth Index findings) ---------- */
+.stats3 { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 28px; border-top: 1px solid var(--line-dark); }
+.stats3 dt { font-family: var(--display); font-size: 15px; font-weight: 500; line-height: 1.4; color: var(--on-dark-2); }
+.stats3 dd { margin-top: 12px; }
+
+/* ---------- Growth Index picker as its own section heading ---------- */
+.gs-head h2 { margin-top: 10px; font-size: clamp(24px, 2.4vw, 32px); font-weight: 560; letter-spacing: -0.02em; line-height: 1.15; }
+.gs-head h2 + p { margin-top: 10px; font-size: 16px; color: var(--text-2); }
+.gi-start.flush { margin-top: clamp(56px, 7vw, 88px); }
+
+/* ---------- estimator on its own (no title inside the widget) ---------- */
+.fit-q > .fq:first-child { margin-top: 0; }
+.fit-r h3 { font-family: var(--display); font-size: clamp(26px, 2.6vw, 34px); font-weight: 560; line-height: 1.1; letter-spacing: -0.02em; color: #fff; }
+
+/* ---------- price tables shown open (Pricing page) ---------- */
+.ranges .ptable + .ptable { margin-top: 24px; }
+.ptable thead th a { color: inherit; }
+@media (hover: hover) and (pointer: fine) { .ptable thead th a:hover { color: var(--blue-deep); } }
+
+/* ---------- two ruled lists side by side ---------- */
+.rl2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 48px; }
+.rl h2, .rl h3 { padding-bottom: 14px; border-bottom: 2px solid var(--navy); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+.rl.muted h2, .rl.muted h3 { border-bottom-color: var(--line-2); }
+.rl li { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.rl li > svg { flex: none; width: 18px; height: 18px; margin-top: 4px; color: var(--blue-deep); }
+.rl.muted li > svg { color: #8A93AE; }
+
+/* ---------- ruled check list (what happens on the call) ---------- */
+.checks { margin-top: 14px; border-bottom: 1px solid var(--line); }
+.checks li { display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.checks li > svg { flex: none; width: 18px; height: 18px; margin-top: 4px; color: var(--blue-deep); }
+
+/* ---------- booking page ---------- */
+.book-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px; align-items: start; }
+.book-copy .lead { margin-top: 20px; }
+.book-copy .vp { margin-top: 32px; }
+.book-copy h2 { margin-top: 36px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+.book-copy .call { margin-top: 24px; }
+.book-copy .call a { font-family: var(--display); font-weight: 600; color: var(--blue-deep); }
+.book-card { padding: clamp(24px, 4vw, 36px); border-radius: var(--r-xl); background: #fff; border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(10, 18, 56, 0.04), 0 24px 56px -32px rgba(10, 18, 56, 0.22); }
+.book-card .mock { margin-top: 14px; }
+.book-card .bk-fs:first-of-type { margin-top: 16px; }
+
+@media (max-width: 900px) {
+  .lp-grid.split .lp-copy, .lp-visual, .lp-grid.split .lp-visual, .duo > :first-child, .duo > :last-child { grid-column: 1 / -1; }
+  .book-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .stats3 { grid-template-columns: 1fr; }
+  .ranges .pcards { padding: 0; margin-top: 8px; }
+}
+@media (max-width: 640px) {
+  .rl2 { grid-template-columns: 1fr; }
+}

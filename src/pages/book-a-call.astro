@@ -1,0 +1,85 @@
+---
+// Book a call. Endless Customers job (docs/01-build-brief.md): Pillar 3, self-scheduling. Replaces /contact/.
+// Section order and copy: reference/demo-canvas/BookCall.dc.html. The booking steps are the
+// concept's booking dialog, shown inline. It is a stand-in until the partners' real calendars
+// are connected (open decision #19), and nothing is sent anywhere.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import { firm } from '../data/site.js';
+
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+const check = '<svg aria-hidden="true"><use href="#check"/></svg>';
+---
+<Base
+  title="Book a time with a LeadShift partner | LeadShift"
+  description="A 45-minute introductory call with a LeadShift partner about what you are working on and whether we are the right fit."
+  solidHeader
+>
+  <section class="section bg-mist page-top" aria-labelledby="book-title">
+    <div class="wrap book-grid">
+      <div class="book-copy">
+        <p class="label">Talk to a partner</p>
+        <h1 class="page-h1" id="book-title">Book a time with a LeadShift partner.</h1>
+        <p class="lead">A 45-minute introductory call about what you are working on and whether we are the right fit.</p>
+        <VideoPoster kind="Landing video" duration="60 sec" heading="What happens after you book" note="Who you'll talk to, what we'll ask, what happens to your information, and what happens next." />
+        <h2>What happens on the call</h2>
+        <ul class="checks">
+          <li><Fragment set:html={check} />You tell us what you're working on and what isn't working.</li>
+          <li><Fragment set:html={check} />We tell you whether we're the right fit.</li>
+          <li><Fragment set:html={check} /><Ph note="Book a call (F9)">[What you leave the call with]</Ph></li>
+        </ul>
+        <p class="call">Prefer to call? <a href={firm.phoneHref}>{firm.phone}</a></p>
+      </div>
+
+      <div class="book-card">
+        <p class="label" id="bk-progress" aria-live="polite">Step 1 of 2: Pick a time</p>
+        <p class="mock"><Ph note="Real booking with the partners' calendars (open decision #19)">[Times shown here come from the partners' live calendars at launch.]</Ph></p>
+        <form id="book-form" novalidate aria-labelledby="book-title">
+          <div class="bk-step" data-step="1">
+            <fieldset class="bk-fs"><legend>Pick a day</legend><div class="days" id="bk-days"></div></fieldset>
+            <fieldset class="bk-fs"><legend>Pick a time <span>Eastern time</span></legend><div class="times" id="bk-times"></div></fieldset>
+            <p class="bk-err" id="bk-err1" role="alert"></p>
+            <div class="bk-act"><button class="btn btn-primary" type="submit">Continue<Fragment set:html={arrow} /></button></div>
+          </div>
+          <div class="bk-step" data-step="2" hidden>
+            <p class="bk-picked" id="bk-picked"></p>
+            <div class="f2">
+              <div class="fld"><label for="bk-name">Name</label><input id="bk-name" name="name" autocomplete="name" required /></div>
+              <div class="fld"><label for="bk-email">Work email</label><input id="bk-email" name="email" type="email" autocomplete="email" inputmode="email" required /></div>
+              <div class="fld"><label for="bk-co">Company</label><input id="bk-co" name="company" autocomplete="organization" required /></div>
+              <div class="fld"><label for="bk-role">Your role</label><input id="bk-role" name="role" autocomplete="organization-title" required /></div>
+            </div>
+            <div class="fld"><label for="bk-topic">What is this about?</label>
+              <select id="bk-topic" name="topic" required>
+                <option value="">Choose one</option>
+                <option value="bench">Building a deeper bench of leaders</option>
+                <option value="team">Our leadership team working as a team</option>
+                <option value="frontline">Our frontline managers</option>
+                <option value="sales">Sales performance</option>
+                <option value="gi">The Growth Index</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="fld"><label for="bk-why">Anything we should know before the call?<span class="opt-l">Optional</span></label><textarea id="bk-why" name="why" rows="3"></textarea></div>
+            <p class="bk-note">This calendar is for CEOs and leadership teams.</p>
+            <p class="bk-err" id="bk-err2" role="alert"></p>
+            <div class="bk-act"><button class="btn btn-quiet" type="button" data-back>Back</button><button class="btn btn-primary" type="submit">Confirm</button></div>
+          </div>
+          <div class="bk-step" data-step="3" hidden>
+            <div class="bk-done" role="status">
+              <span class="bk-check" aria-hidden="true"><svg><use href="#check" /></svg></span>
+              <p id="bk-summary"></p>
+              <p>Booking opens when the new site launches. Until then, call a partner at <a href={firm.phoneHref}>{firm.phone}</a>.</p>
+            </div>
+            <div class="bk-act"><button class="btn btn-quiet" type="button" data-restart>Start again</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import '../scripts/booking.js';
+</script>

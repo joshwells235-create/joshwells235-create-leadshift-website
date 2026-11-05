@@ -41,6 +41,8 @@ Before launch, check Google Search Console (if LeadShift has it) and HubSpot for
 - **Build:** `npm run build`, so the rules check runs on every deploy and a failing check stops the deploy.
 - **Not indexed:** every preview page carries noindex and `robots.txt` disallows everything.
 - **Deploy only by pushing to `preview`.** The very first deploy was started by hand through Vercel's API, and Vercel made it a production deployment on `leadshift-website.vercel.app` even though it came from the `preview` branch. Protection was raised to all deployments a minute later, so that address needs a login too. Git pushes to `preview` create normal preview deployments.
+- **Pages:** all 16 demo pages plus the two policy pages are built (2026-11-05). `llms.txt` and `sitemap.xml` are generated from `src/data/site.js`, the pages folder and the Learning Center collection, so they stay current without hand edits. The sitemap leaves out the client story template until a story is approved.
+- **Policy pages hold a placeholder.** The cloud session that built the preview can't reach leadshift.com (its network allows no extra hosts), so the privacy and fulfillment policy text has not been copied yet. Paste it into `src/pages/privacy-policy.astro` and `src/pages/fulfillment-policy.astro` (between the `PolicyPage` tags), or allow leadshift.com in the session's network settings and Claude will copy it word for word.
 
 ## The switch, by platform
 

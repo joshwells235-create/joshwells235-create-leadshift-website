@@ -1,0 +1,84 @@
+---
+// Is LeadShift right for you? Endless Customers job (docs/01-build-brief.md): Pillar 1, the
+// "who we're not a fit for" answer and what happens when a program isn't delivering.
+// Section order and copy: reference/demo-canvas/Fit.dc.html.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import Faq from '../components/Faq.astro';
+import ClosingBand from '../components/ClosingBand.astro';
+import { firm } from '../data/site.js';
+
+const faq = [
+  { q: 'Is the problem my leadership team, or the leaders on it?', a: "Look at where things break. If capable leaders run their own areas well but the team struggles to debate, commit and hold each other accountable, the gap is the team. If the team works well together but some leaders aren't ready for what the business needs next, the gap is the leaders. Often it's both, and the Growth Index shows which." },
+  { q: 'Who does LeadShift work with?', a: `CEOs and leadership teams of growing companies. Since ${firm.founded}, LeadShift has worked with more than 200 organizations, many of them for more than a decade. Clients are concentrated in ${firm.industries}.` },
+  { q: 'Where is LeadShift based?', a: `LeadShift is headquartered in ${firm.address.city}, Massachusetts, at ${firm.address.street}. From its New England base, it works with companies across the United States.` },
+];
+const check = '<svg aria-hidden="true"><use href="#check"/></svg>';
+const dash = '<svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 8h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+---
+<Base
+  title="Is LeadShift right for you? | LeadShift"
+  description="A straight answer before you spend an hour with us: when LeadShift is a good fit, when it isn't, and what happens if a program isn't delivering."
+  solidHeader
+  faq={faq}
+>
+  <header class="section bg-mist page-top" style="padding-bottom: clamp(48px, 6vw, 72px)">
+    <div class="wrap">
+      <p class="label">Fit</p>
+      <h1 class="page-h1">Is LeadShift right for you?</h1>
+      <p class="lead">A straight answer before you spend an hour with us. If we're the wrong fit, we would rather say so now.</p>
+    </div>
+  </header>
+
+  <!-- Good fit, not the right fit -->
+  <section class="section" aria-label="When we're a good fit, and when we're not">
+    <div class="wrap rl2">
+      <div class="rl" data-reveal>
+        <h2>We're a good fit when</h2>
+        <ul>
+          <li><Fragment set:html={check} /><span>You're the CEO or a leader of a growing company, and the team that got you here may not be the team that gets you there.</span></li>
+          <li><Fragment set:html={check} /><span>You want to measure where your team starts and where it finishes.</span></li>
+          <li><Fragment set:html={check} /><span>Your leaders are ready to put in the work between sessions.</span></li>
+          <li><Fragment set:html={check} /><span><Ph note="Fit: company size or stage where we do our best work">[Company size or stage where we do our best work]</Ph></span></li>
+        </ul>
+      </div>
+      <div class="rl muted" data-reveal style="--d:1">
+        <h2>We're probably not the right fit when</h2>
+        <ul>
+          <li><Fragment set:html={dash} /><span><Ph note="Fit: a request we turn down, and where we'd send you instead">[A request we turn down, and where we'd send you instead]</Ph></span></li>
+          <li><Fragment set:html={dash} /><span><Ph note="Fit: a problem training won't fix">[A problem that training won't fix, such as a strategy or structure gap]</Ph></span></li>
+          <li><Fragment set:html={dash} /><span><Ph note="Fit: a budget or timeline where a smaller step makes sense">[A budget or timeline where a smaller step makes more sense]</Ph></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- When it's not working -->
+  <section class="section dark" aria-labelledby="notworking-title">
+    <div class="wrap">
+      <p class="label" data-reveal>When it's not working</p>
+      <h2 class="h2 h2-sm" id="notworking-title" data-reveal>What happens if a program isn't delivering.</h2>
+      <p class="lead after-lead" data-reveal style="--d:1"><Ph tone="dark" note="Fit: how measures are agreed at the start">[How we agree on measures at the start, so you know early if something is off]</Ph></p>
+      <ol class="phases">
+        <li data-reveal><h3>Tell us</h3><p><Ph tone="dark" note="Fit: who to call, and how fast a partner responds">[Who to call, and how fast a partner responds]</Ph></p></li>
+        <li data-reveal><h3>We review it with your sponsor</h3><p><Ph tone="dark" note="Fit: what the review covers">[What the review covers: the measures, the facilitator fit, the pace]</Ph></p></li>
+        <li data-reveal><h3>We change something</h3><p><Ph tone="dark" note="Fit: what we can change, and any guarantee the partners adopt">[What we can change, and what happens if it still isn't working: a guarantee, if the partners adopt one]</Ph></p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Before you call -->
+  <section class="faq section" aria-labelledby="before-title">
+    <div class="wrap grid2">
+      <div class="intro">
+        <h2 class="h2 h2-sm" id="before-title" data-reveal>Before you call.</h2>
+      </div>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <ClosingBand
+    heading="Still not sure? Start with the data."
+    lead="The Growth Index is complimentary, and a partner walks you through what it shows."
+  />
+</Base>

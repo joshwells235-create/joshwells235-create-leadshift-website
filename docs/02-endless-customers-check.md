@@ -55,7 +55,7 @@ Every video slot exists in the demo as a "To film" placeholder. None is produced
 |---|---|
 | For AI agents page | Built in the demo; needs a last-updated date and a corrections contact |
 | Structured data (organization, services with prices, FAQ) | Exists in the concept's JSON-LD; carry it to every page |
-| `llms.txt` and `sitemap.xml` | To build |
+| `llms.txt` and `sitemap.xml` | Built in the preview (2026-11-05), generated from the site's data |
 
 ## The gaps, in order of what moves trust most
 

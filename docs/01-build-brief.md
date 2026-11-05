@@ -47,9 +47,9 @@ URLs confirmed by Josh on 2026-11-05. "Source" is the demo canvas file in `refer
 | About | `/about` | Pillar 4: partners, staff, coaches and facilitators, bio videos, standards, speaking | Facts | `About.dc.html` |
 | Is LeadShift right for you? | `/fit` | Pillar 1: who we're for, who we're not for, what happens when it's not working | Facts | `Fit.dc.html` |
 | For AI agents | `/for-ai-agents` | Fact sheet and citation guidance for AI tools | Ready, except date and URLs | `ForAI.dc.html` |
-| Privacy policy | `/privacy-policy/` | Carry over word for word | Ready | live site |
-| Fulfillment policy | `/fulfillment-policy/` | Carry over word for word | Ready | live site |
-| Machine files | `/llms.txt`, `/sitemap.xml` | AI search and indexing | To build | |
+| Privacy policy | `/privacy-policy/` | Carry over word for word | Ready on the live site; text not yet copied into the preview | live site |
+| Fulfillment policy | `/fulfillment-policy/` | Carry over word for word | Ready on the live site; text not yet copied into the preview | live site |
+| Machine files | `/llms.txt`, `/sitemap.xml` | AI search and indexing | Built in the preview, generated from the site's data | |
 
 Shared parts: header (logo, eight nav items, two calls to action), footer (descriptor, Leadership Lens signup, link columns, HQ, legal), video placeholder (used until each video is filmed). Sources: `SiteHeader.dc.html`, `SiteFooter.dc.html`, `VideoPoster.dc.html`.
 

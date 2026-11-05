@@ -1,0 +1,28 @@
+---
+// A legal page carried over from the live site word for word (docs/06-migration-and-launch.md).
+// Until the text is copied in, the body is one placeholder naming the source page.
+import Base from '../layouts/Base.astro';
+import Ph from './Ph.astro';
+interface Props { title: string; description: string; source: string }
+const { title, description, source } = Astro.props;
+const hasBody = Astro.slots.has('default');
+---
+<Base title={`${title} | LeadShift`} description={description} solidHeader>
+  <article>
+    <header class="section bg-mist page-top" style="padding-bottom: clamp(40px, 5vw, 56px)">
+      <div class="wrap">
+        <div class="prose" style="margin-inline: 0">
+          <p class="label">LeadShift</p>
+          <h1 class="page-h1">{title}</h1>
+        </div>
+      </div>
+    </header>
+    <div class="section" style="padding-top: 48px">
+      <div class="wrap">
+        <div class="prose policy-body" style="margin-inline: 0">
+          {hasBody ? <slot /> : <p><Ph note={`${title}: copy the text word for word from ${source} (live site, read only)`}>[{title} text, copied word for word from {source}]</Ph></p>}
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>

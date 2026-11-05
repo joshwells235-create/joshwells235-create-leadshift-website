@@ -1,0 +1,123 @@
+---
+// About. Endless Customers job (docs/01-build-brief.md): Pillar 2, the partners and team as real
+// people (bio videos), the founding story, the standards the firm holds itself to; speaker requests.
+// Section order and copy: reference/demo-canvas/About.dc.html. Team lists use the concept's
+// .pt-grid and .people patterns.
+import Base from '../layouts/Base.astro';
+import Ph from '../components/Ph.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoPoster from '../components/VideoPoster.astro';
+import { firm, partners, staff, coaches, bookHref } from '../data/site.js';
+
+// The demo's bio prompt for each partner, as written there.
+const bioPrompt = {
+  'Joe Cundall': "[Why he does this work, and one thing clients don't expect]",
+  'Kailyn Graham': "[Why she does this work, and one thing clients don't expect]",
+  'Josh Wells': "[Why he does this work, and one thing clients don't expect]",
+};
+const arrow = '<svg aria-hidden="true"><use href="#arrow"/></svg>';
+const check = '<svg aria-hidden="true"><use href="#check"/></svg>';
+const play = '<svg aria-hidden="true" viewBox="0 0 9 10"><path d="M1 1.2v7.6c0 .5.5.8.9.5l6.2-3.8c.4-.3.4-.8 0-1.1L1.9.7C1.5.4 1 .7 1 1.2z" fill="currentColor"/></svg>';
+---
+<Base
+  title="About LeadShift: the partners and team since 1997 | LeadShift"
+  description="LeadShift has helped more than 200 organizations build their leaders and leadership teams since 1997. Meet the partners, the team and the coaches."
+  active="about"
+>
+  <PageHero
+    chip="About LeadShift"
+    title="Since 1997."
+    lead={`LeadShift has helped more than 200 organizations build their leaders and leadership teams, and many of our clients have stayed more than a decade. Headquartered in ${firm.address.city}, Massachusetts, we work with companies across the United States. Our clients are concentrated in ${firm.industries}.`}
+  />
+
+  <!-- Why we exist -->
+  <section class="section" aria-labelledby="why-title">
+    <div class="wrap duo mid">
+      <div>
+        <h2 class="h2 h2-sm" id="why-title" data-reveal>Why we exist.</h2>
+        <p class="lead" data-reveal style="--d:1">Every growing company eventually faces the same question: will the team that got you here get you there? We help CEOs build the managers, leaders and leadership teams the business needs, so it performs without them carrying it.</p>
+        <p data-reveal style="--d:2; margin-top: 16px"><Ph note="Founding story (About)">[Two or three sentences of founding story, told plainly]</Ph></p>
+      </div>
+      <div data-reveal style="--d:1">
+        <VideoPoster kind="Partners video" duration="2 min" heading="The partners on why LeadShift works the way it does" />
+      </div>
+    </div>
+  </section>
+
+  <!-- The partners -->
+  <section class="section bg-mist" aria-labelledby="partners-title">
+    <div class="wrap">
+      <h2 class="h2 h2-sm" id="partners-title" data-reveal>The partners</h2>
+      <ul class="pt-grid" style="margin-top: clamp(28px, 4vw, 40px)">
+        {partners.map((p, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <div class="portrait" aria-hidden="true">
+              <span class="ini">{p.initials}</span>
+              <Ph tone="dark" size="sm" note={`Headshot and 90-second bio video: ${p.name} (H1, V10)`}><Fragment set:html={play} />[Photo and 90-second bio video]</Ph>
+            </div>
+            <h3>{p.name}</h3>
+            <p class="role">{p.title}</p>
+            <p class="bio"><Ph size="sm" note={`Partner bio: ${p.name} (About)`}>{bioPrompt[p.name]}</Ph></p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- The team, coaches and facilitators -->
+  <section class="section" aria-label="The team, coaches and facilitators">
+    <div class="wrap">
+      <div class="people flush">
+        <div>
+          <h2 data-reveal>The team</h2>
+          <ul class="pp-grid">
+            {staff.map((p, i) => <li data-reveal style={`--d:${i}`}><span class="av" aria-hidden="true">{p.initials}</span><div><b>{p.name}</b><span>{p.title}</span></div></li>)}
+          </ul>
+        </div>
+        <div>
+          <h2 data-reveal>Coaches and facilitators</h2>
+          <ul class="pp-grid">
+            {coaches.map((p, i) => <li data-reveal style={`--d:${i}`}><span class="av" aria-hidden="true">{p.initials}</span><div><b>{p.name}</b><span>{p.title}</span></div></li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Request a speaker, and the standards we hold -->
+  <section class="section bg-mist" aria-label="Request a speaker, and how we work">
+    <div class="wrap duo">
+      <div>
+        <p class="label" data-reveal>Request a speaker</p>
+        <h2 class="h2 h2-sm" data-reveal>Will the team that got you here get you there?</h2>
+        <p class="lead" data-reveal style="--d:1">An interactive workshop for CEO groups and leadership audiences. <Ph note="Speaking: length, format and audience size (About)">[Length, format and audience size]</Ph></p>
+        <a class="btn btn-primary" href={bookHref('other')} data-reveal style="--d:2; margin-top: 28px">Ask about a talk<Fragment set:html={arrow} /></a>
+      </div>
+      <div>
+        <p class="label" data-reveal>How we work</p>
+        <h2 class="h2 h2-sm" data-reveal>What we hold ourselves to</h2>
+        <ul class="checks" data-reveal style="--d:1; margin-top: 24px">
+          <li><Fragment set:html={check} /><span>We measure where you start and where you finish.</span></li>
+          <li><Fragment set:html={check} /><span>We publish our price ranges.</span></li>
+          <li><Fragment set:html={check} /><span><Ph note="A third standard the partners will stand behind (About)">[A third standard the partners will stand behind]</Ph></span></li>
+        </ul>
+        <a class="textlink" href="/fit" data-reveal style="--d:2; margin-top: 20px">Is LeadShift right for you?<Fragment set:html={arrow} /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Headquarters -->
+  <section class="section" aria-labelledby="hq-title">
+    <div class="wrap hq-band">
+      <div data-reveal>
+        <h2 id="hq-title">Headquarters</h2>
+        <address>{firm.address.street}<br />{firm.address.city}, {firm.address.region} {firm.address.postal}</address>
+        <a class="phone-l" href={firm.phoneHref}>{firm.phone}</a>
+      </div>
+      <div data-reveal style="--d:1">
+        <a class="btn btn-primary" href="/book-a-call">Book a time<Fragment set:html={arrow} /></a>
+        <Ph note="Careers: link or line about open roles (About)">[Careers]</Ph>
+      </div>
+    </div>
+  </section>
+</Base>

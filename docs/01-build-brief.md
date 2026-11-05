@@ -27,7 +27,7 @@ Audience: CEOs and leadership teams of growing companies. Clients are concentrat
 
 ## Pages
 
-URLs are proposed; confirm with Josh. "Source" is the demo canvas file in `reference/demo-canvas/`. Status: **Ready** = real content throughout; **Facts** = structure and most copy real, specific facts missing; **Content** = needs content to be produced (story, video, article).
+URLs confirmed by Josh on 2026-11-05. "Source" is the demo canvas file in `reference/demo-canvas/`. Status: **Ready** = real content throughout; **Facts** = structure and most copy real, specific facts missing; **Content** = needs content to be produced (story, video, article).
 
 | Page | Proposed URL | Endless Customers job | Status | Source |
 |---|---|---|---|---|

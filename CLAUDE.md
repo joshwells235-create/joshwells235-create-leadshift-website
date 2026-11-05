@@ -10,11 +10,11 @@ You are helping Josh Wells, one of LeadShift's three partners, rebuild leadshift
 - Next deliverable: a **clickable preview site** on a private link that Josh can share with Joe Cundall and Kailyn Graham (partners), the team who will fill in content, and outside reviewers. It becomes the start of the real build.
 - The final hosting platform is **not decided** (see `docs/04-open-decisions.md`). Build the preview so it can go either way.
 
-## Preview build (default plan; confirm with Josh before scaffolding)
+## Preview build (confirmed by Josh 2026-11-05)
 
 - Stack: Astro with static HTML output, one shared layout, components for each section pattern, and Markdown content collections for Learning Center articles. Plain CSS with custom properties taken from the concept. Vanilla JS only for the interactive tools.
 - Why: plain static HTML ports cleanly to a custom WordPress theme (each component becomes a template part) or deploys as-is on Vercel.
-- Deploy: Vercel preview deployments in Josh's existing Vercel team (the Growth Index app `leadshift-cci` already lives there). **Ask Josh before the first deploy.** Previews only.
+- Deploy: Vercel preview deployments in Josh's existing Vercel team (the Growth Index app `leadshift-cci` already lives there). **Ask Josh before the first deploy.** Previews only. Vercel Authentication stays on and reviewers get a Vercel shareable link; every preview page is noindex.
 - Every unfinished fact goes through one placeholder component (for example `<Ph>[Client name]</Ph>`), styled like the concept's `.ph` class. Add a script (`npm run placeholders`) that lists every open placeholder by page, so `docs/07-content-tracker.md` can be regenerated from the code.
 
 ## Hard rules

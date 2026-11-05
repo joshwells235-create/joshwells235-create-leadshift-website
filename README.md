@@ -20,7 +20,7 @@ Everything from the design phase, packaged so Claude Code can pick up where the 
 | `docs/01-build-brief.md` | Goal, phases, every page and its Endless Customers job, the interactive tools |
 | `docs/02-endless-customers-check.md` | The four pillars, what the demo covers, the gaps in priority order |
 | `docs/03-facts.md` | Facts allowed on the site: firm, people, programs, prices, proof |
-| `docs/04-open-decisions.md` | 21 decisions still open, and what each one blocks |
+| `docs/04-open-decisions.md` | Decisions still open, what each one blocks, and the closed list |
 | `docs/05-design-system.md` | Colors, type, components and motion from your homepage concept |
 | `docs/06-migration-and-launch.md` | What's live today, the redirect map, the switch plan, the launch checklist |
 | `docs/07-content-tracker.md` | Every video, article, story and fact still to produce |

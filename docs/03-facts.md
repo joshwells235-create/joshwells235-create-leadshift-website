@@ -17,7 +17,7 @@ The concept's JSON-LD block (top of `reference/homepage-concept.html`) already e
 
 ## People
 
-**Partners** (titles from the concept; confirm with Josh):
+**Partners** (titles confirmed by Josh 2026-11-05):
 - Joe Cundall, Chief Executive Officer
 - Kailyn Graham, Chief Operating Officer
 - Josh Wells, President
@@ -26,7 +26,7 @@ The concept's JSON-LD block (top of `reference/homepage-concept.html`) already e
 - Brian Burlas, Senior Consultant and Account Manager
 - Rosemary Manu, Program Manager
 
-**Coaches and facilitators** (1099; the group label is an open decision):
+**Coaches and facilitators** (1099; shown on the site under the plain heading "Coaches and facilitators" [Josh 2026-11-05]):
 - Celia Chase, Executive Leadership Coach
 - Sydney Labadie, Executive Leadership Coach
 - Melissa Sherry, Leadership Strategist and Training Facilitator
@@ -55,7 +55,7 @@ Publish ranges, and explain what moves a price inside its range.
 | Performance coaching | For a leader with one clear goal who needs help reaching it; one objective per sprint | $5,000 per sprint | |
 | Sales coaching | For sales leaders and their teams, in sprints. Details to come from Joe | $5,000 per sprint | |
 
-Internal only, never on the site: ALIGN uses PI and the Five Dysfunctions; the Academy uses PI, EQ-i and a 360; ASCEND uses PI and EQ-i. On the site, say "behavioral assessment" and "emotional intelligence assessment." The demo names The Table Group's Five Dysfunctions of a Team assessment for the ALIGN retest; keep that only if Josh confirms. ASCEND is likely to be modeled on what's working at PharmaLogic. [Josh 2026-10-20]
+Internal only, never on the site: ALIGN uses PI; the Academy uses PI and EQ-i (plus a 360, which the site does name); ASCEND uses PI and EQ-i. On the site, say "behavioral assessment" and "emotional intelligence assessment." ALIGN's team assessment may be named on the site as The Table Group's Five Dysfunctions of a Team assessment, as the demo does. [Josh 2026-11-05] ASCEND is likely to be modeled on what's working at PharmaLogic. [Josh 2026-10-20]
 
 The general pricing explanation: cost depends on how many people take part, how much one-on-one coaching is involved, and whether LeadShift provides the tools. [Josh 2026-08-13]
 

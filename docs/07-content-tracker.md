@@ -65,7 +65,7 @@ Suggested first three: V10 (partner bios), V7 (ALIGN fit), V5 (cost).
 | H2 | Partner bios: why each does this work, and one thing clients don't expect | About | | To do |
 | H3 | Coach bios: who each coaches best and why | Coaching | | To do |
 | H4 | Founding story, two or three sentences | About | | To do |
-| H5 | Group label for the 1099 coaches and facilitators (open decision #9) | About | | To do |
+| H5 | Group label for the 1099 coaches and facilitators (open decision #9): plain heading "Coaches and facilitators" (Josh 2026-11-05) | About | | Done |
 | H6 | Speaking: length, format and audience size | About | | To do |
 | H7 | A third standard the partners will stand behind | About | | To do |
 | H8 | Sales coach name and title | Coaching | | To do |

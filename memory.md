@@ -47,3 +47,14 @@ Dated log of decisions and direction. Newest at the bottom. Add to it; don't rew
 - Claude's read: Divi is a poor fit, because the premium parts of the design and the interactive tools would be custom code inside Divi anyway. Options on the table: custom WordPress theme (Claude's recommendation), Vercel, HubSpot Content Hub (not currently owned). **Josh has not decided.**
 - Next deliverable: a clickable preview site Josh can share with Joe and Kailyn, the content team and outside reviewers.
 - The build moves to Claude Code, starting from this handoff.
+
+## 2026-11-05 (Josh's answers to Claude Code's setup questions)
+- Preview stack: Astro, static output, plain CSS from the concept, vanilla JS for the tools (open decision #2 closed). Josh's condition: it has to be something LeadShift can stand up at leadshift.com. On Vercel the same build can go live at leadshift.com; on WordPress it would be ported into a custom theme.
+- Preview access: Vercel preview deployments in the Leadshift team with Vercel Authentication on; reviewers get a Vercel shareable link. Every preview page is marked noindex. Claude still asks before the first deploy.
+- Partner titles: Joe Cundall, Chief Executive Officer; Kailyn Graham, Chief Operating Officer; Josh Wells, President. Josh: "Our new titles are CEO COO and President." (Open decision #8 closed. Notion's People records carried older titles.)
+- The 1099 group appears under the plain heading "Coaches and facilitators", with no group name, separate from staff (open decision #9 closed).
+- URLs: the proposed URL map in `docs/01-build-brief.md` is confirmed. The Leadership Academy stays a section of `/leaders`.
+- The ALIGN team assessment can be named on the site as The Table Group's Five Dysfunctions of a Team assessment (open decision #14 closed). Predictive Index is still never named.
+- Programs: the kit (`docs/03-facts.md`) is right for the programs. The Notion Programs database is out of date and needs updating.
+- Claude's proposed preview defaults, not objected to: Home takes section order and copy from `Main.dc.html` with the concept's styling; booking keeps the demo's mock flow, clearly marked; the Leadership Lens form doesn't submit; Growth Index "Continue" opens the live app; privacy and fulfillment policies are copied word for word from the public live pages; the Private Equity page is left out of the preview.
+- Repository: Josh created `joshwells235-create/joshwells235-create-leadshift-website` on GitHub. It was public when created, so Claude committed locally and held every push until it is private.
